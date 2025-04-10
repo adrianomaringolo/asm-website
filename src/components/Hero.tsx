@@ -4,10 +4,10 @@ import { CTAButton } from "./CTAButton";
 
 export function Hero() {
   return (
-    <section className="bg-gradient-to-r from-[#f9f8f4] to-white py-20 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto md:flex items-center gap-10">
-        <div className="flex-1 flex justify-end">
-          <div className="max-w-md space-y-4">
+    <section className="bg-contain bg-[url('/hero-bg.png')]">
+      <div className="mx-auto md:flex items-center gap-10">
+        <div className="flex-1 flex justify-center md:justify-end bg-white md:bg-transparent md:bg-gradient-to-r from-85% from-[#ffffff] to-white/0 ">
+          <div className="max-w-md space-y-4 px-5 md:px-12 py-16">
             <Image
               src="/logo-asm.png"
               alt="Logo ASM Marketing Digital"
