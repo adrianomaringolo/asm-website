@@ -38,7 +38,7 @@ export function Services() {
   return (
     <section className="relative bg-dark text-white py-16 px-6 md:px-12 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center">
-        <div className="flex justify-between itens-center">
+        <div className="md:flex justify-between itens-center">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-left">
             <span className="font-light text-base">Como posso te ajudar? </span>
             <br />
@@ -48,7 +48,7 @@ export function Services() {
             <a
               href="https://www.instagram.com/asmmktdigital/"
               target="_blank"
-              className="flex items-center gap-2 bg-white px-4 text-sm py-3 text-gray-600 rounded hover:bg-white/80 transition-all"
+              className="my-2 flex items-center gap-2 bg-white px-4 text-sm py-3 text-gray-600 rounded hover:bg-white/80 transition-all"
             >
               <Image
                 src="/instagram-logo.png"
