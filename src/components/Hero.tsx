@@ -37,6 +37,9 @@ export function Hero() {
             width={400}
             height={400}
           />
+          <p className="text-sm text-gray-700 mx-2 py-4">
+            Anelita Massucate - Marketing Digital Estratégico
+          </p>
         </div>
       </div>
     </section>
