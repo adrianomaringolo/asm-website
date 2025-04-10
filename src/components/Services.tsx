@@ -1,5 +1,13 @@
-import { Instagram, SquareArrowOutUpRight } from "lucide-react";
+import clsx from "clsx";
+import {
+  Instagram,
+  Medal,
+  SquareArrowOutUpRight,
+  TrendingUp,
+  Users,
+} from "lucide-react";
 import Image from "next/image";
+import { CTAButton } from "./CTAButton";
 
 const services = [
   {
@@ -65,7 +73,10 @@ export function Services() {
           {services.map((service, i) => (
             <div
               key={i}
-              className="border border-white/20 p-6 rounded-lg text-center flex flex-col items-center"
+              className={clsx(
+                "border border-white/20 p-6 rounded-lg text-center flex flex-col items-center",
+                "hover:shadow-2xl hover:shadow-[#DDCC70]/50 transition-all hover:scale-102"
+              )}
             >
               <div className="p-2 rounded-full text-center text-2xl">
                 {service.icon}
@@ -75,9 +86,28 @@ export function Services() {
             </div>
           ))}
         </div>
-        <div className="mt-10 text-lg">
-          <p className="mb-4">+20 clientes atendidos</p>
-          <p>+1000 posts em redes sociais</p>
+        <div className="mt-20 text-lg md:flex items-center gap-4">
+          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
+            <Users size={55} className="text-gray-500" />
+            <span>+20 clientes atendidos</span>
+          </p>
+          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
+            <TrendingUp size={55} className="text-gray-500" />
+            <span>+20 clientes atendidos</span>
+          </p>
+          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
+            <Medal size={55} className="text-gray-500" />
+            <span>+20 clientes atendidos</span>
+          </p>
+        </div>
+
+        <div className="mt-20 text-lg md:flex items-center gap-4">
+          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-end font-semibold">
+            Vamos construir sua presença digital?
+          </p>
+          <p className="flex-1 mb-4 flex gap-4 items-center justify-baseline">
+            <CTAButton />
+          </p>
         </div>
       </div>
       <div className="absolute w-60 h-80 bg-[#DDCC70] rounded-full blur-[100px] opacity-50 -right-20 -bottom-20" />
