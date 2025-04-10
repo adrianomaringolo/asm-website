@@ -5,6 +5,8 @@ import { CTAButton } from "./CTAButton";
 export function Hero() {
   return (
     <section className="bg-contain bg-[url('/hero-bg.png')]">
+      <div className="absolute w-60 h-60 bg-[#DDCC70] rounded-full blur-3xl opacity-50 -left-10 -top-10" />
+
       <div className="mx-auto md:flex items-center gap-10">
         <div className="flex-1 flex justify-center md:justify-end bg-white md:bg-transparent md:bg-gradient-to-r from-85% from-[#ffffff] to-white/0 ">
           <div className="max-w-md space-y-4 px-5 md:px-12 py-16">
