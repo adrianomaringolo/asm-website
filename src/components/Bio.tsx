@@ -4,7 +4,7 @@ export function Bio() {
   return (
     <section className="py-16 px-6 md:px-12 bg-white">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10">
-        <div className="flex justify-end items-baseline h-full">
+        <div className="flex justify-end items-center h-full">
           <Image
             src="/photo-bio.jpg"
             alt="Foto de rosto da Anelita"
