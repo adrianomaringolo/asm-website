@@ -37,10 +37,10 @@ export function Hero() {
           <Image
             src="/hero-person.png"
             alt="Anelita Massucate"
-            width={400}
-            height={400}
+            width={500}
+            height={500}
           />
-          <p className="text-sm text-gray-700 mx-2 py-4">
+          <p className="text-sm text-gray-700 mx-2 py-4 pl-14">
             Anelita Massucate - Marketing Digital Estratégico
           </p>
         </div>
