@@ -9,7 +9,7 @@ export function Bio() {
           alt="Anelita"
           width={300}
           height={300}
-          className="rounded-lg"
+          className="rounded-lg bg-gray-200"
         />
         <div>
           <h2 className="text-2xl font-bold mb-4">Quem sou eu?</h2>

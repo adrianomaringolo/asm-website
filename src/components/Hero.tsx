@@ -13,7 +13,7 @@ export function Hero() {
             <Image
               src="/logo-asm.png"
               alt="Logo ASM Marketing Digital"
-              width={300}
+              width={250}
               height={200}
             />
             <h1 className="text-3xl md:text-4xl font-extrabold mb-4">
