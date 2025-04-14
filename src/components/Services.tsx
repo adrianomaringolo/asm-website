@@ -1,7 +1,10 @@
 import clsx from "clsx";
 import {
-  Instagram,
-  Medal,
+  BanknoteArrowUp,
+  Bot,
+  Brush,
+  MessageCircleHeart,
+  Presentation,
   SquareArrowOutUpRight,
   TrendingUp,
   Users,
@@ -11,34 +14,34 @@ import { CTAButton } from "./CTAButton";
 
 const services = [
   {
-    icon: <Instagram size={40} />,
-    title: "Gestão de Instagram",
-    description: "Conteúdo, agendamento, análise e crescimento",
+    icon: <MessageCircleHeart size={40} />,
+    title: "Social Media Estratégico",
+    description:
+      "Gestão completa do seu Instagram com planejamento de conteúdo, design, legendas profissionais e análise de desempenho.",
   },
   {
-    icon: <Instagram size={40} />,
-    title: "Gestão de Instagram",
-    description: "Conteúdo, agendamento, análise e crescimento",
+    icon: <Brush size={40} />,
+    title: "Identidade Visual e Design Profissional",
+    description:
+      "Criamos uma presença visual única e coerente com os valores e objetivos do seu negócio.",
   },
   {
-    icon: <Instagram size={40} />,
-    title: "Gestão de Instagram",
-    description: "Conteúdo, agendamento, análise e crescimento",
+    icon: <BanknoteArrowUp size={40} />,
+    title: "Tráfego Pago com Foco em Conversão",
+    description:
+      "Campanhas no Instagram, Facebook e Google para atrair o público certo e aumentar suas vendas.",
   },
   {
-    icon: <Instagram size={40} />,
-    title: "Gestão de Instagram",
-    description: "Conteúdo, agendamento, análise e crescimento",
+    icon: <Bot size={40} />,
+    title: "Automação e WhatsApp Business",
+    description:
+      "Fluxos de atendimento automatizados que otimizam seu tempo e melhoram a experiência do seu cliente.",
   },
   {
-    icon: <Instagram size={40} />,
-    title: "Gestão de Instagram",
-    description: "Conteúdo, agendamento, análise e crescimento",
-  },
-  {
-    icon: <Instagram size={40} />,
-    title: "Gestão de Instagram",
-    description: "Conteúdo, agendamento, análise e crescimento",
+    icon: <Presentation size={40} />,
+    title: "Mentorias e Consultorias",
+    description:
+      "Para quem precisa de clareza e direcionamento estratégico para crescer com consistência e segurança.",
   },
 ];
 
@@ -65,7 +68,7 @@ export function Services() {
                 height={30}
               />
               Meu instagram
-              <SquareArrowOutUpRight size={20} />
+              <SquareArrowOutUpRight size={20} className="ml-auto" />
             </a>
           </span>
         </div>
@@ -81,7 +84,9 @@ export function Services() {
               <div className="p-2 rounded-full text-center text-2xl">
                 {service.icon}
               </div>
-              <p className="text-lg font-medium mb-2">{service.title}</p>
+              <p className="text-lg font-medium mb-2 leading-5">
+                {service.title}
+              </p>
               <p className="text-sm text-gray-300">{service.description}</p>
             </div>
           ))}
@@ -89,28 +94,38 @@ export function Services() {
         <div className="mt-20 text-lg md:flex items-center gap-4">
           <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
             <Users size={55} className="text-gray-500" />
-            <span>+20 clientes atendidos</span>
+            <span>+30 clientes atendidos</span>
           </p>
           <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
             <TrendingUp size={55} className="text-gray-500" />
-            <span>+20 clientes atendidos</span>
+            <span>+1000 designs criados</span>
           </p>
-          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
+          {/* <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
             <Medal size={55} className="text-gray-500" />
             <span>+20 clientes atendidos</span>
-          </p>
+          </p> */}
         </div>
 
-        <div className="mt-20 text-lg md:flex items-center gap-4">
-          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-end font-semibold">
-            Vamos construir sua presença digital?
+        <div className="mt-20 text-lg md:flex items-center gap-10">
+          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-end font-semibold text-right">
+            Está pronto para evoluir sua presença digital com quem entende do
+            assunto?
           </p>
-          <p className="flex-1 mb-4 flex gap-4 items-center justify-baseline">
-            <CTAButton />
+          <p className="flex-1 mb-4 flex flex-col gap-4 items-left justify-baseline">
+            <CTAButton
+              text={
+                <>Agende sua consultoria gratuita e ganhe o plano de ação</>
+              }
+            />
+            <span className="text-sm text-gray-300 text-left">
+              Agende agora sua consultoria gratuita e receba um plano de ação
+              exclusivo com estratégias reais para o seu negócio.
+            </span>
           </p>
         </div>
       </div>
-      <div className="absolute w-60 h-80 bg-[#DDCC70] rounded-full blur-[100px] opacity-50 -right-20 -bottom-20" />
+
+      <div className="absolute w-80 h-160 bg-[#DDCC70] rounded-full blur-[100px] opacity-40 -right-20 -bottom-30" />
     </section>
   );
 }

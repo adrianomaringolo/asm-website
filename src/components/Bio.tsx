@@ -12,16 +12,38 @@ export function Bio() {
           className="rounded-lg"
         />
         <div>
-          <h2 className="text-2xl font-bold mb-4">Quem é Anelita?</h2>
+          <h2 className="text-2xl font-bold mb-4">Quem sou eu?</h2>
           <p className="text-gray-700 mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nisl
-            diam, hendrerit eget arcu nec, consequat ornare diam. Donec euismod
-            malesuada mattis. Maecenas augue orci, semper id justo in, dapibus
-            ullamcorper dui. Nullam sagittis dui mi, vitae ultricies odio
-            vulputate vel. Nunc massa mauris, commodo a fringilla eu, hendrerit
-            blandit lacus. Maecenas vehicula, sapien at molestie vehicula, urna
-            quam congue felis, nec aliquam velit nisi non ex. Morbi neque
-            mauris, consectetur id venenatis vel, sagittis nec erat.
+            Sou Anelita Scaliza Massucate, mãe e empreendedora apaixonada por
+            transformar marcas e pessoas por meio do digital.
+          </p>
+          <p className="text-gray-700 mb-4">
+            Graduada em Administração com Gestão em Sistemas de Informação e
+            pós-graduada em Gestão de Recursos Humanos, encontrei no design e no
+            marketing digital o espaço ideal para unir minha bagagem estratégica
+            com criatividade e propósito.
+          </p>
+          <p className="text-gray-700 mb-4">
+            Atuo como Designer Gráfica e Social Media, com foco em performance,
+            posicionamento e identidade visual. Há mais de 5 anos, me dedico à
+            gestão de mídias sociais, ajudando empresas e profissionais
+            autônomos a se destacarem no mercado com conteúdos que conectam,
+            geram autoridade e impulsionam resultados.
+          </p>
+          <p className="text-gray-700 mb-4">
+            Hoje, à frente da ASM Marketing Digital, lidero uma equipe
+            qualificada e ofereço soluções completas em conteúdo, tráfego pago,
+            automação, design e consultorias personalizadas.
+          </p>
+          <p className="text-gray-700 mb-4">
+            Meu propósito é impulsionar marcas e pessoas por meio da comunicação
+            estratégica, do design com identidade e do marketing que gera valor
+            real.
+          </p>
+          <p className="text-gray-700 mb-4">
+            Acredito no poder do digital como ferramenta de transformação — e
+            trabalho todos os dias para que empresas e profissionais autônomos
+            se posicionem com clareza, autenticidade e resultados consistentes.
           </p>
         </div>
       </div>

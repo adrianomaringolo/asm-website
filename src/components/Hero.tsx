@@ -17,16 +17,19 @@ export function Hero() {
               height={200}
             />
             <h1 className="text-3xl md:text-4xl font-extrabold mb-4">
-              Transforme sua presença digital com estratégias personalizadas de
-              marketing
+              Você sente que sua presença digital poderia estar gerando mais
+              resultados?
             </h1>
-            <p className="mb-6 font-light text-gray-600">
-              Para pequenos negócios e autônomos
+            <p>
+              Se você é uma empresa ou profissional autônomo, chegou a hora de
+              transformar sua presença online com estratégia e propósito.
             </p>
+
             <CTAButton />
-            <p className="mb-6 font-light text-gray-500 leading-4">
-              Agende agora uma consultoria gratuita e descubra como transformar
-              sua comunicação em resultados concretos.
+            <p className="mb-6 font-light text-gray-600">
+              Na ASM Marketing Digital, criamos estratégias inteligentes,
+              visuais impactantes e soluções completas para impulsionar marcas
+              no Instagram e em todo o digital.
             </p>
           </div>
         </div>
