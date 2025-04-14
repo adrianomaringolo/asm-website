@@ -17,7 +17,7 @@ export function Hero() {
               height={200}
             />
             <h1 className="text-3xl md:text-4xl font-extrabold mb-4">
-              Você sente que sua presença digital poderia estar gerando mais
+              Você sente que sua presença no digital poderia estar gerando mais
               resultados?
             </h1>
             <p>
@@ -37,8 +37,8 @@ export function Hero() {
           <Image
             src="/hero-person.png"
             alt="Anelita Massucate"
-            width={500}
-            height={500}
+            width={400}
+            height={400}
           />
           <p className="text-sm text-gray-700 mx-2 py-4 pl-14">
             Anelita Massucate - Marketing Digital Estratégico

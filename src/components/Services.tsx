@@ -3,6 +3,7 @@ import {
   BanknoteArrowUp,
   Bot,
   Brush,
+  Globe,
   MessageCircleHeart,
   Presentation,
   SquareArrowOutUpRight,
@@ -43,6 +44,12 @@ const services = [
     description:
       "Para quem precisa de clareza e direcionamento estratégico para crescer com consistência e segurança.",
   },
+  {
+    icon: <Globe size={40} />,
+    title: "Criação de Sites Profissionais",
+    description:
+      "Tenha um site moderno, responsivo e otimizado para o Google. Transmita confiança, conquiste clientes e fortaleça sua presença digital com uma estrutura personalizada e estratégica para o seu negócio.",
+  },
 ];
 
 export function Services() {
@@ -53,7 +60,7 @@ export function Services() {
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-left">
             <span className="font-light text-base">Como posso te ajudar? </span>
             <br />
-            <span className="font-bold">Conheça meus serviços</span>
+            <span className="font-bold">Conheça nossos serviços</span>
           </h2>
           <span>
             <a
@@ -91,12 +98,12 @@ export function Services() {
             </div>
           ))}
         </div>
-        <div className="mt-20 text-lg md:flex items-center gap-4">
-          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
+        <div className="mt-20 text-3xl md:flex items-center gap-4">
+          <p className="flex-1 mb-4 flex gap-4 items-center justify-center">
             <Users size={55} className="text-gray-500" />
             <span>+30 clientes atendidos</span>
           </p>
-          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
+          <p className="flex-1 mb-4 flex gap-4 items-center justify-center">
             <TrendingUp size={55} className="text-gray-500" />
             <span>+1000 designs criados</span>
           </p>
@@ -106,16 +113,19 @@ export function Services() {
           </p> */}
         </div>
 
-        <div className="mt-20 text-lg md:flex items-center gap-10">
-          <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-end font-semibold text-right">
-            Está pronto para evoluir sua presença digital com quem entende do
-            assunto?
+        <div className="mt-20 text-lg md:flex flex-col items-center gap-4">
+          <p className="flex-1 mb-4 flex gap-8 items-center text-xl justify-end font-semibold text-right">
+            Está pronto para evoluir sua <br />
+            presença digital com quem <br />
+            entende do assunto?
+            <span className="text-lg text-black">
+              <CTAButton />
+            </span>
           </p>
           <p className="flex-1 mb-4 flex flex-col gap-4 items-left justify-baseline">
-            <CTAButton />
             <span className="text-sm text-gray-300 text-left">
-              Agende agora sua consultoria gratuita e receba um plano de ação
-              exclusivo com estratégias reais para o seu negócio.
+              Agende agora sua consultoria gratuita e receba um plano <br />
+              de ação exclusivo com estratégias reais para o seu negócio.
             </span>
           </p>
         </div>

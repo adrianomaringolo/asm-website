@@ -4,13 +4,15 @@ export function Bio() {
   return (
     <section className="py-16 px-6 md:px-12 bg-white">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10">
-        <Image
-          src="/anelita-foto.jpg" // Salve a imagem como /public/anelita-foto.jpg
-          alt="Anelita"
-          width={300}
-          height={300}
-          className="rounded-lg bg-gray-200"
-        />
+        <div className="flex justify-end items-baseline h-full">
+          <Image
+            src="/photo-bio.jpg"
+            alt="Foto de rosto da Anelita"
+            width={400}
+            height={400}
+            className="rounded-lg bg-gray-200"
+          />
+        </div>
         <div>
           <h2 className="text-2xl font-bold mb-4">Quem sou eu?</h2>
           <p className="text-gray-700 mb-4">
@@ -33,7 +35,7 @@ export function Bio() {
           <p className="text-gray-700 mb-4">
             Hoje, à frente da ASM Marketing Digital, lidero uma equipe
             qualificada e ofereço soluções completas em conteúdo, tráfego pago,
-            automação, design e consultorias personalizadas.
+            automação, design, criação de sites e consultorias personalizadas.
           </p>
           <p className="text-gray-700 mb-4">
             Meu propósito é impulsionar marcas e pessoas por meio da comunicação
