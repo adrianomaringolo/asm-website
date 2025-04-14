@@ -3,12 +3,7 @@ import { Calendar } from "lucide-react";
 import { ReactNode } from "react";
 
 export function CTAButton({
-  text = (
-    <>
-      Agende sua <br />
-      consultoria GRATUITA
-    </>
-  ),
+  text = <>Agende sua consultoria gratuita e ganhe o plano de ação</>,
 }: {
   text?: ReactNode;
 }) {
@@ -24,7 +19,7 @@ export function CTAButton({
     >
       <span className="flex items-center gap-2 w-full">
         <Calendar size={30} className="min-w-[30px]" />
-        <span className="text-left leading-4">{text}</span>
+        <span className="text-left leading-5">{text}</span>
       </span>
     </a>
   );

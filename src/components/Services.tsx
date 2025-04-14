@@ -47,7 +47,7 @@ const services = [
 
 export function Services() {
   return (
-    <section className="relative bg-dark text-white py-16 px-6 md:px-12 overflow-hidden">
+    <section className="relative bg-gray-950 text-white py-16 px-6 md:px-12 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center">
         <div className="md:flex justify-between itens-center">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-left">
@@ -112,11 +112,7 @@ export function Services() {
             assunto?
           </p>
           <p className="flex-1 mb-4 flex flex-col gap-4 items-left justify-baseline">
-            <CTAButton
-              text={
-                <>Agende sua consultoria gratuita e ganhe o plano de ação</>
-              }
-            />
+            <CTAButton />
             <span className="text-sm text-gray-300 text-left">
               Agende agora sua consultoria gratuita e receba um plano de ação
               exclusivo com estratégias reais para o seu negócio.
