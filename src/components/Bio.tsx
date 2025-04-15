@@ -6,7 +6,7 @@ export function Bio() {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10">
         <div className="flex justify-end items-center h-full">
           <Image
-            src="/photo-bio.jpg"
+            src="/photo-bio.webp"
             alt="Foto de rosto da Anelita"
             width={400}
             height={400}
