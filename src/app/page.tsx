@@ -9,6 +9,8 @@ import { Navigation } from "@/components/Navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CustomCursor } from "@/components/CustomCursor";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
+import { InteractiveSection } from "@/components/InteractiveSection";
+import { IntelligentChatbot } from "@/components/IntelligentChatbot";
 
 export default function Home() {
   return (
@@ -22,9 +24,11 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
+        <InteractiveSection />
         <Bio />
         <Content />
       </main>
+      <IntelligentChatbot />
       <Footer />
     </>
   );

@@ -2,6 +2,7 @@ export function Navigation() {
   const navItems = [
     { href: "#sobre", label: "Sobre" },
     { href: "#servicos", label: "Serviços" },
+    { href: "#ferramentas", label: "Ferramentas" },
     { href: "#bio", label: "Quem Sou" },
     { href: "#conteudos", label: "Conteúdos" },
   ];
