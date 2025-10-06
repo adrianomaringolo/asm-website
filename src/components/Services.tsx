@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { CTAButton } from "./CTAButton";
+import { ScrollAnimation } from "./ScrollAnimation";
+import { FloatingAnimation } from "./FloatingAnimation";
 
 const services = [
   {
@@ -54,84 +56,108 @@ const services = [
 
 export function Services() {
   return (
-    <section className="relative bg-gray-950 text-white py-16 px-6 md:px-12 overflow-hidden">
-      <div className="max-w-6xl mx-auto text-center">
-        <div className="md:flex justify-between itens-center">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-left">
-            <span className="font-light text-base">Como posso te ajudar? </span>
-            <br />
-            <span className="font-bold">Conheça nossos serviços</span>
-          </h2>
-          <span>
-            <a
-              href="https://www.instagram.com/asmmktdigital/"
-              target="_blank"
-              className="my-2 flex items-center gap-2 bg-white px-4 text-sm py-3 text-gray-600 rounded hover:bg-white/80 transition-all"
-            >
-              <Image
-                src="/instagram-logo.png"
-                alt="Logo Instagram"
-                width={30}
-                height={30}
-              />
-              Meu instagram
-              <SquareArrowOutUpRight size={20} className="ml-auto" />
-            </a>
-          </span>
+    <section
+      id='servicos'
+      className='relative bg-gray-950 text-white py-16 px-6 md:px-12 overflow-hidden'
+      aria-label='Nossos serviços de marketing digital'
+    >
+      <div className='max-w-6xl mx-auto text-center'>
+        <div className='md:flex justify-between itens-center'>
+          <ScrollAnimation animation='fade-in-left' delay='delay-100'>
+            <h2 className='text-2xl md:text-3xl font-semibold mb-8 text-left'>
+              <span className='font-light text-base'>
+                Como posso te ajudar?{" "}
+              </span>
+              <br />
+              <span className='font-bold'>Conheça nossos serviços</span>
+            </h2>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation='fade-in-right' delay='delay-200'>
+            <span>
+              <a
+                href='https://www.instagram.com/asmmktdigital/'
+                target='_blank'
+                className='my-2 flex items-center gap-2 bg-white px-4 text-sm py-3 text-gray-600 rounded hover:bg-white/80 transition-all hover-lift'
+              >
+                <Image
+                  src='/instagram-logo.png'
+                  alt='Logo Instagram'
+                  width={30}
+                  height={30}
+                />
+                Meu instagram
+                <SquareArrowOutUpRight size={20} className='ml-auto' />
+              </a>
+            </span>
+          </ScrollAnimation>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
           {services.map((service, i) => (
-            <div
+            <ScrollAnimation
               key={i}
-              className={clsx(
-                "border border-white/20 p-6 rounded-lg text-center flex flex-col items-center",
-                "hover:shadow-2xl hover:shadow-[#DDCC70]/50 transition-all hover:scale-102"
-              )}
+              animation='fade-in-up'
+              delay={`delay-${Math.min(800, 300 + i * 100)}`}
             >
-              <div className="p-2 rounded-full text-center text-2xl">
-                {service.icon}
+              <div
+                className={clsx(
+                  "border border-white/20 p-6 rounded-lg text-center flex flex-col items-center h-full",
+                  "card-hover"
+                )}
+              >
+                <div className='p-2 rounded-full text-center text-2xl mb-4'>
+                  {service.icon}
+                </div>
+                <p className='text-lg font-medium mb-2 leading-5'>
+                  {service.title}
+                </p>
+                <p className='text-sm text-gray-300'>{service.description}</p>
               </div>
-              <p className="text-lg font-medium mb-2 leading-5">
-                {service.title}
-              </p>
-              <p className="text-sm text-gray-300">{service.description}</p>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
-        <div className="mt-20 text-3xl md:flex items-center gap-4">
-          <p className="flex-1 mb-4 flex gap-4 items-center justify-center">
-            <Users size={55} className="text-gray-500" />
-            <span>+30 clientes atendidos</span>
-          </p>
-          <p className="flex-1 mb-4 flex gap-4 items-center justify-center">
-            <TrendingUp size={55} className="text-gray-500" />
-            <span>+1000 designs criados</span>
-          </p>
-          {/* <p className="flex-1 mb-4 flex gap-4 items-center text-xl justify-center">
-            <Medal size={55} className="text-gray-500" />
-            <span>+20 clientes atendidos</span>
-          </p> */}
+        <div className='mt-20 text-3xl md:flex items-center gap-4'>
+          <ScrollAnimation animation='fade-in-left' delay='delay-100'>
+            <p className='flex-1 mb-4 flex gap-4 items-center justify-center'>
+              <Users size={55} className='text-gray-500' />
+              <span>+30 clientes atendidos</span>
+            </p>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation='fade-in-right' delay='delay-200'>
+            <p className='flex-1 mb-4 flex gap-4 items-center justify-center'>
+              <TrendingUp size={55} className='text-gray-500' />
+              <span>+1000 designs criados</span>
+            </p>
+          </ScrollAnimation>
         </div>
 
-        <div className="mt-20 text-lg md:flex flex-col items-center gap-4">
-          <p className="flex-1 mb-4 flex gap-8 items-center text-xl justify-end font-semibold text-right">
-            Está pronto para evoluir sua <br />
-            presença digital com quem <br />
-            entende do assunto?
-            <span className="text-lg text-black">
-              <CTAButton />
-            </span>
-          </p>
-          <p className="flex-1 mb-4 flex flex-col gap-4 items-left justify-baseline">
-            <span className="text-sm text-gray-300 text-left">
-              Agende agora sua consultoria gratuita e receba um plano <br />
-              de ação exclusivo com estratégias reais para o seu negócio.
-            </span>
-          </p>
+        <div className='mt-20 text-lg md:flex flex-col items-center gap-4'>
+          <ScrollAnimation animation='fade-in-up' delay='delay-100'>
+            <p className='flex-1 mb-4 flex gap-8 items-center text-xl justify-end font-semibold text-right'>
+              Está pronto para evoluir sua <br />
+              presença digital com quem <br />
+              entende do assunto?
+              <span className='text-lg text-black'>
+                <CTAButton />
+              </span>
+            </p>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation='fade-in-up' delay='delay-200'>
+            <p className='flex-1 mb-4 flex flex-col gap-4 items-left justify-baseline'>
+              <span className='text-sm text-gray-300 text-left'>
+                Agende agora sua consultoria gratuita e receba um plano <br />
+                de ação exclusivo com estratégias reais para o seu negócio.
+              </span>
+            </p>
+          </ScrollAnimation>
         </div>
       </div>
 
-      <div className="absolute w-80 h-160 bg-[#DDCC70] rounded-full blur-[100px] opacity-40 -right-20 -bottom-30" />
+      <FloatingAnimation delay={2}>
+        <div className='absolute w-80 h-160 bg-[#DDCC70] rounded-full blur-[100px] opacity-40 -right-20 -bottom-30' />
+      </FloatingAnimation>
     </section>
   );
 }
