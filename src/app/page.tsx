@@ -7,10 +7,14 @@ import { Content } from "@/components/Content";
 import { StructuredData } from "@/components/StructuredData";
 import { Navigation } from "@/components/Navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CustomCursor } from "@/components/CustomCursor";
+import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 
 export default function Home() {
   return (
     <>
+      <LoadingSkeleton />
+      <CustomCursor />
       <StructuredData />
       <Breadcrumbs />
       <Navigation />

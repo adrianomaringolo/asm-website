@@ -101,8 +101,9 @@ export function Services() {
             >
               <div
                 className={clsx(
-                  "border border-white/20 p-6 rounded-lg text-center flex flex-col items-center h-full",
-                  "card-hover"
+                  "border border-white/20 p-6 rounded-xl text-center flex flex-col items-center h-full",
+                  "glass-effect card-hover backdrop-blur-sm",
+                  "hover:border-[#DDCC70]/50 transition-all duration-300"
                 )}
               >
                 <div className='p-2 rounded-full text-center text-2xl mb-4'>

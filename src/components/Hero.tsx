@@ -3,11 +3,12 @@ import { CTAButton } from "./CTAButton";
 import { ScrollAnimation } from "./ScrollAnimation";
 import { FloatingAnimation } from "./FloatingAnimation";
 import { FinalMouseParallax } from "./FinalMouseParallax";
+import { ParticleField } from "./ParticleField";
 
 export function Hero() {
   return (
     <section
-      className='relative overflow-hidden min-h-screen'
+      className='relative overflow-hidden min-h-screen bg-gradient-to-br '
       aria-label='Seção principal - ASM Marketing Digital'
     >
       {/* Background com efeito parallax */}
@@ -20,6 +21,9 @@ export function Hero() {
           aria-hidden='true'
         />
       </FinalMouseParallax>
+
+      {/* Campo de partículas */}
+      <ParticleField />
 
       <FloatingAnimation delay={1}>
         <div
@@ -43,8 +47,9 @@ export function Hero() {
 
             <ScrollAnimation animation='fade-in-up' delay='delay-300'>
               <h1 className='text-3xl md:text-4xl font-extrabold mb-4'>
-                Você sente que sua presença no digital poderia estar gerando
-                mais resultados?
+                Você sente que sua{" "}
+                <span className='text-gradient'>presença no digital</span>{" "}
+                poderia estar gerando mais resultados?
               </h1>
             </ScrollAnimation>
 

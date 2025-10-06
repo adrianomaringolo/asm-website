@@ -11,13 +11,16 @@ export function Bio() {
       <div className='max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10'>
         <ScrollAnimation animation='fade-in-left' delay='delay-100'>
           <div className='flex justify-end items-center h-full'>
-            <Image
-              src='/photo-bio.webp'
-              alt='Foto de rosto da Anelita'
-              width={400}
-              height={400}
-              className='rounded-lg bg-gray-200 hover-scale'
-            />
+            <div className='relative group'>
+              <div className='absolute -inset-1 bg-gradient-to-r from-[#DDCC70] to-[#776E3C] rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200'></div>
+              <Image
+                src='/photo-bio.webp'
+                alt='Foto de rosto da Anelita'
+                width={400}
+                height={400}
+                className='relative rounded-xl bg-gray-200 hover-scale'
+              />
+            </div>
           </div>
         </ScrollAnimation>
 
