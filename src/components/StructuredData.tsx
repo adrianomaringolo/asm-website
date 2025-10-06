@@ -20,7 +20,7 @@ export function StructuredData() {
       contactType: "customer service",
       availableLanguage: "Portuguese",
     },
-    sameAs: ["https://www.instagram.com/asmmktdigital/"],
+    sameAs: ["https://www.instagram.com/anelitamassucate/"],
     address: {
       "@type": "PostalAddress",
       addressCountry: "BR",
@@ -47,7 +47,7 @@ export function StructuredData() {
       "Designer Gráfica e Social Media com foco em performance, posicionamento e identidade visual. Mais de 5 anos de experiência em gestão de mídias sociais.",
     image: "https://asmmktdigital.com.br/photo-bio.webp",
     url: "https://asmmktdigital.com.br",
-    sameAs: ["https://www.instagram.com/asmmktdigital/"],
+    sameAs: ["https://www.instagram.com/anelitamassucate/"],
     worksFor: {
       "@type": "Organization",
       name: "ASM Marketing Digital",
