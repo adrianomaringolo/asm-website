@@ -2,22 +2,34 @@ import Image from "next/image";
 import { CTAButton } from "./CTAButton";
 import { ScrollAnimation } from "./ScrollAnimation";
 import { FloatingAnimation } from "./FloatingAnimation";
+import { FinalMouseParallax } from "./FinalMouseParallax";
 
 export function Hero() {
   return (
     <section
-      className="bg-contain bg-[url('/hero-bg.webp')] relative overflow-hidden"
+      className='relative overflow-hidden min-h-screen'
       aria-label='Seção principal - ASM Marketing Digital'
     >
+      {/* Background com efeito parallax */}
+      <FinalMouseParallax
+        className='hero-bg-container parallax-bg'
+        intensity={0.5}
+      >
+        <div
+          className="w-full h-full bg-contain bg-[url('/hero-bg.webp')] bg-center bg-no-repeat"
+          aria-hidden='true'
+        />
+      </FinalMouseParallax>
+
       <FloatingAnimation delay={1}>
         <div
-          className='absolute w-60 h-60 bg-[#DDCC70] rounded-full blur-3xl opacity-50 -left-10 -top-10'
+          className='absolute w-60 h-60 bg-[#DDCC70] rounded-full blur-3xl opacity-50 -left-10 -top-10 z-10'
           aria-hidden='true'
         />
       </FloatingAnimation>
 
-      <div className='mx-auto md:flex items-center gap-10'>
-        <header className='flex-1 flex justify-center md:justify-end bg-white md:bg-transparent md:bg-gradient-to-r from-85% from-[#ffffff] to-white/0 '>
+      <div className='mx-auto md:flex items-center gap-10 relative z-10'>
+        <header className='flex-1 flex justify-center md:justify-end bg-white md:bg-transparent md:bg-gradient-to-r from-85% from-white/80 to-white/0 '>
           <div className='max-w-md space-y-4 px-5 md:px-12 py-16'>
             <ScrollAnimation animation='bounce-in' delay='delay-200'>
               <Image

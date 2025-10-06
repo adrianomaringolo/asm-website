@@ -134,10 +134,12 @@ export function Services() {
 
         <div className='mt-20 text-lg md:flex flex-col items-center gap-4'>
           <ScrollAnimation animation='fade-in-up' delay='delay-100'>
-            <p className='flex-1 mb-4 flex gap-8 items-center text-xl justify-end font-semibold text-right'>
-              Está pronto para evoluir sua <br />
-              presença digital com quem <br />
-              entende do assunto?
+            <p className='flex-1 mb-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-xl justify-end font-semibold text-right flex-wrap'>
+              <span className='inline-block'>
+                Está pronto para evoluir sua <br />
+                presença digital com quem <br />
+                entende do assunto?
+              </span>
               <span className='text-lg text-black'>
                 <CTAButton />
               </span>
