@@ -15,9 +15,16 @@ export function Content() {
 
       <div className='max-w-6xl mx-auto'>
         <ScrollAnimation animation='fade-in-up' delay='delay-100'>
-          <h2 className='text-2xl md:text-3xl font-semibold mb-8 text-left'>
-            <span className='font-bold'>Conheça nossos conteúdos</span>
-          </h2>
+          <div className='text-center mb-16'>
+            <h2 className='text-4xl md:text-5xl font-bold mb-4'>
+              Conteúdos <span className='text-gradient'>Gratuitos</span>
+            </h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+              Aprenda a criar conteúdo rápido, criativo e estratégico com nossos
+              recursos gratuitos. Baixe o nosso e-book e descubra como podemos
+              ajudá-lo a alcançar seus objetivos.
+            </p>
+          </div>
         </ScrollAnimation>
 
         <ScrollAnimation animation='scale-in' delay='delay-200'>

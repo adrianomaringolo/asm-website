@@ -145,7 +145,9 @@ export function ResultsShowcase() {
           </div>
 
           <div className='bg-gradient-to-r from-[#DDCC70]/20 to-[#776E3C]/20 p-4 rounded-xl border border-[#DDCC70]/30'>
-            <p className='text-sm italic'>"{case_study.testimonial}"</p>
+            <p className='text-sm italic'>
+              &ldquo;{case_study.testimonial}&rdquo;
+            </p>
             <p className='text-xs text-gray-400 mt-2'>
               - {case_study.clientName}
             </p>

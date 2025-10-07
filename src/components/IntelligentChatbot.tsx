@@ -43,7 +43,7 @@ export function IntelligentChatbot() {
     },
     {
       message:
-        "Entendi, {business}! Qual é o seu maior desafio no marketing digital atualmente?",
+        "Entendi, seu negócio é {business}! Qual é o seu maior desafio no marketing digital atualmente?",
       field: "challenge",
       type: "options",
       options: [
@@ -81,32 +81,27 @@ export function IntelligentChatbot() {
     },
     {
       message:
-        "Excelente, {name}! Baseado no que você me contou, tenho a solução perfeita para {business}. Para enviar uma proposta personalizada, qual o melhor contato?",
+        "Excelente, {name}! Baseado no que você me contou, tenho a solução perfeita para seu negócio em {business}. Para enviar uma proposta personalizada, qual o melhor contato?",
       field: "contact",
       type: "text",
     },
   ];
 
-  useEffect(() => {
-    if (isOpen && messages.length === 0) {
-      addBotMessage(chatFlow[0].message);
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const addBotMessage = (text: string, options?: string[]) => {
+  const addBotMessage = (
+    text: string,
+    options?: string[],
+    customLeadData?: LeadData
+  ) => {
     setIsTyping(true);
 
     setTimeout(() => {
+      const dataToUse = customLeadData || leadData;
       const processedText = text.replace(/{(\w+)}/g, (match, key) => {
-        return leadData[key as keyof LeadData] || match;
+        return dataToUse[key as keyof LeadData] || match;
       });
 
       const newMessage: Message = {
@@ -142,11 +137,15 @@ export function IntelligentChatbot() {
 
     // Update lead data
     const currentStepData = chatFlow[currentStep];
+    let updatedLeadData = leadData;
+
     if (currentStepData) {
-      setLeadData((prev) => ({
-        ...prev,
+      updatedLeadData = {
+        ...leadData,
         [currentStepData.field]: textToSend,
-      }));
+      };
+
+      setLeadData(updatedLeadData);
     }
 
     // Move to next step
@@ -154,32 +153,34 @@ export function IntelligentChatbot() {
     if (nextStep < chatFlow.length) {
       setCurrentStep(nextStep);
       setTimeout(() => {
-        addBotMessage(chatFlow[nextStep].message, chatFlow[nextStep].options);
+        addBotMessage(
+          chatFlow[nextStep].message,
+          chatFlow[nextStep].options,
+          updatedLeadData
+        );
       }, 1500);
     } else {
       // End of flow
       setTimeout(() => {
         addBotMessage(
-          `Perfeito, ${leadData.name}! 🎉\n\nRecebi todas as informações. Nossa equipe vai analisar seu caso e enviar uma proposta personalizada em até 24h.\n\nEnquanto isso, que tal fazer nosso diagnóstico digital gratuito? Vai te dar insights valiosos sobre seu negócio!`
+          `Perfeito, ${updatedLeadData.name}! 🎉\n\nRecebi todas as informações. Nossa equipe vai analisar seu caso e enviar uma proposta personalizada em até 24h.\n\nEnquanto isso, que tal fazer nosso diagnóstico digital gratuito? Vai te dar insights valiosos sobre seu negócio!\n\n Veja nossas ferramentas exclusivas`,
+          undefined,
+          updatedLeadData
         );
       }, 1500);
     }
   };
 
-  const getRecommendation = () => {
-    const { challenge, budget, business } = leadData;
+  // useEffects
+  useEffect(() => {
+    if (isOpen && messages.length === 0) {
+      addBotMessage(chatFlow[0].message);
+    }
+  }, [isOpen, messages.length]); // Removendo dependências problemáticas
 
-    if (challenge?.includes("engajamento")) {
-      return "Recomendo nosso pacote de Social Media Estratégico com foco em engajamento.";
-    }
-    if (challenge?.includes("leads")) {
-      return "Perfeito para nosso serviço de Automação e Geração de Leads.";
-    }
-    if (challenge?.includes("começar")) {
-      return "Ideal para nossa Consultoria Completa de Marketing Digital.";
-    }
-    return "Temos a solução perfeita para seu negócio!";
-  };
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   return (
     <>
@@ -293,7 +294,7 @@ export function IntelligentChatbot() {
                 type='text'
                 value={currentInput}
                 onChange={(e) => setCurrentInput(e.target.value)}
-                onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+                onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
                 placeholder='Digite sua mensagem...'
                 className='flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#DDCC70]'
               />

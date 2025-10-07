@@ -1,11 +1,6 @@
 "use client";
 import { useState } from "react";
-import {
-  Calculator,
-  Stethoscope,
-  TrendingUp,
-  MessageCircle,
-} from "lucide-react";
+import { Calculator, Stethoscope, TrendingUp } from "lucide-react";
 import { ROICalculator } from "./ROICalculator";
 import { DigitalDiagnostic } from "./DigitalDiagnostic";
 import { ResultsShowcase } from "./ResultsShowcase";
