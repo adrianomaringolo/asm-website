@@ -76,7 +76,7 @@ export function Services() {
           <ScrollAnimation animation='fade-in-right' delay='delay-200'>
             <span>
               <a
-                href='https://www.instagram.com/asmmktdigital/'
+                href='https://www.instagram.com/anelitasmassucate/'
                 target='_blank'
                 className='my-2 flex items-center gap-2 bg-white px-4 text-sm py-3 text-gray-600 rounded hover:bg-white/80 transition-all hover-lift'
               >
