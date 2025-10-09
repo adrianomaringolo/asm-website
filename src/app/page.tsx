@@ -13,7 +13,7 @@ import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 export default function Home() {
   return (
     <>
-      <LoadingSkeleton />
+      {/* <LoadingSkeleton /> */}
       <CustomCursor />
       <StructuredData />
       <Breadcrumbs />
