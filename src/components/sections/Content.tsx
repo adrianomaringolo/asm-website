@@ -6,7 +6,7 @@ export function Content() {
   return (
     <section
       id='conteudos'
-      className='py-16 px-6 md:px-12 relative bg-gray-200'
+      className='py-16 px-6 md:px-12 relative bg-gradient-to-br from-gray-50 to-gray-100'
       aria-label='Conteúdos e recursos gratuitos'
     >
       <FloatingAnimation delay={0.5}>
