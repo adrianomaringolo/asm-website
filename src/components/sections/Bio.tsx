@@ -201,9 +201,9 @@ export function Bio() {
         <ScrollAnimation animation='fade-in-up' delay='delay-700'>
           <div className='text-center p-6 bg-gray-50 rounded-xl border-2 border-dashed border-[#DDCC70] mt-10'>
             <p className='text-gray-700 leading-relaxed italic'>
-              "Meu propósito é impulsionar marcas e pessoas por meio da
+              &quot;Meu propósito é impulsionar marcas e pessoas por meio da
               comunicação estratégica, do design com identidade e do marketing
-              que gera valor real."
+              que gera valor real.&quot;
             </p>
           </div>
         </ScrollAnimation>

@@ -50,7 +50,7 @@ export const About = () => {
             {/* Frase destacada */}
             <blockquote className='text-center relative'>
               <div className='absolute -top-4 -left-4 text-6xl text-[#DDCC70] opacity-30 font-serif'>
-                "
+                &quot;
               </div>
               <p className='text-lg md:text-xl font-medium leading-relaxed italic text-white/95 max-w-4xl mx-auto px-8'>
                 Acredito no poder do digital como ferramenta de transformação —
@@ -59,7 +59,7 @@ export const About = () => {
                 consistentes.
               </p>
               <div className='absolute -bottom-4 -right-4 text-6xl text-[#DDCC70] opacity-30 font-serif rotate-180'>
-                "
+                &quot;
               </div>
             </blockquote>
 
