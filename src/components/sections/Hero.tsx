@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { CTAButton } from "./CTAButton";
-import { ScrollAnimation } from "./ScrollAnimation";
-import { FloatingAnimation } from "./FloatingAnimation";
-import { FinalMouseParallax } from "./FinalMouseParallax";
-import { ParticleField } from "./ParticleField";
+import { CTAButton } from "../CTAButton";
+import { ScrollAnimation } from "../ScrollAnimation";
+import { FloatingAnimation } from "../FloatingAnimation";
+import { FinalMouseParallax } from "../FinalMouseParallax";
+import { ParticleField } from "../ParticleField";
 
 export function Hero() {
   return (

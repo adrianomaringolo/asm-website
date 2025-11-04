@@ -11,9 +11,9 @@ import {
   Users,
 } from "lucide-react";
 import Image from "next/image";
-import { CTAButton } from "./CTAButton";
-import { ScrollAnimation } from "./ScrollAnimation";
-import { FloatingAnimation } from "./FloatingAnimation";
+import { CTAButton } from "../CTAButton";
+import { ScrollAnimation } from "../ScrollAnimation";
+import { FloatingAnimation } from "../FloatingAnimation";
 
 const services = [
   {
