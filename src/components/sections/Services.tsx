@@ -3,6 +3,7 @@ import {
   BanknoteArrowUp,
   Bot,
   Brush,
+  Camera,
   Globe,
   MessageCircleHeart,
   Presentation,
@@ -35,10 +36,10 @@ const services = [
       "Campanhas no Instagram, Facebook e Google para atrair o público certo e aumentar suas vendas.",
   },
   {
-    icon: <Bot size={40} />,
-    title: "Automação e WhatsApp Business",
+    icon: <Camera size={40} />,
+    title: "Ensaio Imagem e Essência",
     description:
-      "Fluxos de atendimento automatizados que otimizam seu tempo e melhoram a experiência do seu cliente.",
+      "Fotos realistas criadas pela Inteligência Artificial, inspiradas na sua autenticidade. Uma experiência criativa e exclusiva para revelar com arte e tecnologia quem você é em essência.",
   },
   {
     icon: <Presentation size={40} />,
@@ -112,7 +113,9 @@ export function Services() {
                 <p className='text-lg font-medium mb-2 leading-5'>
                   {service.title}
                 </p>
-                <p className='text-sm text-gray-300'>{service.description}</p>
+                <p className='text-sm text-gray-300 text-balance'>
+                  {service.description}
+                </p>
               </div>
             </ScrollAnimation>
           ))}
