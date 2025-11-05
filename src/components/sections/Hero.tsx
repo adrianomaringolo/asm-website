@@ -88,7 +88,7 @@ export function Hero() {
           </ScrollAnimation>
 
           <ScrollAnimation animation='fade-in-up' delay='delay-700'>
-            <p className='text-sm text-gray-700 mx-2 py-4 pl-14'>
+            <p className='text-sm text-gray-700 mx-2 py-4 pl-5'>
               <strong>Anelita Massucate</strong> - Marketing Digital Estratégico
             </p>
           </ScrollAnimation>

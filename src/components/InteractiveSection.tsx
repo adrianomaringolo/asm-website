@@ -1,35 +1,76 @@
 "use client";
 import { useState } from "react";
-import { Calculator, Stethoscope, TrendingUp } from "lucide-react";
+import {
+  ArrowBigLeft,
+  Calculator,
+  Stethoscope,
+  TrendingUp,
+  Hash,
+  BarChart3,
+  Palette,
+  ArrowBigRight,
+} from "lucide-react";
 import { ROICalculator } from "./ROICalculator";
 import { DigitalDiagnostic } from "./DigitalDiagnostic";
 import { ResultsShowcase } from "./ResultsShowcase";
+import { HashtagGenerator } from "./HashtagGenerator";
+import { EngagementCalculator } from "./EngagementCalculator";
+import { ColorPaletteGenerator } from "./ColorPaletteGenerator";
 import { ScrollAnimation } from "./ScrollAnimation";
 
-type ActiveTool = "roi" | "diagnostic" | "results" | null;
+type ActiveTool =
+  | "roi"
+  | "diagnostic"
+  | "results"
+  | "hashtags"
+  | "engagement"
+  | "colors"
+  | null;
 
 const tools = [
-  {
-    id: "roi" as const,
-    title: "Calculadora de ROI",
-    description: "Descubra o potencial de crescimento do seu negócio",
-    icon: Calculator,
-    color: "from-blue-500 to-blue-600",
-  },
   {
     id: "diagnostic" as const,
     title: "Diagnóstico Digital",
     description: "Avalie sua presença digital em 2 minutos",
+    className: "md:col-span-2 lg:col-span-3",
     icon: Stethoscope,
     color: "from-green-500 to-green-600",
   },
   {
-    id: "results" as const,
-    title: "Casos de Sucesso",
-    description: "Veja resultados reais dos nossos clientes",
-    icon: TrendingUp,
-    color: "from-purple-500 to-purple-600",
+    id: "hashtags" as const,
+    title: "Gerador de Hashtags",
+    description: "Crie hashtags relevantes para suas redes sociais",
+    icon: Hash,
+    color: "from-pink-500 to-purple-600",
   },
+  {
+    id: "engagement" as const,
+    title: "Calculadora de Engajamento",
+    description: "Analise a performance das suas redes sociais",
+    icon: BarChart3,
+    color: "from-blue-500 to-purple-600",
+  },
+  {
+    id: "colors" as const,
+    title: "Gerador de Paleta de Cores",
+    description: "Crie paletas harmoniosas para sua marca",
+    icon: Palette,
+    color: "from-purple-500 to-pink-600",
+  },
+  // {
+  //   id: "roi" as const,
+  //   title: "Calculadora de ROI",
+  //   description: "Descubra o potencial de crescimento do seu negócio",
+  //   icon: Calculator,
+  //   color: "from-blue-500 to-blue-600",
+  // },
+  // {
+  //   id: "results" as const,
+  //   title: "Casos de Sucesso",
+  //   description: "Veja resultados reais dos nossos clientes",
+  //   icon: TrendingUp,
+  //   color: "from-orange-500 to-red-600",
+  // },
 ];
 
 export function InteractiveSection() {
@@ -43,6 +84,12 @@ export function InteractiveSection() {
         return <DigitalDiagnostic />;
       case "results":
         return <ResultsShowcase />;
+      case "hashtags":
+        return <HashtagGenerator />;
+      case "engagement":
+        return <EngagementCalculator />;
+      case "colors":
+        return <ColorPaletteGenerator />;
       default:
         return null;
     }
@@ -67,12 +114,13 @@ export function InteractiveSection() {
         </ScrollAnimation>
 
         {!activeTool ? (
-          <div className='grid md:grid-cols-3 gap-8'>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {tools.map((tool, index) => (
               <ScrollAnimation
                 key={tool.id}
                 animation='fade-in-up'
                 delay={`delay-${200 + index * 100}`}
+                className={tool.className}
               >
                 <div
                   onClick={() => setActiveTool(tool.id)}
@@ -92,9 +140,7 @@ export function InteractiveSection() {
 
                   <div className='flex items-center text-[#DDCC70] font-semibold group-hover:gap-3 transition-all'>
                     <span>Experimentar agora</span>
-                    <span className='ml-2 group-hover:ml-0 transition-all'>
-                      →
-                    </span>
+                    <ArrowBigRight className='ml-2 group-hover:ml-0 transition-all' />
                   </div>
                 </div>
               </ScrollAnimation>
@@ -107,7 +153,7 @@ export function InteractiveSection() {
                 onClick={() => setActiveTool(null)}
                 className='inline-flex items-center gap-2 text-gray-600 hover:text-[#776E3C] transition-colors'
               >
-                ← Voltar às ferramentas
+                <ArrowBigLeft /> Voltar às ferramentas
               </button>
             </div>
 
@@ -126,9 +172,12 @@ export function InteractiveSection() {
                 Imagine o que podemos fazer com uma estratégia completa para seu
                 negócio
               </p>
-              <button className='bg-white text-[#776E3C] px-8 py-4 rounded-xl font-semibold hover:scale-105 transition-transform shadow-lg'>
+              <a
+                href='https://docs.google.com/forms/d/e/1FAIpQLSdKF-9LGmGABUpvRV8oT_DwGlO7A4ea4XKZ53Wr-rO-9KY9Ng/viewform?usp=sf_link'
+                className='bg-white text-[#776E3C] px-8 py-4 rounded-xl font-semibold hover:scale-105 transition-transform shadow-lg'
+              >
                 Quero uma Estratégia Personalizada
-              </button>
+              </a>
             </div>
           </div>
         </ScrollAnimation>
