@@ -3,6 +3,7 @@ export function Navigation() {
     { href: "#sobre", label: "Sobre" },
     { href: "#servicos", label: "Serviços" },
     { href: "#ferramentas", label: "Ferramentas" },
+    { href: "#insta", label: "Nosso Instagram" },
     { href: "#bio", label: "Quem Sou" },
     { href: "#conteudos", label: "Conteúdos" },
   ];
