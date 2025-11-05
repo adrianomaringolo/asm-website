@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title:
     "ASM Marketing Digital - Anelita Massucate | Consultoria e Gestão de Redes Sociais",
   description:
-    "Transforme sua presença digital com estratégias personalizadas de marketing. Gestão de Instagram, tráfego pago, automação e criação de sites profissionais. +5 anos de experiência, +30 clientes atendidos.",
+    "Transforme sua presença digital com estratégias personalizadas de marketing. Gestão de Instagram, tráfego pago, automação e criação de sites profissionais. +7 anos de experiência, +30 clientes atendidos.",
   keywords: [
     "marketing digital",
     "gestão de redes sociais",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title:
       "ASM Marketing Digital - Anelita Massucate | Consultoria e Gestão de Redes Sociais",
     description:
-      "Transforme sua presença digital com estratégias personalizadas. Gestão de Instagram, tráfego pago, automação e criação de sites. +5 anos de experiência.",
+      "Transforme sua presença digital com estratégias personalizadas. Gestão de Instagram, tráfego pago, automação e criação de sites. +7 anos de experiência.",
     url: "https://asmmktdigital.com.br",
     siteName: "ASM Marketing Digital",
     images: [

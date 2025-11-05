@@ -5,7 +5,7 @@ import { ParticleField } from "../ParticleField";
 
 export function Bio() {
   const highlights = [
-    { number: "5+", label: "Anos de experiência" },
+    { number: "7+", label: "Anos de experiência" },
     { number: "100+", label: "Projetos realizados" },
     { number: "30+", label: "Clientes satisfeitos" },
   ];

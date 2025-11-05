@@ -29,7 +29,7 @@ export const About = () => {
 
         <ScrollAnimation animation='fade-in-up' delay='delay-200'>
           <p className=' mb-4'>
-            Com mais de 5 anos de experiência no mercado, ajudamos empresas e
+            Com mais de 7 anos de experiência no mercado, ajudamos empresas e
             profissionais a construírem autoridade, gerarem engajamento e
             converterem seguidores em clientes.
           </p>

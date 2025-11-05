@@ -13,7 +13,7 @@ export function StructuredData() {
       name: "Anelita Scaliza Massucate",
       jobTitle: "Marketing Digital Estratégico",
       description:
-        "Designer Gráfica e Social Media com mais de 5 anos de experiência",
+        "Designer Gráfica e Social Media com mais de 7 anos de experiência",
     },
     contactPoint: {
       "@type": "ContactPoint",
@@ -44,7 +44,7 @@ export function StructuredData() {
     alternateName: "Anelita Massucate",
     jobTitle: "Marketing Digital Estratégico",
     description:
-      "Designer Gráfica e Social Media com foco em performance, posicionamento e identidade visual. Mais de 5 anos de experiência em gestão de mídias sociais.",
+      "Designer Gráfica e Social Media com foco em performance, posicionamento e identidade visual. Mais de 7 anos de experiência em gestão de mídias sociais.",
     image: "https://asmmktdigital.com.br/photo-bio.webp",
     url: "https://asmmktdigital.com.br",
     sameAs: ["https://www.instagram.com/anelitasmassucate/"],
