@@ -2,7 +2,7 @@ export function Navigation() {
   const navItems = [
     { href: "#sobre", label: "Sobre" },
     { href: "#servicos", label: "Serviços" },
-    { href: "#ferramentas", label: "Ferramentas" },
+    { href: "#diagnostico", label: "Diagnóstico" },
     { href: "#insta", label: "Nosso Instagram" },
     { href: "#bio", label: "Quem Sou" },
     { href: "#conteudos", label: "Conteúdos" },

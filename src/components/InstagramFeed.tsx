@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Instagram, ExternalLink, Loader2 } from "lucide-react";
+import { ExternalLink, Loader2 } from "lucide-react";
+import Image from "next/image";
 
 export function InstagramFeed() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -49,7 +50,7 @@ export function InstagramFeed() {
       <div className='bg-white rounded-2xl p-8 shadow-lg border border-gray-100'>
         <div className='text-center'>
           <div className='w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4'>
-            <Instagram className='text-white' size={32} />
+            <Image src='/instagram-logo.png' alt='Instagram' width={32} height={32} />
           </div>
           <h3 className='text-2xl font-bold text-gray-800 mb-4'>
             Siga-nos no Instagram
@@ -63,7 +64,7 @@ export function InstagramFeed() {
             rel='noopener noreferrer'
             className='inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all duration-300 font-semibold'
           >
-            <Instagram size={20} />
+            <Image src='/instagram-logo.png' alt='Instagram' width={20} height={20} />
             Seguir no Instagram
             <ExternalLink size={16} />
           </a>
@@ -76,7 +77,7 @@ export function InstagramFeed() {
     <div className='bg-white rounded-2xl p-8 shadow-lg border border-gray-100'>
       <div className='flex items-center gap-3 mb-6'>
         <div className='w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl flex items-center justify-center'>
-          <Instagram className='text-white' size={24} />
+          <Image src='/instagram-logo.png' alt='Instagram' width={24} height={24} />
         </div>
         <div>
           <h3 className='text-2xl font-bold text-gray-800'>Nosso Instagram</h3>
@@ -115,7 +116,7 @@ export function InstagramFeed() {
           rel='noopener noreferrer'
           className='inline-flex items-center gap-2 text-gray-600 hover:text-pink-600 transition-colors font-medium'
         >
-          <Instagram size={18} />
+          <Image src='/instagram-logo.png' alt='Instagram' width={18} height={18} />
           Ver mais no Instagram
           <ExternalLink size={14} />
         </a>
