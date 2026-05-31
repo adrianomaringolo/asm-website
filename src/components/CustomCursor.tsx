@@ -43,12 +43,12 @@ export function CustomCursor() {
 
     const handleMouseEnter = () => {
       cursor.style.transform = "scale(1.5)";
-      cursor.style.backgroundColor = "rgba(221, 204, 112, 0.3)";
+      cursor.style.backgroundColor = "rgba(201, 123, 69, 0.3)";
     };
 
     const handleMouseLeave = () => {
       cursor.style.transform = "scale(1)";
-      cursor.style.backgroundColor = "rgba(221, 204, 112, 0.1)";
+      cursor.style.backgroundColor = "rgba(201, 123, 69, 0.1)";
     };
 
     // Event listeners
@@ -79,14 +79,14 @@ export function CustomCursor() {
       {/* Cursor principal */}
       <div
         ref={cursorRef}
-        className='fixed w-8 h-8 bg-[#DDCC70]/10 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-200'
+        className='fixed w-8 h-8 bg-[#C97B45]/10 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-200'
         style={{ transform: "translate(-50%, -50%)" }}
       />
 
       {/* Ponto do cursor */}
       <div
         ref={cursorDotRef}
-        className='fixed w-1 h-1 bg-[#DDCC70] rounded-full pointer-events-none z-50'
+        className='fixed w-1 h-1 bg-[#C97B45] rounded-full pointer-events-none z-50'
         style={{ transform: "translate(-50%, -50%)" }}
       />
     </>

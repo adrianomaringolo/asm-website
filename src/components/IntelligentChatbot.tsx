@@ -187,7 +187,7 @@ export function IntelligentChatbot() {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 bg-gradient-to-r from-[#DDCC70] to-[#776E3C] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300 ${
+        className={`fixed bottom-6 right-6 z-50 bg-gradient-to-r from-[#C97B45] to-[#5D4032] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300 ${
           isOpen ? "hidden" : "block"
         }`}
       >
@@ -198,7 +198,7 @@ export function IntelligentChatbot() {
       {isOpen && (
         <div className='fixed bottom-6 right-6 z-50 w-96 h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden'>
           {/* Header */}
-          <div className='bg-gradient-to-r from-[#DDCC70] to-[#776E3C] text-white p-4 flex items-center justify-between'>
+          <div className='bg-gradient-to-r from-[#C97B45] to-[#5D4032] text-white p-4 flex items-center justify-between'>
             <div className='flex items-center gap-3'>
               <div className='w-8 h-8 bg-white/20 rounded-full flex items-center justify-center'>
                 <Bot size={16} />
@@ -228,13 +228,13 @@ export function IntelligentChatbot() {
                 <div
                   className={`max-w-[80%] p-3 rounded-2xl ${
                     message.sender === "user"
-                      ? "bg-[#DDCC70] text-white"
+                      ? "bg-[#C97B45] text-white"
                       : "bg-gray-100 text-gray-800"
                   }`}
                 >
                   <div className='flex items-start gap-2'>
                     {message.sender === "bot" && (
-                      <Bot size={16} className='mt-1 text-[#776E3C]' />
+                      <Bot size={16} className='mt-1 text-[#5D4032]' />
                     )}
                     {message.sender === "user" && (
                       <User size={16} className='mt-1' />
@@ -267,7 +267,7 @@ export function IntelligentChatbot() {
               <div className='flex justify-start'>
                 <div className='bg-gray-100 p-3 rounded-2xl'>
                   <div className='flex items-center gap-2'>
-                    <Bot size={16} className='text-[#776E3C]' />
+                    <Bot size={16} className='text-[#5D4032]' />
                     <div className='flex gap-1'>
                       <div className='w-2 h-2 bg-gray-400 rounded-full animate-bounce'></div>
                       <div
@@ -296,11 +296,11 @@ export function IntelligentChatbot() {
                 onChange={(e) => setCurrentInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
                 placeholder='Digite sua mensagem...'
-                className='flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#DDCC70]'
+                className='flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#C97B45]'
               />
               <button
                 onClick={() => handleSendMessage()}
-                className='bg-[#DDCC70] text-white p-2 rounded-lg hover:bg-[#776E3C] transition-colors'
+                className='bg-[#C97B45] text-white p-2 rounded-lg hover:bg-[#5D4032] transition-colors'
               >
                 <Send size={16} />
               </button>

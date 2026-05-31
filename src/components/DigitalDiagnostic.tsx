@@ -158,7 +158,7 @@ export function DigitalDiagnostic() {
         </div>
 
         <div className='bg-gray-800/50 p-6 rounded-xl mb-6'>
-          <h4 className='text-xl font-semibold mb-3 text-[#DDCC70]'>
+          <h4 className='text-xl font-semibold mb-3 text-[#C97B45]'>
             {recommendations.title}
           </h4>
           <p className='text-gray-300 mb-4'>{recommendations.description}</p>
@@ -169,7 +169,7 @@ export function DigitalDiagnostic() {
             </p>
             {recommendations.actions.map((action, index) => (
               <div key={index} className='flex items-center gap-2'>
-                <ArrowRight size={16} className='text-[#DDCC70]' />
+                <ArrowRight size={16} className='text-[#C97B45]' />
                 <span className='text-gray-300'>{action}</span>
               </div>
             ))}
@@ -206,7 +206,7 @@ export function DigitalDiagnostic() {
 
         <div className='w-full bg-gray-700 rounded-full h-2 mb-6'>
           <div
-            className='bg-gradient-to-r from-[#DDCC70] to-[#776E3C] h-2 rounded-full transition-all duration-300'
+            className='bg-gradient-to-r from-[#C97B45] to-[#5D4032] h-2 rounded-full transition-all duration-300'
             style={{ width: `${progress}%` }}
           />
         </div>

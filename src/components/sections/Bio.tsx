@@ -47,20 +47,20 @@ export function Bio() {
       <ParticleField />
       {/* Elementos decorativos flutuantes */}
       <FloatingAnimation delay={0.5}>
-        <div className='absolute w-40 h-40 bg-[#DDCC70] rounded-full blur-3xl opacity-20 -left-10 top-20' />
+        <div className='absolute w-40 h-40 bg-[#C97B45] rounded-full blur-3xl opacity-20 -left-10 top-20' />
       </FloatingAnimation>
       <FloatingAnimation delay={1}>
-        <div className='absolute w-32 h-32 bg-[#776E3C] rounded-full blur-2xl opacity-15 -right-10 bottom-20' />
+        <div className='absolute w-32 h-32 bg-[#5D4032] rounded-full blur-2xl opacity-15 -right-10 bottom-20' />
       </FloatingAnimation>
 
       <div className='max-w-6xl mx-auto'>
         {/* Título principal com destaque */}
         <ScrollAnimation animation='fade-in-up' delay='delay-100'>
           <div className='text-center mb-12'>
-            <h2 className='text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#776E3C] to-[#DDCC70] bg-clip-text text-transparent'>
+            <h2 className='text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#5D4032] to-[#C97B45] bg-clip-text text-transparent'>
               Quem sou eu?
             </h2>
-            <div className='w-20 h-1 bg-gradient-to-r from-[#DDCC70] to-[#776E3C] mx-auto rounded-full'></div>
+            <div className='w-20 h-1 bg-gradient-to-r from-[#C97B45] to-[#5D4032] mx-auto rounded-full'></div>
           </div>
         </ScrollAnimation>
 
@@ -71,7 +71,7 @@ export function Bio() {
               {/* Foto principal - reduzida */}
               <div className='relative group mb-8 flex justify-center'>
                 <div className='relative'>
-                  <div className='absolute -inset-2 bg-gradient-to-r from-[#DDCC70] to-[#776E3C] rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200'></div>
+                  <div className='absolute -inset-2 bg-gradient-to-r from-[#C97B45] to-[#5D4032] rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200'></div>
                   <Image
                     src='/photo-bio.webp'
                     alt='Foto de rosto da Anelita'
@@ -115,10 +115,10 @@ export function Bio() {
           <div className='space-y-6'>
             {/* Introdução destacada */}
             <ScrollAnimation animation='fade-in-right' delay='delay-200'>
-              <div className='bg-gradient-to-r from-[#DDCC70]/10 to-[#776E3C]/10 rounded-xl p-6 border-l-4 border-[#DDCC70]'>
+              <div className='bg-gradient-to-r from-[#C97B45]/10 to-[#5D4032]/10 rounded-xl p-6 border-l-4 border-[#C97B45]'>
                 <p className='text-lg font-medium text-gray-800 leading-relaxed'>
                   Sou{" "}
-                  <span className='font-bold text-[#776E3C]'>
+                  <span className='font-bold text-[#5D4032]'>
                     Anelita Scaliza Massucate
                   </span>
                   , mãe e empreendedora apaixonada por transformar marcas e
@@ -135,7 +135,7 @@ export function Bio() {
                     key={index}
                     className='text-center p-4 bg-white rounded-lg shadow-sm border border-gray-100'
                   >
-                    <div className='text-2xl font-bold text-[#776E3C] mb-1'>
+                    <div className='text-2xl font-bold text-[#5D4032] mb-1'>
                       {item.number}
                     </div>
                     <div className='text-sm text-gray-600'>{item.label}</div>
@@ -147,8 +147,8 @@ export function Bio() {
             {/* Formação acadêmica */}
             <ScrollAnimation animation='fade-in-up' delay='delay-400'>
               <div className='bg-white rounded-xl p-6 shadow-sm border border-gray-100'>
-                <h3 className='font-semibold text-[#776E3C] mb-3 flex items-center'>
-                  <span className='w-2 h-2 bg-[#DDCC70] rounded-full mr-3'></span>
+                <h3 className='font-semibold text-[#5D4032] mb-3 flex items-center'>
+                  <span className='w-2 h-2 bg-[#C97B45] rounded-full mr-3'></span>
                   Formação Acadêmica
                 </h3>
                 <p className='text-gray-700 leading-relaxed'>
@@ -166,8 +166,8 @@ export function Bio() {
             {/* Experiência profissional */}
             <ScrollAnimation animation='fade-in-up' delay='delay-500'>
               <div className='bg-white rounded-xl p-6 shadow-sm border border-gray-100'>
-                <h3 className='font-semibold text-[#776E3C] mb-3 flex items-center'>
-                  <span className='w-2 h-2 bg-[#DDCC70] rounded-full mr-3'></span>
+                <h3 className='font-semibold text-[#5D4032] mb-3 flex items-center'>
+                  <span className='w-2 h-2 bg-[#C97B45] rounded-full mr-3'></span>
                   Experiência Profissional
                 </h3>
                 <p className='text-gray-700 leading-relaxed mb-4'>
@@ -182,7 +182,7 @@ export function Bio() {
 
             {/* ASM Marketing Digital */}
             <ScrollAnimation animation='fade-in-up' delay='delay-600'>
-              <div className='bg-gradient-to-r from-[#776E3C] to-[#DDCC70] rounded-xl p-6 text-white'>
+              <div className='bg-gradient-to-r from-[#5D4032] to-[#C97B45] rounded-xl p-6 text-white'>
                 <h3 className='font-semibold mb-3 flex items-center'>
                   <span className='w-2 h-2 bg-white rounded-full mr-3'></span>
                   ASM Marketing Digital
@@ -199,7 +199,7 @@ export function Bio() {
         </div>
         {/* Propósito */}
         <ScrollAnimation animation='fade-in-up' delay='delay-700'>
-          <div className='text-center p-6 bg-gray-50 rounded-xl border-2 border-dashed border-[#DDCC70] mt-10'>
+          <div className='text-center p-6 bg-gray-50 rounded-xl border-2 border-dashed border-[#C97B45] mt-10'>
             <p className='text-gray-700 leading-relaxed italic'>
               &quot;Meu propósito é impulsionar marcas e pessoas por meio da
               comunicação estratégica, do design com identidade e do marketing

@@ -8,11 +8,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-manrope), sans-serif;
+  --font-serif: var(--font-cormorant), serif;
 }
 
 body {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-manrope), sans-serif;
 }
 
 /* Scroll suave */
@@ -30,12 +31,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #ddcc70, #776e3c);
+  background: linear-gradient(135deg, #C97B45, #5D4032);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #776e3c, #ddcc70);
+  background: linear-gradient(135deg, #5D4032, #C97B45);
 }
 
 /* Animações de entrada otimizadas para SEO */
@@ -233,7 +234,7 @@ html {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #ddcc70, transparent, #776e3c);
+  background: linear-gradient(135deg, #C97B45, transparent, #5D4032);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: xor;
   opacity: 0;
@@ -242,8 +243,8 @@ html {
 
 .card-hover:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(221, 204, 112, 0.3),
-    0 0 0 1px rgba(221, 204, 112, 0.1);
+  box-shadow: 0 20px 40px rgba(201, 123, 69, 0.3),
+    0 0 0 1px rgba(201, 123, 69, 0.1);
 }
 
 .card-hover:hover::before {
@@ -291,11 +292,11 @@ html {
 .gradient-mesh {
   background: linear-gradient(
     135deg,
-    #ddcc70 0%,
-    #776e3c 25%,
-    #ddcc70 50%,
-    #b8a55c 75%,
-    #776e3c 100%
+    #C97B45 0%,
+    #5D4032 25%,
+    #C97B45 50%,
+    #A06030 75%,
+    #5D4032 100%
   );
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
@@ -321,12 +322,12 @@ html {
 }
 
 .neon-glow {
-  box-shadow: 0 0 20px rgba(221, 204, 112, 0.3),
-    0 0 40px rgba(221, 204, 112, 0.2), 0 0 60px rgba(221, 204, 112, 0.1);
+  box-shadow: 0 0 20px rgba(201, 123, 69, 0.3),
+    0 0 40px rgba(201, 123, 69, 0.2), 0 0 60px rgba(201, 123, 69, 0.1);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #ddcc70, #776e3c, #b8a55c);
+  background: linear-gradient(135deg, #C97B45, #5D4032, #A06030);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

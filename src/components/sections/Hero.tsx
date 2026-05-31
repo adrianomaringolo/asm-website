@@ -27,7 +27,7 @@ export function Hero() {
 
       <FloatingAnimation delay={1}>
         <div
-          className='absolute w-60 h-60 bg-[#DDCC70] rounded-full blur-3xl opacity-50 -left-10 -top-10 z-10'
+          className='absolute w-60 h-60 bg-[#C97B45] rounded-full blur-3xl opacity-50 -left-10 -top-10 z-10'
           aria-hidden='true'
         />
       </FloatingAnimation>

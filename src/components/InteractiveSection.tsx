@@ -132,13 +132,13 @@ export function InteractiveSection() {
                     <tool.icon size={32} className='text-white' />
                   </div>
 
-                  <h3 className='text-2xl font-bold mb-3 group-hover:text-[#776E3C] transition-colors'>
+                  <h3 className='text-2xl font-bold mb-3 group-hover:text-[#5D4032] transition-colors'>
                     {tool.title}
                   </h3>
 
                   <p className='text-gray-600 mb-6'>{tool.description}</p>
 
-                  <div className='flex items-center text-[#DDCC70] font-semibold group-hover:gap-3 transition-all'>
+                  <div className='flex items-center text-[#C97B45] font-semibold group-hover:gap-3 transition-all'>
                     <span>Experimentar agora</span>
                     <ArrowBigRight className='ml-2 group-hover:ml-0 transition-all' />
                   </div>
@@ -151,7 +151,7 @@ export function InteractiveSection() {
             <div className='text-center'>
               <button
                 onClick={() => setActiveTool(null)}
-                className='inline-flex items-center gap-2 text-gray-600 hover:text-[#776E3C] transition-colors'
+                className='inline-flex items-center gap-2 text-gray-600 hover:text-[#5D4032] transition-colors'
               >
                 <ArrowBigLeft /> Voltar às ferramentas
               </button>
@@ -164,7 +164,7 @@ export function InteractiveSection() {
         {/* Call to Action */}
         <ScrollAnimation animation='fade-in-up' delay='delay-400'>
           <div className='mt-20 text-center'>
-            <div className='bg-gradient-to-r from-[#DDCC70] to-[#776E3C] rounded-2xl p-8 text-white'>
+            <div className='bg-gradient-to-r from-[#C97B45] to-[#5D4032] rounded-2xl p-8 text-white'>
               <h3 className='text-3xl font-bold mb-4'>
                 Gostou das ferramentas?
               </h3>
@@ -174,7 +174,7 @@ export function InteractiveSection() {
               </p>
               <a
                 href='https://docs.google.com/forms/d/e/1FAIpQLSdKF-9LGmGABUpvRV8oT_DwGlO7A4ea4XKZ53Wr-rO-9KY9Ng/viewform?usp=sf_link'
-                className='bg-white text-[#776E3C] px-8 py-4 rounded-xl font-semibold hover:scale-105 transition-transform shadow-lg'
+                className='bg-white text-[#5D4032] px-8 py-4 rounded-xl font-semibold hover:scale-105 transition-transform shadow-lg'
               >
                 Quero uma Estratégia Personalizada
               </a>

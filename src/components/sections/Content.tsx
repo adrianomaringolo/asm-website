@@ -10,7 +10,7 @@ export function Content() {
       aria-label='Conteúdos e recursos gratuitos'
     >
       <FloatingAnimation delay={0.5}>
-        <div className='absolute w-60 h-60 bg-[#DDCC70] rounded-full blur-3xl opacity-50 -left-20 -top-10' />
+        <div className='absolute w-60 h-60 bg-[#C97B45] rounded-full blur-3xl opacity-50 -left-20 -top-10' />
       </FloatingAnimation>
 
       <div className='max-w-6xl mx-auto'>

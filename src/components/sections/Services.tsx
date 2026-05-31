@@ -104,7 +104,7 @@ export function Services() {
                 className={clsx(
                   "border border-white/20 p-6 rounded-xl text-center flex flex-col items-center h-full",
                   "glass-effect card-hover backdrop-blur-sm",
-                  "hover:border-[#DDCC70]/50 transition-all duration-300"
+                  "hover:border-[#C97B45]/50 transition-all duration-300"
                 )}
               >
                 <div className='p-2 rounded-full text-center text-2xl mb-4'>
@@ -162,7 +162,7 @@ export function Services() {
       </div>
 
       <FloatingAnimation delay={2}>
-        <div className='absolute w-80 h-160 bg-[#DDCC70] rounded-full blur-[100px] opacity-40 -right-20 -bottom-30' />
+        <div className='absolute w-80 h-160 bg-[#C97B45] rounded-full blur-[100px] opacity-40 -right-20 -bottom-30' />
       </FloatingAnimation>
     </section>
   );

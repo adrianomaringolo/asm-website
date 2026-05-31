@@ -35,7 +35,7 @@ export function ParticleField() {
 
     // Criar partículas
     const createParticles = () => {
-      const colors = ["#DDCC70", "#776E3C", "#B8A55C"];
+      const colors = ["#C97B45", "#5D4032", "#A06030"];
       particlesRef.current = [];
 
       for (let i = 0; i < 50; i++) {

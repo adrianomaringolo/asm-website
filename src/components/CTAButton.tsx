@@ -12,7 +12,7 @@ export function CTAButton({
       href='https://docs.google.com/forms/d/e/1FAIpQLSdKF-9LGmGABUpvRV8oT_DwGlO7A4ea4XKZ53Wr-rO-9KY9Ng/viewform?usp=sf_link'
       className={clsx(
         "block gradient-mesh font-medium px-6 py-5 rounded-xl cursor-pointer w-full max-w-[370px]",
-        "hover-scale focus:outline-none focus:ring-2 focus:ring-[#DDCC70] focus:ring-offset-2",
+        "hover-scale focus:outline-none focus:ring-2 focus:ring-[#C97B45] focus:ring-offset-2",
         "shadow-lg hover:shadow-xl transition-all duration-300",
         "relative overflow-hidden group"
       )}

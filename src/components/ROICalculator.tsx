@@ -81,7 +81,7 @@ export function ROICalculator() {
               onChange={(e) =>
                 setData({ ...data, monthlyRevenue: Number(e.target.value) })
               }
-              className='w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-[#DDCC70] focus:outline-none transition-colors'
+              className='w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-[#C97B45] focus:outline-none transition-colors'
             />
           </div>
 
@@ -95,7 +95,7 @@ export function ROICalculator() {
               onChange={(e) =>
                 setData({ ...data, currentFollowers: Number(e.target.value) })
               }
-              className='w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-[#DDCC70] focus:outline-none transition-colors'
+              className='w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-[#C97B45] focus:outline-none transition-colors'
             />
           </div>
 
@@ -110,7 +110,7 @@ export function ROICalculator() {
               onChange={(e) =>
                 setData({ ...data, engagementRate: Number(e.target.value) })
               }
-              className='w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-[#DDCC70] focus:outline-none transition-colors'
+              className='w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-[#C97B45] focus:outline-none transition-colors'
             />
           </div>
 
@@ -125,19 +125,19 @@ export function ROICalculator() {
               onChange={(e) =>
                 setData({ ...data, conversionRate: Number(e.target.value) })
               }
-              className='w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-[#DDCC70] focus:outline-none transition-colors'
+              className='w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-[#C97B45] focus:outline-none transition-colors'
             />
           </div>
         </div>
 
         {/* Results */}
         <div className='space-y-6'>
-          <div className='bg-gradient-to-r from-[#DDCC70]/20 to-[#776E3C]/20 p-4 rounded-lg border border-[#DDCC70]/30'>
+          <div className='bg-gradient-to-r from-[#C97B45]/20 to-[#5D4032]/20 p-4 rounded-lg border border-[#C97B45]/30'>
             <div className='flex items-center gap-3 mb-2'>
-              <Users className='text-[#DDCC70]' size={24} />
+              <Users className='text-[#C97B45]' size={24} />
               <span className='font-semibold'>Projeção de Seguidores</span>
             </div>
-            <p className='text-2xl font-bold text-[#DDCC70]'>
+            <p className='text-2xl font-bold text-[#C97B45]'>
               {results.projectedFollowers.toLocaleString()}
             </p>
             <p className='text-sm text-gray-300'>

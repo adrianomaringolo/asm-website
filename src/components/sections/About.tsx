@@ -45,11 +45,11 @@ export const About = () => {
         <ScrollAnimation animation='fade-in-up' delay='delay-400'>
           <div className='relative'>
             {/* Linha decorativa superior */}
-            <div className='w-20 h-1 bg-gradient-to-r from-[#DDCC70] to-white mx-auto mb-6 rounded-full'></div>
+            <div className='w-20 h-1 bg-gradient-to-r from-[#C97B45] to-white mx-auto mb-6 rounded-full'></div>
 
             {/* Frase destacada */}
             <blockquote className='text-center relative'>
-              <div className='absolute -top-4 -left-4 text-6xl text-[#DDCC70] opacity-30 font-serif'>
+              <div className='absolute -top-4 -left-4 text-6xl text-[#C97B45] opacity-30 font-serif'>
                 &quot;
               </div>
               <p className='text-lg md:text-xl font-medium leading-relaxed italic text-white/95 max-w-4xl mx-auto px-8'>
@@ -58,15 +58,15 @@ export const About = () => {
                 autônomos se posicionem com clareza, autenticidade e resultados
                 consistentes.
               </p>
-              <div className='absolute -bottom-4 -right-4 text-6xl text-[#DDCC70] opacity-30 font-serif rotate-180'>
+              <div className='absolute -bottom-4 -right-4 text-6xl text-[#C97B45] opacity-30 font-serif rotate-180'>
                 &quot;
               </div>
             </blockquote>
 
             {/* Assinatura */}
             <div className='text-center mt-6'>
-              <div className='w-16 h-px bg-[#DDCC70] mx-auto mb-3'></div>
-              <cite className='text-[#DDCC70] font-semibold not-italic'>
+              <div className='w-16 h-px bg-[#C97B45] mx-auto mb-3'></div>
+              <cite className='text-[#C97B45] font-semibold not-italic'>
                 Anelita Massucate
               </cite>
               <p className='text-white/70 text-sm mt-1'>
@@ -75,7 +75,7 @@ export const About = () => {
             </div>
 
             {/* Linha decorativa inferior */}
-            <div className='w-20 h-1 bg-gradient-to-r from-white to-[#DDCC70] mx-auto mt-6 rounded-full'></div>
+            <div className='w-20 h-1 bg-gradient-to-r from-white to-[#C97B45] mx-auto mt-6 rounded-full'></div>
           </div>
         </ScrollAnimation>
       </div>

@@ -19,7 +19,7 @@ export function CTAEbookButton({
     <a
       href='https://docs.google.com/forms/d/e/1FAIpQLSf99m1mq3QJiDoZ4uSAoNC1G8ui92BXoPkd3wTQ3k7TrAA3lw/viewform?usp=dialog'
       className={clsx(
-        "block bg-gradient-to-r from-[#DDCC70] to-[#776E3C]",
+        "block bg-gradient-to-r from-[#C97B45] to-[#5D4032]",
         "font-medium px-1 py-1 rounded-[15px] cursor-pointer w-full",
         "hover-scale"
       )}

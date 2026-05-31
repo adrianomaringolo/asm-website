@@ -112,7 +112,7 @@ export function ResultsShowcase() {
         <div className='space-y-6'>
           <div className='flex items-center justify-between'>
             <div>
-              <h4 className='text-2xl font-bold text-[#DDCC70]'>
+              <h4 className='text-2xl font-bold text-[#C97B45]'>
                 {case_study.clientName}
               </h4>
               <p className='text-gray-400'>{case_study.industry}</p>
@@ -144,7 +144,7 @@ export function ResultsShowcase() {
             <p className='text-gray-300 text-sm'>{case_study.solution}</p>
           </div>
 
-          <div className='bg-gradient-to-r from-[#DDCC70]/20 to-[#776E3C]/20 p-4 rounded-xl border border-[#DDCC70]/30'>
+          <div className='bg-gradient-to-r from-[#C97B45]/20 to-[#5D4032]/20 p-4 rounded-xl border border-[#C97B45]/30'>
             <p className='text-sm italic'>
               &ldquo;{case_study.testimonial}&rdquo;
             </p>
@@ -259,7 +259,7 @@ export function ResultsShowcase() {
                 onClick={() => setCurrentCase(index)}
                 className={`w-3 h-3 rounded-full transition-all ${
                   index === currentCase
-                    ? "bg-[#DDCC70]"
+                    ? "bg-[#C97B45]"
                     : "bg-gray-600 hover:bg-gray-500"
                 }`}
               />
