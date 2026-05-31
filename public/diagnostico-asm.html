@@ -346,6 +346,23 @@
     }
     .asm-cta-btn:hover { background: #2A1510; }
 
+    .asm-cta-block {
+      margin-top: 28px;
+      background: var(--cream-mid);
+      border: 1.5px solid var(--gold);
+      border-radius: 12px;
+      padding: 22px 20px 18px;
+      text-align: center;
+    }
+    .asm-cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--brown);
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
     /* FOOTER */
     .asm-footer {
       background: var(--brown);
@@ -707,11 +724,10 @@
           <div class="asm-steps-title">Por onde começar agora</div>
           ${stepsHtml}
         </div>
-        <div class="asm-save-row">
-          <button class="asm-save-btn" id="btn-copiar" onclick="copyDiagnostico()">Copiar diagnóstico</button>
-          <button class="asm-save-btn" onclick="downloadPDF()">Baixar em PDF</button>
+        <div class="asm-cta-block">
+          <div class="asm-cta-text">Criamos um checklist para você dar os primeiros passos estratégicos. Me chame agora no WhatsApp para receber.</div>
+          <button class="asm-cta-btn" onclick="openWhatsApp('${msg}')">Chamar no WhatsApp</button>
         </div>
-        <button class="asm-cta-btn" onclick="openWhatsApp('${msg}')">Quero resolver isso agora</button>
       `;
       sendLeadEmail(currentProfile);
       window.scrollTo({ top: 0, behavior: 'smooth' });
