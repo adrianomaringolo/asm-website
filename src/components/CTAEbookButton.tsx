@@ -20,11 +20,11 @@ export function CTAEbookButton({
       href='https://docs.google.com/forms/d/e/1FAIpQLSf99m1mq3QJiDoZ4uSAoNC1G8ui92BXoPkd3wTQ3k7TrAA3lw/viewform?usp=dialog'
       className={clsx(
         "block bg-gradient-to-r from-[#C97B45] to-[#5D4032]",
-        "font-medium px-1 py-1 rounded-[15px] cursor-pointer w-full",
+        "text-white font-medium px-6 py-5 rounded-[15px] cursor-pointer w-full",
         "hover-scale"
       )}
     >
-      <span className='bg-white flex items-center gap-4 w-full rounded-[12px] px-6 py-5 hover:bg-white/80 transition-colors'>
+      <span className='flex items-center gap-4 w-full'>
         <Book size={50} className='min-w-[50px]' />
         <span className='text-left leading-5'>{text}</span>
       </span>
