@@ -394,6 +394,9 @@
 
   <script>
     const WHATSAPP = '5519989377899';
+    const EMAIL_ENDPOINT = 'https://script.google.com/macros/s/AKfycby7KNLhSWdxnvrFuXBsa1xdGVMOF0cZRLZKg0c3U82isw95zLsM6mtAa1S6UNwfjv7QwA/exec';
+    const EMAIL_TOKEN = '0d3afb2e59e5351c2eb90d0e2b6e06c0c1f339094a1506b6159d5c2dbb376cf9';
+    const EMAIL_TO = 'asmidiasocial@hotmail.com';
 
     const questions = [
       { q: "Como você descreveria seu Instagram hoje?", sub: "Seja honesto. Esse é o ponto de partida do seu diagnóstico.", opts: ["Tenho perfil, mas quase não posto nada","Posto às vezes, mas sem regularidade","Posto com frequência, mas não vejo resultado","Posto bastante e tenho algum engajamento"] },
@@ -697,14 +700,7 @@
     function showResult() {
       currentProfile = calcProfile();
       const p = profiles[currentProfile];
-      const stepsHtml = p.steps.map((s, i) => `
-        <div class="asm-step-item">
-          <div class="asm-step-num">${i + 1}</div>
-          <div class="asm-step-content">
-            <div class="asm-step-name">${s.name}</div>
-            <div class="asm-step-detail">${s.detail}</div>
-          </div>
-        </div>`).join('');
+      sendLeadEmail(currentProfile, p);
 
       const msg = encodeURIComponent(`Oi, Anelita! Fiz o diagnóstico do meu Instagram pelo site da ASM e quero resolver isso agora. Meu perfil é ${userData.ig}.`);
 
@@ -720,16 +716,11 @@
             <div class="asm-urgency-text">${p.urgency}</div>
           </div>
         </div>
-        <div class="asm-steps-block">
-          <div class="asm-steps-title">Por onde começar agora</div>
-          ${stepsHtml}
-        </div>
         <div class="asm-cta-block">
           <div class="asm-cta-text">Criamos um checklist para você dar os primeiros passos estratégicos. Me chame agora no WhatsApp para receber.</div>
           <button class="asm-cta-btn" onclick="openWhatsApp('${msg}')">Chamar no WhatsApp</button>
         </div>
       `;
-      sendLeadEmail(currentProfile);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -737,20 +728,84 @@
       window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
     }
 
-    async function sendLeadEmail(profileKey) {
+    async function sendLeadEmail(profileKey, p) {
       const labels = { parado: 'Perfil Parado', perdido: 'Perfil Perdido', travado: 'Perfil Travado' };
       const services = { parado: 'Análise de Perfil + Social Media (base)', perdido: 'Criação de Estratégia Mensal ou Pack de Conteúdo', travado: 'Social Media com Roteiro de Stories' };
-      const answersText = answers.map((a, i) => `P${i+1}: ${questions[i].opts[a]}`).join('\n');
-      const emailBody = `NOVO LEAD — DIAGNÓSTICO ASM\n============================\nNome: ${userData.nome}\nWhatsApp: ${userData.wpp}\nInstagram: ${userData.ig}\nSegmento: ${userData.seg}\n\nPERFIL: ${labels[profileKey]}\nINDICAÇÃO: ${services[profileKey]}\n\nRESPOSTAS:\n${answersText}`;
+
+      const answersRows = answers.map((a, i) => `
+        <tr style="background:${i % 2 === 0 ? '#FFF8EA' : '#ffffff'}">
+          <td style="padding:10px 14px;color:#5D4032;font-weight:600;border:1px solid #D4B896;vertical-align:top;width:50%">${questions[i].q}</td>
+          <td style="padding:10px 14px;color:#7A5C4A;border:1px solid #D4B896;vertical-align:top">${questions[i].opts[a]}</td>
+        </tr>`).join('');
+
+      const checklistRows = p.steps.map((s, i) => `
+        <tr>
+          <td style="padding:14px 16px;border-bottom:1px solid #D4B896">
+            <table cellpadding="0" cellspacing="0" style="width:100%"><tr>
+              <td style="width:32px;vertical-align:top;padding-right:12px">
+                <div style="width:28px;height:28px;background:#5D4032;border-radius:50%;color:#FCD795;font-weight:700;font-size:12px;text-align:center;line-height:28px">${i+1}</div>
+              </td>
+              <td style="vertical-align:top">
+                <div style="font-weight:700;color:#3A2018;margin-bottom:4px">${s.name}</div>
+                <div style="color:#7A5C4A;font-size:13px;line-height:1.6">${s.detail}</div>
+              </td>
+            </tr></table>
+          </td>
+        </tr>`).join('');
+
+      const html = `
+        <div style="font-family:Arial,sans-serif;max-width:620px;margin:0 auto;background:#FFF8EA">
+          <div style="background:#5D4032;padding:24px;text-align:center">
+            <div style="color:#FCD795;font-size:20px;font-weight:700;letter-spacing:3px">ASM MARKETING DIGITAL</div>
+            <div style="color:#C8A882;font-size:12px;letter-spacing:2px;margin-top:6px">NOVO LEAD — DIAGNÓSTICO DO INSTAGRAM</div>
+          </div>
+          <div style="padding:28px 24px">
+            <h2 style="color:#3A2018;font-size:16px;margin:0 0 16px">Dados do Cliente</h2>
+            <table style="width:100%;border-collapse:collapse;margin-bottom:28px">
+              <tr><td style="padding:8px 0;color:#7A5C4A;width:140px"><strong>Nome:</strong></td><td style="color:#3A2018">${userData.nome}</td></tr>
+              <tr><td style="padding:8px 0;color:#7A5C4A"><strong>WhatsApp:</strong></td><td style="color:#3A2018">${userData.wpp}</td></tr>
+              <tr><td style="padding:8px 0;color:#7A5C4A"><strong>Instagram:</strong></td><td style="color:#3A2018">${userData.ig}</td></tr>
+              <tr><td style="padding:8px 0;color:#7A5C4A"><strong>Segmento:</strong></td><td style="color:#3A2018">${userData.seg}</td></tr>
+            </table>
+
+            <div style="background:#5D4032;border-radius:10px;padding:16px 20px;margin-bottom:28px">
+              <div style="display:inline-block;background:#C97B45;color:#fff;font-size:11px;letter-spacing:2px;padding:4px 12px;border-radius:20px;font-weight:700;margin-bottom:10px">${labels[profileKey].toUpperCase()}</div>
+              <div style="color:#FCD795;font-size:15px;font-weight:600;line-height:1.4;margin-bottom:8px">${p.title}</div>
+              <div style="color:#C8A882;font-size:13px;line-height:1.6">${p.desc}</div>
+            </div>
+
+            <div style="background:#FFF0DC;border-left:3px solid #C97B45;border-radius:4px;padding:14px 16px;margin-bottom:28px">
+              <div style="font-size:11px;color:#C97B45;font-weight:700;letter-spacing:2px;margin-bottom:6px">INDICAÇÃO DE SERVIÇO</div>
+              <div style="color:#3A2018;font-size:14px">${services[profileKey]}</div>
+            </div>
+
+            <h2 style="color:#3A2018;font-size:16px;margin:0 0 12px">Respostas do Questionário</h2>
+            <table style="width:100%;border-collapse:collapse;margin-bottom:28px;border:1px solid #D4B896">
+              <tr style="background:#5D4032">
+                <th style="padding:10px 14px;color:#FCD795;text-align:left;font-size:12px;letter-spacing:1px">PERGUNTA</th>
+                <th style="padding:10px 14px;color:#FCD795;text-align:left;font-size:12px;letter-spacing:1px">RESPOSTA</th>
+              </tr>
+              ${answersRows}
+            </table>
+
+            <h2 style="color:#3A2018;font-size:16px;margin:0 0 12px">Checklist — Por onde começar agora</h2>
+            <table style="width:100%;border-collapse:collapse;border:1px solid #D4B896;border-radius:8px;overflow:hidden">
+              ${checklistRows}
+            </table>
+          </div>
+          <div style="background:#5D4032;padding:16px;text-align:center;font-size:12px;color:#C8A882">
+            ASM Marketing Digital &nbsp;|&nbsp; @anelitasmassucate &nbsp;|&nbsp; asmmktdigital.com.br
+          </div>
+        </div>`;
+
       try {
-        await fetch('https://api.anthropic.com/v1/messages', {
+        await fetch(`${EMAIL_ENDPOINT}?to=${EMAIL_TO}&token=${EMAIL_TOKEN}`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
           body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514',
-            max_tokens: 1000,
-            mcp_servers: [{ type: 'url', url: 'https://gmailmcp.googleapis.com/mcp/v1', name: 'gmail' }],
-            messages: [{ role: 'user', content: `Send an email using Gmail to anelitasmassucate@gmail.com with subject "Novo lead: ${userData.nome} — ${labels[profileKey]}" and body:\n\n${emailBody}\n\nJust send it.` }]
+            subject: `Novo lead: ${userData.nome} — ${labels[profileKey]}`,
+            html: html
           })
         });
       } catch(e) { console.log('email error', e); }
