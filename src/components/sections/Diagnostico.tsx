@@ -38,7 +38,7 @@ export function Diagnostico() {
 
         <ScrollAnimation animation='scale-in' delay='delay-400'>
           <a
-            href='/diagnostico'
+            href='/diagnostico-gratuito'
             className='inline-flex items-center gap-3 bg-gray-900 hover:bg-gray-800 text-[#C97B45] font-bold text-lg px-10 py-4 rounded-xl shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl'
           >
             <ClipboardCheck size={22} />
