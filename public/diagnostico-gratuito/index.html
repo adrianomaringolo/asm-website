@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico do Instagram | ASM Marketing Digital</title>
+  <meta name="description" content="Descubra o que está impedindo seu Instagram de vender mais. Diagnóstico gratuito da ASM Marketing Digital." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown-dark: #3A2018;
+      --brown: #5D4032;
+      --brown-mid: #7A5C4A;
+      --brown-light: #C8A882;
+      --gold: #C97B45;
+      --gold-light: #FCD795;
+      --cream: #FFF8EA;
+      --cream-mid: #FFF0DC;
+      --border: #D4B896;
+      --white: #ffffff;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--cream);
+      font-family: 'Manrope', sans-serif;
+      color: var(--brown);
+    }
+
+    .page-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--cream);
+    }
+
+    /* HEADER */
+    .asm-header {
+      background: var(--brown);
+      padding: 28px 32px 24px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .asm-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--gold-light);
+      letter-spacing: 4px;
+      font-weight: 500;
+    }
+    .asm-logo span {
+      font-size: 11px;
+      display: block;
+      color: var(--brown-light);
+      letter-spacing: 6px;
+      margin-top: 3px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+    }
+
+    /* BODY */
+    .asm-body { padding: 36px 28px 60px; }
+
+    .asm-step-label {
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .asm-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      color: var(--brown);
+      font-weight: 500;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .asm-subtitle {
+      font-size: 14px;
+      color: var(--brown-mid);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    /* PROGRESS */
+    .asm-progress {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 36px;
+    }
+    .asm-prog-dot {
+      height: 3px;
+      flex: 1;
+      background: #E8D5C0;
+      border-radius: 2px;
+      transition: background 0.3s;
+    }
+    .asm-prog-dot.active { background: var(--gold); }
+    .asm-prog-dot.done { background: var(--brown); }
+
+    /* FORM FIELDS */
+    .asm-field { margin-bottom: 18px; }
+    .asm-field label {
+      display: block;
+      font-size: 12px;
+      color: var(--brown-mid);
+      font-weight: 600;
+      margin-bottom: 7px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .asm-field input,
+    .asm-field select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      color: var(--brown);
+      background: var(--white);
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .asm-field input:focus,
+    .asm-field select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .asm-field input::placeholder { color: #C0A88A; }
+
+    /* OPTIONS */
+    .asm-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .asm-option {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--white);
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--brown);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      text-align: left;
+      transition: all 0.2s;
+      line-height: 1.45;
+      width: 100%;
+    }
+    .asm-option:hover { border-color: var(--gold); background: var(--cream-mid); }
+    .asm-option.selected { border-color: var(--brown); background: var(--cream-mid); font-weight: 500; }
+
+    .asm-radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      background: var(--white);
+    }
+    .asm-option:hover .asm-radio { border-color: var(--gold); }
+    .asm-option.selected .asm-radio { border-color: var(--brown); background: var(--brown); }
+    .asm-radio-inner {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .asm-option.selected .asm-radio-inner { opacity: 1; }
+
+    /* BUTTONS */
+    .asm-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--brown-dark);
+      color: var(--gold-light);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+    .asm-btn:hover { background: #2A1510; }
+    .asm-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    /* RESULT */
+    .asm-result-card {
+      background: var(--brown);
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+    }
+    .asm-result-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .asm-result-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--gold-light);
+      font-weight: 500;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .asm-result-desc {
+      font-size: 14px;
+      color: var(--brown-light);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .asm-result-items { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+    .asm-result-item { display: flex; gap: 10px; align-items: flex-start; }
+    .asm-result-item-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .asm-result-item-text { font-size: 13px; color: #E8D5C0; line-height: 1.65; }
+
+    .asm-urgency {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--gold);
+    }
+    .asm-urgency-title {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .asm-urgency-text { font-size: 13px; color: var(--brown); line-height: 1.65; }
+
+    /* STEPS */
+    .asm-steps-block {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .asm-steps-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--brown);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .asm-step-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+    .asm-step-item:last-child { margin-bottom: 0; }
+    .asm-step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--brown);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .asm-step-name { font-size: 14px; font-weight: 600; color: var(--brown); margin-bottom: 4px; }
+    .asm-step-detail { font-size: 13px; color: var(--brown-mid); line-height: 1.65; }
+
+    /* SAVE BUTTONS */
+    .asm-save-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .asm-save-btn {
+      padding: 13px;
+      border: 1.5px solid var(--brown);
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--brown);
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .asm-save-btn:hover { background: var(--cream-mid); }
+    .asm-save-btn.copied { border-color: var(--gold); color: var(--gold); }
+
+    .asm-cta-btn {
+      width: 100%;
+      padding: 18px;
+      background: var(--brown-dark);
+      color: var(--gold-light);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+    .asm-cta-btn:hover { background: #2A1510; }
+
+    .asm-cta-block {
+      margin-top: 28px;
+      background: var(--cream-mid);
+      border: 1.5px solid var(--gold);
+      border-radius: 12px;
+      padding: 22px 20px 18px;
+      text-align: center;
+    }
+    .asm-cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--brown);
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    /* FOOTER */
+    .asm-footer {
+      background: var(--brown);
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--brown-light);
+      letter-spacing: 0.5px;
+    }
+    .asm-footer a { color: var(--gold-light); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .asm-body { padding: 28px 20px 50px; }
+      .asm-title { font-size: 26px; }
+      .asm-save-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="asm-header">
+      <div class="asm-logo">ASM <span>MARKETING DIGITAL</span></div>
+    </header>
+    <main class="asm-body" id="asm-content"></main>
+    <footer class="asm-footer">
+      <a href="https://www.asmmktdigital.com.br">asmmktdigital.com.br</a> &nbsp;|&nbsp; @anelitasmassucate
+    </footer>
+  </div>
+
+  <script>
+    const WHATSAPP = '5519989377899';
+    const EMAIL_ENDPOINT = 'https://script.google.com/macros/s/AKfycby7KNLhSWdxnvrFuXBsa1xdGVMOF0cZRLZKg0c3U82isw95zLsM6mtAa1S6UNwfjv7QwA/exec';
+    const EMAIL_TOKEN = '0d3afb2e59e5351c2eb90d0e2b6e06c0c1f339094a1506b6159d5c2dbb376cf9';
+    const EMAIL_TO = 'asmidiasocial@hotmail.com';
+
+    const questions = [
+      { q: "Como você descreveria seu Instagram hoje?", sub: "Seja honesto. Esse é o ponto de partida do seu diagnóstico.", opts: ["Tenho perfil, mas quase não posto nada","Posto às vezes, mas sem regularidade","Posto com frequência, mas não vejo resultado","Posto bastante e tenho algum engajamento"] },
+      { q: "Você tem uma bio clara que explica o que você faz e para quem?", sub: "A bio é a primeira impressão do seu negócio. A maioria perde o cliente ali.", opts: ["Não, minha bio é básica ou está vazia","Tenho algo escrito, mas não sei se está claro","Acho que está ok, mas nunca revisei estrategicamente","Sim, é clara e direcionada para meu cliente ideal"] },
+      { q: "Sua identidade visual é consistente nos seus posts?", sub: "Cores, fontes e estética que se repetem criam reconhecimento de marca.", opts: ["Não tenho identidade visual definida","Uso cores e fontes aleatórias a cada post","Tenho uma ideia, mas não sigo um padrão fixo","Sim, meu feed tem identidade visual clara"] },
+      { q: "Você tem uma estratégia de conteúdo definida?", sub: "Saber o que, quando e por que postar faz toda a diferença no resultado.", opts: ["Não sei o que postar e fico paralisado","Posto o que vem na cabeça, sem planejamento","Tenho algumas ideias, mas não sigo um calendário","Sim, tenho planejamento mensal com objetivos claros"] },
+      { q: "Seu conteúdo gera engajamento real?", sub: "Curtidas, comentários e salvamentos de pessoas que são seu cliente ideal.", opts: ["Quase nenhum engajamento","Poucas interações, só de pessoas próximas","Engajamento mediano, mas sem crescimento","Bom engajamento, mas não converte em vendas"] },
+      { q: "Você usa o Instagram ativamente para vender?", sub: "O Instagram precisa trabalhar pelo seu negócio. Não só existir.", opts: ["Não faço nenhuma abordagem de venda por lá","Já tentei, mas não sei como fazer de forma natural","Faço às vezes, mas de forma desorganizada","Sim, tenho CTAs e direciono o seguidor para a compra"] },
+      { q: "Você sabe com clareza quem é o seu cliente ideal?", sub: "Conteúdo sem direção não atrai o cliente certo. Atrai qualquer um, que é o mesmo que nenhum.", opts: ["Não tenho clareza sobre isso","Tenho uma ideia vaga, mas nada definido","Sei quem é, mas não produzo conteúdo pensando nele","Sim, conheço bem e crio conteúdo direcionado"] },
+      { q: "O seu Instagram hoje traz clientes ou você depende só de indicação?", sub: "A virada acontece quando o Instagram trabalha por você, mesmo quando você está ocupado.", opts: ["Dependo 100% de indicação, o Instagram não traz nada","Raramente alguém chega pelo Instagram","Já veio algum cliente, mas é esporádico","O Instagram gera interesse, mas poderia converter mais"] }
+    ];
+
+    const profiles = {
+      parado: {
+        badge: "Diagnóstico concluído",
+        title: "Seu Instagram existe, mas não está trabalhando por você. E isso está custando clientes todos os dias.",
+        desc: "Enquanto você adia a organização da sua presença digital, clientes em potencial chegam no seu perfil, não entendem o que você faz e vão embora sem deixar contato. O problema não é falta de talento. É falta de estrutura.",
+        items: ["Sua bio não comunica valor. Quem chega não sabe o que você oferece nem para quem","Sem identidade visual, seu perfil se perde no meio de milhares de outros","A falta de consistência faz o algoritmo ignorar seu conteúdo","Você depende só de indicação, o que limita seu crescimento"],
+        urgency: "Cada dia sem estrutura é um dia que seu concorrente aparece no lugar que deveria ser seu. Antes de criar mais conteúdo, você precisa construir a base. E isso precisa acontecer agora.",
+        steps: [
+          { name: "Reescreva sua bio hoje", detail: "Sua bio precisa responder em 3 linhas: quem você ajuda, como você ajuda e o que a pessoa deve fazer agora. Revise isso antes de qualquer outra coisa." },
+          { name: "Escolha uma paleta de cores e não saia dela", detail: "Selecione 3 cores que representam seu negócio e use só elas. Isso já cria identidade sem precisar de designer." },
+          { name: "Defina uma frequência mínima de postagem", detail: "Não precisa postar todo dia. Mas precisa ser constante. Comece com 3 vezes por semana e mantenha por 30 dias." },
+          { name: "Coloque um link de contato direto na bio", detail: "WhatsApp, formulário ou Direct. Quem chega no seu perfil precisa saber exatamente como te contratar." },
+          { name: "Publique um post de apresentação", detail: "Conte quem você é, o que você faz e para quem. Esse post vai trabalhar por você toda vez que alguém novo chegar no seu perfil." }
+        ]
+      },
+      perdido: {
+        badge: "Diagnóstico concluído",
+        title: "Você posta, se esforça, mas seu Instagram não tem direção. E sem direção, o esforço não vira resultado.",
+        desc: "Você tem presença, mas não tem estratégia. Isso faz com que seu esforço se disperse sem gerar retorno real. O problema não é falta de dedicação. É falta de planejamento e posicionamento claro.",
+        items: ["Conteúdo sem planejamento não cria conexão nem autoridade","Sem calendário editorial, você posta no impulso e some na sequência","Seu público não entende exatamente o que você vende e quando","Você produz muito, converte pouco. O esforço não está sendo recompensado"],
+        urgency: "Sem uma linha editorial clara, cada post publicado sem estratégia é energia desperdiçada. O momento de organizar isso é agora. Antes de continuar investindo tempo em conteúdo que não converte.",
+        steps: [
+          { name: "Defina os 3 pilares do seu conteúdo", detail: "Todo perfil precisa de pilares: um que educa, um que cria conexão e um que converte. Escreva agora quais são os seus e poste dentro dessas categorias." },
+          { name: "Monte um calendário simples para os próximos 15 dias", detail: "Não precisa ser perfeito. Anote o tema de cada post, o formato e o objetivo. Isso já tira você do modo reativo." },
+          { name: "Revise seus últimos 9 posts", detail: "Olhe para o que você postou e pergunte: isso fala com o meu cliente ideal? Isso tem um objetivo claro? Use essa análise para ajustar o rumo." },
+          { name: "Inclua uma chamada para ação em todo post", detail: "Cada post precisa dizer o que a pessoa deve fazer depois de ler. Salvar, comentar, mandar mensagem, clicar no link. Sem CTA, o conteúdo não trabalha por você." },
+          { name: "Crie um post de oferta por mês", detail: "Pelo menos uma vez por mês, fale diretamente sobre o que você vende, para quem é e como contratar. Seu seguidor precisa saber que você está disponível." }
+        ]
+      },
+      travado: {
+        badge: "Diagnóstico concluído",
+        title: "Você tem presença, engaja, mas na hora de vender o Instagram trava. E você perde clientes por isso.",
+        desc: "Você já tem o mais difícil: uma audiência real e conteúdo que engaja. Mas algo entre o interesse e a venda não está funcionando. Você atrai, mas não converte. E isso tem solução.",
+        items: ["Seu conteúdo gera curtidas, mas não gera DMs nem clientes","Falta uma jornada clara que leve o seguidor da descoberta até a compra","Seus CTAs não estão posicionados para converter no momento certo","O potencial do seu Instagram é maior do que os resultados que você vê"],
+        urgency: "Você já investiu tempo construindo uma audiência. Não faz sentido deixar esse ativo sem estratégia de conversão. Cada post sem direcionamento é uma oportunidade perdida de fechar um cliente.",
+        steps: [
+          { name: "Audite seus CTAs dos últimos 30 dias", detail: "Abra seus últimos posts e veja quantos deles tinham uma chamada para ação clara. Se a maioria não tinha, esse é o primeiro ponto a corrigir." },
+          { name: "Use os Stories para converter", detail: "Stories são o canal mais direto para vender. Crie uma sequência semanal: mostre o problema, apresente a solução, convide para falar com você." },
+          { name: "Crie um post de prova social", detail: "Depoimentos, resultados e transformações de clientes são o que faz o seguidor engajado dar o próximo passo. Publique isso com regularidade." },
+          { name: "Responda todos os comentários com uma pergunta", detail: "Comentários são oportunidades de iniciar uma conversa. Ao responder com uma pergunta, você move a pessoa do feed para o Direct, onde a venda acontece." },
+          { name: "Faça uma oferta direta por semana no Direct", detail: "Identifique quem interagiu com seu conteúdo nos últimos dias e inicie uma conversa real. Quem engaja já demonstrou interesse. Só precisa de um convite." }
+        ]
+      }
+    };
+
+    let step = 0, answers = [], userData = {}, currentProfile = null;
+
+    function calcProfile() {
+      const avg = answers.reduce((a,b) => a+b, 0) / answers.length;
+      if (avg <= 1.4) return 'parado';
+      if (avg <= 2.4) return 'perdido';
+      return 'travado';
+    }
+
+    function renderProgress(current, total) {
+      let html = '<div class="asm-progress">';
+      for (let i = 0; i < total; i++) {
+        let cls = i < current ? 'done' : i === current ? 'active' : '';
+        html += `<div class="asm-prog-dot ${cls}"></div>`;
+      }
+      return html + '</div>';
+    }
+
+    function showStep(n) {
+      const content = document.getElementById('asm-content');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (n === 0) {
+        content.innerHTML = `
+          <div class="asm-step-label">Diagnóstico gratuito</div>
+          <div class="asm-title">Se o seu Instagram não está aumentando seu faturamento, tem algo errado.</div>
+          <div class="asm-subtitle">Você pode estar perdendo clientes sem perceber. Responda 8 perguntas rápidas e receba um diagnóstico claro do que está impedindo seu perfil de vender mais e o que ajustar agora.</div>
+          <div class="asm-field"><label>Nome completo</label><input type="text" id="f-nome" placeholder="Seu nome" required /></div>
+          <div class="asm-field"><label>WhatsApp</label><input type="tel" id="f-wpp" placeholder="(11) 99999-9999" required /></div>
+          <div class="asm-field"><label>@ do Instagram</label><input type="text" id="f-ig" placeholder="@seuperfil" required /></div>
+          <div class="asm-field"><label>Segmento do negócio</label>
+            <select id="f-seg" required>
+              <option value="">Selecione...</option>
+              <option>Saúde e bem-estar</option><option>Psicologia e terapia</option>
+              <option>Alimentação e nutrição</option><option>Moda e beleza</option>
+              <option>Educação e cursos</option><option>Jurídico</option>
+              <option>Arquitetura e design</option><option>Serviços em geral</option>
+              <option>Comércio / produtos</option><option>Outro</option>
+            </select>
+          </div>
+          <button class="asm-btn" onclick="startQuiz()">Quero descobrir o que está travando meu perfil</button>
+        `;
+      } else {
+        const q = questions[n - 1];
+        content.innerHTML = `
+          ${renderProgress(n - 1, questions.length)}
+          <div class="asm-step-label">Pergunta ${n} de ${questions.length}</div>
+          <div class="asm-title">${q.q}</div>
+          <div class="asm-subtitle">${q.sub}</div>
+          <div class="asm-options">
+            ${q.opts.map((o, i) => `
+              <button class="asm-option" onclick="selectOpt(this,${i})">
+                <div class="asm-radio"><div class="asm-radio-inner"></div></div>
+                <span>${o}</span>
+              </button>`).join('')}
+          </div>
+          <button class="asm-btn" id="next-btn" disabled onclick="nextStep()">Continuar</button>
+        `;
+        if (answers[n - 1] !== undefined) {
+          document.querySelectorAll('.asm-option')[answers[n - 1]].classList.add('selected');
+          document.getElementById('next-btn').disabled = false;
+        }
+      }
+    }
+
+    function startQuiz() {
+      const nome = document.getElementById('f-nome').value.trim();
+      const wpp = document.getElementById('f-wpp').value.trim();
+      const ig = document.getElementById('f-ig').value.trim();
+      const seg = document.getElementById('f-seg').value;
+      if (!nome || !wpp || !ig || !seg) {
+        alert('Por favor, preencha todos os campos para continuar.');
+        return;
+      }
+      userData = { nome, wpp, ig, seg };
+      step = 1;
+      showStep(step);
+    }
+
+    function selectOpt(el, idx) {
+      document.querySelectorAll('.asm-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      answers[step - 1] = idx;
+      document.getElementById('next-btn').disabled = false;
+    }
+
+    function nextStep() {
+      if (answers[step - 1] === undefined) return;
+      step++;
+      if (step > questions.length) showResult();
+      else showStep(step);
+    }
+
+    function buildTextContent(p, profileKey) {
+      const labels = { parado: 'Perfil Parado', perdido: 'Perfil Perdido', travado: 'Perfil Travado' };
+      let txt = `DIAGNÓSTICO DO INSTAGRAM\nASM Marketing Digital\n`;
+      txt += `${'='.repeat(40)}\n\n`;
+      txt += `Perfil: ${labels[profileKey]}\n\n`;
+      txt += `${p.title}\n\n${p.desc}\n\n`;
+      txt += `O QUE ESTÁ ACONTECENDO:\n`;
+      p.items.forEach(item => { txt += `* ${item}\n`; });
+      txt += `\nPOR QUE AGIR AGORA:\n${p.urgency}\n\n`;
+      txt += `POR ONDE COMEÇAR:\n`;
+      p.steps.forEach((s, i) => { txt += `${i+1}. ${s.name}\n   ${s.detail}\n\n`; });
+      txt += `${'='.repeat(40)}\n`;
+      txt += `Quer ajuda para resolver isso?\nWhatsApp: https://wa.me/${WHATSAPP}\nInstagram: @anelitasmassucate\nSite: asmmktdigital.com.br\n`;
+      return txt;
+    }
+
+    function copyDiagnostico() {
+      const p = profiles[currentProfile];
+      const txt = buildTextContent(p, currentProfile);
+      navigator.clipboard.writeText(txt).then(() => {
+        const btn = document.getElementById('btn-copiar');
+        btn.textContent = 'Copiado!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copiar diagnóstico'; btn.classList.remove('copied'); }, 2500);
+      });
+    }
+
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+      const p = profiles[currentProfile];
+      const labels = { parado: 'Perfil Parado', perdido: 'Perfil Perdido', travado: 'Perfil Travado' };
+      const marg = 20;
+      const pw = 210 - marg * 2;
+      let y = 20;
+
+      const wrap = (text, maxW) => {
+        const words = text.split(' ');
+        const lines = [];
+        let line = '';
+        words.forEach(w => {
+          const test = line ? line + ' ' + w : w;
+          if (doc.getTextWidth(test) > maxW) { lines.push(line); line = w; }
+          else line = test;
+        });
+        if (line) lines.push(line);
+        return lines;
+      };
+
+      doc.setFillColor(93, 64, 50);
+      doc.rect(0, 0, 210, 28, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(16);
+      doc.setTextColor(252, 215, 149);
+      doc.text('ASM MARKETING DIGITAL', 105, 12, { align: 'center' });
+      doc.setFontSize(9);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(200, 168, 130);
+      doc.text('DIAGNÓSTICO DO INSTAGRAM', 105, 20, { align: 'center' });
+      y = 38;
+
+      doc.setFillColor(201, 123, 69);
+      doc.roundedRect(marg, y, pw, 8, 2, 2, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(255, 255, 255);
+      doc.text(labels[currentProfile].toUpperCase(), 105, y + 5.5, { align: 'center' });
+      y += 16;
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.setTextColor(93, 64, 50);
+      wrap(p.title, pw).forEach(line => { doc.text(line, marg, y); y += 7; });
+      y += 4;
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.setTextColor(80, 60, 50);
+      wrap(p.desc, pw).forEach(line => { doc.text(line, marg, y); y += 5.5; });
+      y += 6;
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(93, 64, 50);
+      doc.text('O QUE ESTÁ ACONTECENDO:', marg, y);
+      y += 6;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9.5);
+      p.items.forEach(item => {
+        doc.setFillColor(201, 123, 69);
+        doc.circle(marg + 2, y - 1.5, 1.2, 'F');
+        const lines = wrap(item, pw - 8);
+        lines.forEach((line, i) => { doc.text(line, marg + 6, y + (i * 5)); });
+        y += lines.length * 5 + 3;
+      });
+      y += 4;
+
+      doc.setFillColor(255, 248, 234);
+      doc.setDrawColor(201, 123, 69);
+      doc.setLineWidth(0.8);
+      const urgLines = wrap(p.urgency, pw - 12);
+      const urgH = urgLines.length * 5 + 12;
+      doc.rect(marg, y, pw, urgH, 'FD');
+      doc.line(marg, y, marg, y + urgH);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8);
+      doc.setTextColor(201, 123, 69);
+      doc.text('POR QUE AGIR AGORA:', marg + 4, y + 6);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(93, 64, 50);
+      urgLines.forEach((line, i) => { doc.text(line, marg + 4, y + 12 + i * 5); });
+      y += urgH + 8;
+
+      if (y > 230) { doc.addPage(); y = 20; }
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(93, 64, 50);
+      doc.text('POR ONDE COMEÇAR AGORA', marg, y);
+      y += 8;
+
+      p.steps.forEach((s, i) => {
+        if (y > 255) { doc.addPage(); y = 20; }
+        doc.setFillColor(93, 64, 50);
+        doc.circle(marg + 4, y - 1, 4, 'F');
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9);
+        doc.setTextColor(252, 215, 149);
+        doc.text(String(i + 1), marg + 4, y + 0.5, { align: 'center' });
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.setTextColor(93, 64, 50);
+        doc.text(s.name, marg + 12, y);
+        y += 6;
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        doc.setTextColor(100, 80, 60);
+        wrap(s.detail, pw - 12).forEach(line => { doc.text(line, marg + 12, y); y += 5; });
+        y += 5;
+      });
+
+      doc.setFillColor(93, 64, 50);
+      doc.rect(0, 280, 210, 17, 'F');
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(200, 168, 130);
+      doc.text('ASM Marketing Digital  |  @anelitasmassucate  |  asmmktdigital.com.br', 105, 290, { align: 'center' });
+
+      doc.save('diagnostico-instagram-asm.pdf');
+    }
+
+    function showResult() {
+      currentProfile = calcProfile();
+      const p = profiles[currentProfile];
+      sendLeadEmail(currentProfile, p);
+
+      const msg = encodeURIComponent(`Oi, Anelita! Fiz o diagnóstico do meu Instagram pelo site da ASM e quero resolver isso agora. Meu perfil é ${userData.ig}.`);
+
+      document.getElementById('asm-content').innerHTML = `
+        <div class="asm-step-label">Análise concluída</div>
+        <div class="asm-result-card">
+          <div class="asm-result-badge">${p.badge}</div>
+          <div class="asm-result-title">${p.title}</div>
+          <div class="asm-result-desc">${p.desc}</div>
+          <div class="asm-result-items">${p.items.map(item => `<div class="asm-result-item"><div class="asm-result-item-dot"></div><div class="asm-result-item-text">${item}</div></div>`).join('')}</div>
+          <div class="asm-urgency">
+            <div class="asm-urgency-title">Por que agir agora?</div>
+            <div class="asm-urgency-text">${p.urgency}</div>
+          </div>
+        </div>
+        <div class="asm-cta-block">
+          <div class="asm-cta-text">Criamos um checklist para você dar os primeiros passos estratégicos. Me chame agora no WhatsApp para receber.</div>
+          <button class="asm-cta-btn" onclick="openWhatsApp('${msg}')">Chamar no WhatsApp</button>
+        </div>
+      `;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openWhatsApp(msg) {
+      window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
+    }
+
+    async function sendLeadEmail(profileKey, p) {
+      const labels = { parado: 'Perfil Parado', perdido: 'Perfil Perdido', travado: 'Perfil Travado' };
+      const services = { parado: 'Análise de Perfil + Social Media (base)', perdido: 'Criação de Estratégia Mensal ou Pack de Conteúdo', travado: 'Social Media com Roteiro de Stories' };
+
+      const answersRows = answers.map((a, i) => `
+        <tr style="background:${i % 2 === 0 ? '#FFF8EA' : '#ffffff'}">
+          <td style="padding:10px 14px;color:#5D4032;font-weight:600;border:1px solid #D4B896;vertical-align:top;width:50%">${questions[i].q}</td>
+          <td style="padding:10px 14px;color:#7A5C4A;border:1px solid #D4B896;vertical-align:top">${questions[i].opts[a]}</td>
+        </tr>`).join('');
+
+      const checklistRows = p.steps.map((s, i) => `
+        <tr>
+          <td style="padding:14px 16px;border-bottom:1px solid #D4B896">
+            <table cellpadding="0" cellspacing="0" style="width:100%"><tr>
+              <td style="width:32px;vertical-align:top;padding-right:12px">
+                <div style="width:28px;height:28px;background:#5D4032;border-radius:50%;color:#FCD795;font-weight:700;font-size:12px;text-align:center;line-height:28px">${i+1}</div>
+              </td>
+              <td style="vertical-align:top">
+                <div style="font-weight:700;color:#3A2018;margin-bottom:4px">${s.name}</div>
+                <div style="color:#7A5C4A;font-size:13px;line-height:1.6">${s.detail}</div>
+              </td>
+            </tr></table>
+          </td>
+        </tr>`).join('');
+
+      const html = `
+        <div style="font-family:Arial,sans-serif;max-width:620px;margin:0 auto;background:#FFF8EA">
+          <div style="background:#5D4032;padding:24px;text-align:center">
+            <div style="color:#FCD795;font-size:20px;font-weight:700;letter-spacing:3px">ASM MARKETING DIGITAL</div>
+            <div style="color:#C8A882;font-size:12px;letter-spacing:2px;margin-top:6px">NOVO LEAD — DIAGNÓSTICO DO INSTAGRAM</div>
+          </div>
+          <div style="padding:28px 24px">
+            <h2 style="color:#3A2018;font-size:16px;margin:0 0 16px">Dados do Cliente</h2>
+            <table style="width:100%;border-collapse:collapse;margin-bottom:28px">
+              <tr><td style="padding:8px 0;color:#7A5C4A;width:140px"><strong>Nome:</strong></td><td style="color:#3A2018">${userData.nome}</td></tr>
+              <tr><td style="padding:8px 0;color:#7A5C4A"><strong>WhatsApp:</strong></td><td style="color:#3A2018">${userData.wpp}</td></tr>
+              <tr><td style="padding:8px 0;color:#7A5C4A"><strong>Instagram:</strong></td><td style="color:#3A2018">${userData.ig}</td></tr>
+              <tr><td style="padding:8px 0;color:#7A5C4A"><strong>Segmento:</strong></td><td style="color:#3A2018">${userData.seg}</td></tr>
+            </table>
+
+            <div style="background:#5D4032;border-radius:10px;padding:16px 20px;margin-bottom:28px">
+              <div style="display:inline-block;background:#C97B45;color:#fff;font-size:11px;letter-spacing:2px;padding:4px 12px;border-radius:20px;font-weight:700;margin-bottom:10px">${labels[profileKey].toUpperCase()}</div>
+              <div style="color:#FCD795;font-size:15px;font-weight:600;line-height:1.4;margin-bottom:8px">${p.title}</div>
+              <div style="color:#C8A882;font-size:13px;line-height:1.6">${p.desc}</div>
+            </div>
+
+            <div style="background:#FFF0DC;border-left:3px solid #C97B45;border-radius:4px;padding:14px 16px;margin-bottom:28px">
+              <div style="font-size:11px;color:#C97B45;font-weight:700;letter-spacing:2px;margin-bottom:6px">INDICAÇÃO DE SERVIÇO</div>
+              <div style="color:#3A2018;font-size:14px">${services[profileKey]}</div>
+            </div>
+
+            <h2 style="color:#3A2018;font-size:16px;margin:0 0 12px">Respostas do Questionário</h2>
+            <table style="width:100%;border-collapse:collapse;margin-bottom:28px;border:1px solid #D4B896">
+              <tr style="background:#5D4032">
+                <th style="padding:10px 14px;color:#FCD795;text-align:left;font-size:12px;letter-spacing:1px">PERGUNTA</th>
+                <th style="padding:10px 14px;color:#FCD795;text-align:left;font-size:12px;letter-spacing:1px">RESPOSTA</th>
+              </tr>
+              ${answersRows}
+            </table>
+
+            <h2 style="color:#3A2018;font-size:16px;margin:0 0 12px">Checklist — Por onde começar agora</h2>
+            <table style="width:100%;border-collapse:collapse;border:1px solid #D4B896;border-radius:8px;overflow:hidden">
+              ${checklistRows}
+            </table>
+          </div>
+          <div style="background:#5D4032;padding:16px;text-align:center;font-size:12px;color:#C8A882">
+            ASM Marketing Digital &nbsp;|&nbsp; @anelitasmassucate &nbsp;|&nbsp; asmmktdigital.com.br
+          </div>
+        </div>`;
+
+      try {
+        await fetch(`${EMAIL_ENDPOINT}?to=${EMAIL_TO}&token=${EMAIL_TOKEN}`, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({
+            subject: `Novo lead: ${userData.nome} — ${labels[profileKey]}`,
+            html: html
+          })
+        });
+      } catch(e) { console.log('email error', e); }
+    }
+
+    showStep(0);
+  </script>
+</body>
+</html>

@@ -1,9 +1,8 @@
 import Image from "next/image";
+import { ArrowRight, ClipboardList } from "lucide-react";
 import { CTAButton } from "../CTAButton";
 import { ScrollAnimation } from "../ScrollAnimation";
 import { FloatingAnimation } from "../FloatingAnimation";
-import { FinalMouseParallax } from "../FinalMouseParallax";
-import { ParticleField } from "../ParticleField";
 
 export function Hero() {
   return (
@@ -11,21 +10,15 @@ export function Hero() {
       className='relative overflow-hidden min-h-screen bg-gradient-to-br '
       aria-label='Seção principal - ASM Marketing Digital'
     >
-      {/* Background com efeito parallax */}
-      <FinalMouseParallax
-        className='hero-bg-container parallax-bg'
-        intensity={0.5}
-      >
+      {/* Background estático */}
+      <div className="hero-bg-container parallax-bg opacity-30">
         <div
           className="w-full h-full bg-contain bg-[url('/hero-bg.webp')] bg-center bg-no-repeat"
           aria-hidden='true'
         />
-      </FinalMouseParallax>
+      </div>
 
-      {/* Campo de partículas */}
-      <ParticleField />
-
-      <FloatingAnimation delay={1}>
+<FloatingAnimation delay={1}>
         <div
           className='absolute w-60 h-60 bg-[#C97B45] rounded-full blur-3xl opacity-50 -left-10 -top-10 z-10'
           aria-hidden='true'
@@ -63,7 +56,24 @@ export function Hero() {
             </ScrollAnimation>
 
             <ScrollAnimation animation='scale-in' delay='delay-500'>
-              <CTAButton />
+              <a
+                href='/diagnostico-gratuito'
+                className='block gradient-mesh text-white font-medium px-6 py-5 rounded-xl cursor-pointer w-full max-w-[370px] hover-scale focus:outline-none focus:ring-2 focus:ring-[#C97B45] focus:ring-offset-2 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group'
+              >
+                <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700' />
+                <span className='flex items-center gap-2 w-full relative z-10'>
+                  <ClipboardList size={30} className='min-w-[30px]' aria-hidden='true' />
+                  <span className='text-left leading-5 font-semibold'>Faça o diagnóstico digital gratuito</span>
+                </span>
+              </a>
+              <a
+                href='https://docs.google.com/forms/d/e/1FAIpQLSdKF-9LGmGABUpvRV8oT_DwGlO7A4ea4XKZ53Wr-rO-9KY9Ng/viewform?usp=sf_link'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='mt-3 flex items-center justify-center gap-1 text-sm font-medium text-[#5D4032] underline underline-offset-4 hover:text-[#C97B45] transition-colors duration-200'
+              >
+                Ou agende sua consultoria gratuita <ArrowRight size={14} />
+              </a>
             </ScrollAnimation>
 
             <ScrollAnimation animation='fade-in-up' delay='delay-600'>
@@ -81,17 +91,13 @@ export function Hero() {
             <Image
               src='/hero-person.webp'
               alt='Anelita Massucate - Especialista em Marketing Digital Estratégico'
-              width={400}
-              height={400}
+              width={600}
+              height={600}
               priority
             />
           </ScrollAnimation>
 
-          <ScrollAnimation animation='fade-in-up' delay='delay-700'>
-            <p className='text-sm text-gray-700 mx-2 py-4 pl-5'>
-              <strong>Anelita Massucate</strong> - Marketing Digital Estratégico
-            </p>
-          </ScrollAnimation>
+
         </aside>
       </div>
     </section>

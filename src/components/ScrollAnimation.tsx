@@ -27,14 +27,23 @@ export function ScrollAnimation({
     const element = elementRef.current;
     if (!element) return;
 
+    const applyAnimation = () => {
+      element.classList.add(`animate-${animation}`);
+      if (delay) element.classList.add(delay);
+    };
+
+    // Aplica imediatamente se o elemento já passou pelo viewport (scroll restaurado ao voltar)
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      applyAnimation();
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(`animate-${animation}`);
-            if (delay) {
-              entry.target.classList.add(delay);
-            }
+            applyAnimation();
             observer.unobserve(entry.target);
           }
         });

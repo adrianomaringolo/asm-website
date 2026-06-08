@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { ScrollAnimation } from "../ScrollAnimation";
 import { FloatingAnimation } from "../FloatingAnimation";
-import { ParticleField } from "../ParticleField";
 
 export function Bio() {
   const highlights = [
@@ -44,7 +43,6 @@ export function Bio() {
       className='py-16 px-6 md:px-12 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden'
       aria-label='Biografia de Anelita Massucate'
     >
-      <ParticleField />
       {/* Elementos decorativos flutuantes */}
       <FloatingAnimation delay={0.5}>
         <div className='absolute w-40 h-40 bg-[#C97B45] rounded-full blur-3xl opacity-20 -left-10 top-20' />
