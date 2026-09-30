@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ExternalLink, Loader2 } from "lucide-react";
-import Image from "next/image";
+import { InstagramIcon } from "./InstagramIcon";
 
 export function InstagramFeed() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -45,82 +45,59 @@ export function InstagramFeed() {
     };
   }, []);
 
-  if (hasError) {
-    return (
-      <div className='bg-white rounded-2xl p-8 shadow-lg border border-gray-100'>
-        <div className='text-center'>
-          <div className='w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4'>
-            <Image src='/instagram-logo.png' alt='Instagram' width={32} height={32} />
-          </div>
-          <h3 className='text-2xl font-bold text-gray-800 mb-4'>
-            Siga-nos no Instagram
-          </h3>
-          <p className='text-gray-600 mb-6'>
-            Não foi possível carregar o feed. Visite nosso perfil diretamente:
-          </p>
-          <a
-            href='https://instagram.com/anelitasmassucate'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all duration-300 font-semibold'
-          >
-            <Image src='/instagram-logo.png' alt='Instagram' width={20} height={20} />
-            Seguir no Instagram
-            <ExternalLink size={16} />
-          </a>
-        </div>
-      </div>
-    );
-  }
+  const profileLink = (
+    <a
+      href='https://instagram.com/anelitasmassucate'
+      target='_blank'
+      rel='noopener noreferrer'
+      className='inline-flex items-center gap-2 text-sm font-semibold text-cafe underline underline-offset-4 decoration-terracota/60 hover:text-cafe-deep hover:decoration-terracota transition-colors duration-200'
+    >
+      <InstagramIcon size={18} />
+      {hasError ? "Seguir no Instagram" : "Ver mais no Instagram"}
+      <ExternalLink size={14} strokeWidth={1.75} aria-hidden='true' />
+    </a>
+  );
 
   return (
-    <div className='bg-white rounded-2xl p-8 shadow-lg border border-gray-100'>
-      <div className='flex items-center gap-3 mb-6'>
-        <div className='w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl flex items-center justify-center'>
-          <Image src='/instagram-logo.png' alt='Instagram' width={24} height={24} />
+    <div>
+      <div className='flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-cafe/15'>
+        <div className='flex items-center gap-4'>
+          <span className='grid place-items-center w-12 h-12 rounded-full bg-terracota/12 text-terracota shrink-0'>
+            <InstagramIcon size={22} />
+          </span>
+          <div>
+            <h2 className='text-4xl md:text-5xl leading-[1.1] text-cafe-deep'>
+              {hasError ? "Siga-nos no Instagram" : "Nosso Instagram"}
+            </h2>
+            <p className='mt-2 text-cafe-muted'>
+              {hasError
+                ? "Não foi possível carregar o feed. Visite nosso perfil diretamente:"
+                : "Acompanhe nossos últimos posts e cases de sucesso"}
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 className='text-2xl font-bold text-gray-800'>Nosso Instagram</h3>
-          <p className='text-gray-600'>
-            Acompanhe nossos últimos posts e cases de sucesso
-          </p>
-        </div>
+        {profileLink}
       </div>
 
-      {!isLoaded && (
-        <div className='flex items-center justify-center py-12'>
-          <Loader2 className='animate-spin text-gray-400' size={32} />
-          <span className='ml-3 text-gray-600'>
-            Carregando feed do Instagram...
-          </span>
+      {!hasError && !isLoaded && (
+        <div className='flex items-center justify-center py-16 text-cafe-muted'>
+          <Loader2 className='animate-spin' size={28} strokeWidth={1.75} aria-hidden='true' />
+          <span className='ml-3'>Carregando feed do Instagram...</span>
         </div>
       )}
 
-      {/* Widget do Elfsight */}
-      <div
-        className={`transition-opacity duration-500 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      {!hasError && (
         <div
-          className='elfsight-app-98dd8bf7-186a-4895-8828-06b3dd05a2aa'
-          data-elfsight-app-lazy
-        />
-      </div>
-
-      {/* Link para o perfil */}
-      <div className='mt-6 text-center'>
-        <a
-          href='https://instagram.com/anelitasmassucate'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='inline-flex items-center gap-2 text-gray-600 hover:text-pink-600 transition-colors font-medium'
+          className={`mt-8 transition-opacity duration-500 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
         >
-          <Image src='/instagram-logo.png' alt='Instagram' width={18} height={18} />
-          Ver mais no Instagram
-          <ExternalLink size={14} />
-        </a>
-      </div>
+          <div
+            className='elfsight-app-98dd8bf7-186a-4895-8828-06b3dd05a2aa'
+            data-elfsight-app-lazy
+          />
+        </div>
+      )}
     </div>
   );
 }

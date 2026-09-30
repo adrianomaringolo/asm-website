@@ -9,8 +9,7 @@ interface ScrollAnimationProps {
     | "fade-in-right"
     | "fade-in"
     | "scale-in"
-    | "slide-in-up"
-    | "bounce-in";
+    | "slide-in-up";
   delay?: string;
   className?: string;
 }

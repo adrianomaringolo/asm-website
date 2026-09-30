@@ -261,7 +261,7 @@ export function ColorPaletteGenerator() {
                     onClick={() => copyColor(color.hex)}
                   />
                   <div className='mt-2'>
-                    <div className='text-xs font-mono text-gray-600'>
+                    <div className='text-xs tabular-nums text-gray-600'>
                       {color.hex}
                     </div>
                     <div className='text-xs text-gray-500 mt-1'>

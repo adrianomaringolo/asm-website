@@ -1,105 +1,99 @@
 import Image from "next/image";
 import { ArrowRight, ClipboardList } from "lucide-react";
-import { CTAButton } from "../CTAButton";
 import { ScrollAnimation } from "../ScrollAnimation";
-import { FloatingAnimation } from "../FloatingAnimation";
 
 export function Hero() {
   return (
     <section
-      className='relative overflow-hidden min-h-screen flex flex-col justify-center'
+      className='relative overflow-hidden min-h-screen flex flex-col justify-center bg-off-white'
       aria-label='Seção principal - ASM Marketing Digital'
     >
-      {/* Background estático */}
-      <div className="hero-bg-container parallax-bg opacity-30">
-        <div
-          className="w-full h-full bg-contain bg-[url('/hero-bg.webp')] bg-center bg-no-repeat"
-          aria-hidden='true'
-        />
-      </div>
+      <div className='w-full max-w-6xl mx-auto px-6 md:px-12 py-16 grid md:grid-cols-2 items-center gap-12 md:gap-16'>
+        <header className='max-w-xl'>
+          <ScrollAnimation animation='fade-in' delay='delay-100'>
+            <Image
+              src='/logo-asm.webp'
+              alt='Logo ASM Marketing Digital - Consultoria em Marketing Digital'
+              width={869}
+              height={176}
+              className='block w-full max-w-[420px] h-auto mb-12'
+              priority
+            />
+          </ScrollAnimation>
 
-<FloatingAnimation delay={1}>
-        <div
-          className='absolute w-60 h-60 bg-[#C97B45] rounded-full blur-3xl opacity-50 -left-10 -top-10 z-10'
-          aria-hidden='true'
-        />
-      </FloatingAnimation>
+          <ScrollAnimation animation='fade-in-up' delay='delay-200'>
+            <h1 className='text-[2.5rem] md:text-[3.5rem] leading-[1.05] text-cafe-deep text-balance'>
+              Você sente que sua{" "}
+              <span className='text-terracota'>presença no digital</span>{" "}
+              poderia estar gerando mais resultados?
+            </h1>
+          </ScrollAnimation>
 
-      <div className='mx-auto md:flex items-center gap-10 relative z-10'>
-        <header className='flex-1 flex justify-center md:justify-end'>
-          <div className='max-w-xl space-y-4 px-5 md:px-12 py-16'>
-            <ScrollAnimation animation='bounce-in' delay='delay-200'>
-              <Image
-                src='/logo-asm.webp'
-                alt='Logo ASM Marketing Digital - Consultoria em Marketing Digital'
-                width={869}
-                height={176}
-                className='block w-full h-auto mb-8'
-                priority
-              />
-            </ScrollAnimation>
+          <ScrollAnimation animation='fade-in-up' delay='delay-300'>
+            <p className='mt-6 text-lg leading-relaxed text-cafe'>
+              Se você é uma <strong>empresa</strong> ou{" "}
+              <strong>profissional autônomo</strong>, chegou a hora de
+              transformar sua presença online com{" "}
+              <em>estratégia e propósito</em>.
+            </p>
+          </ScrollAnimation>
 
-            <ScrollAnimation animation='fade-in-up' delay='delay-300'>
-              <h1 className='text-4xl md:text-5xl leading-[1.1] font-extrabold mb-4'>
-                Você sente que sua{" "}
-                <span className='text-gradient'>presença no digital</span>{" "}
-                poderia estar gerando mais resultados?
-              </h1>
-            </ScrollAnimation>
-
-            <ScrollAnimation animation='fade-in-up' delay='delay-400'>
-              <p className='text-lg leading-relaxed'>
-                Se você é uma <strong>empresa</strong> ou{" "}
-                <strong>profissional autônomo</strong>, chegou a hora de
-                transformar sua presença online com{" "}
-                <em>estratégia e propósito</em>.
-              </p>
-            </ScrollAnimation>
-
-            <ScrollAnimation animation='scale-in' delay='delay-500'>
+          <ScrollAnimation animation='fade-in-up' delay='delay-400'>
+            <div className='mt-8 flex flex-col items-start gap-4'>
               <a
                 href='/diagnostico-gratuito'
-                className='block gradient-mesh text-white font-medium px-6 py-5 rounded-xl cursor-pointer w-full max-w-[370px] hover-scale focus:outline-none focus:ring-2 focus:ring-[#C97B45] focus:ring-offset-2 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group'
+                className='flex items-center gap-3 w-full max-w-[370px] px-6 py-5 rounded-xl bg-cafe text-white font-semibold transition-colors duration-200 ease-out hover:bg-cafe-deep'
               >
-                <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700' />
-                <span className='flex items-center gap-2 w-full relative z-10'>
-                  <ClipboardList size={30} className='min-w-[30px]' aria-hidden='true' />
-                  <span className='text-left leading-5 font-semibold'>Faça o diagnóstico digital gratuito</span>
+                <ClipboardList size={26} strokeWidth={1.75} className='shrink-0' aria-hidden='true' />
+                <span className='text-left leading-5'>
+                  Faça o diagnóstico digital gratuito
                 </span>
               </a>
               <a
                 href='https://docs.google.com/forms/d/e/1FAIpQLSdKF-9LGmGABUpvRV8oT_DwGlO7A4ea4XKZ53Wr-rO-9KY9Ng/viewform?usp=sf_link'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='mt-3 flex items-center justify-center gap-1 text-sm font-medium text-[#5D4032] underline underline-offset-4 hover:text-[#C97B45] transition-colors duration-200'
+                className='inline-flex items-center gap-1.5 text-sm font-semibold text-cafe underline underline-offset-4 decoration-terracota/60 hover:text-cafe-deep hover:decoration-terracota transition-colors duration-200'
               >
-                Ou agende sua consultoria gratuita <ArrowRight size={14} />
+                Ou agende sua consultoria gratuita{" "}
+                <ArrowRight size={14} aria-hidden='true' />
               </a>
-            </ScrollAnimation>
-
-            <ScrollAnimation animation='fade-in-up' delay='delay-600'>
-              <p className='mb-6 font-light text-gray-600 leading-relaxed'>
-                Na <strong>ASM Marketing Digital</strong>, criamos estratégias
-                inteligentes, visuais impactantes e soluções completas para
-                impulsionar marcas no Instagram e em todo o digital.
-              </p>
-            </ScrollAnimation>
-          </div>
-        </header>
-
-        <aside className='flex-1' aria-label='Sobre Anelita Massucate'>
-          <ScrollAnimation animation='fade-in-right' delay='delay-400'>
-            <Image
-              src='/hero-person.webp'
-              alt='Anelita Massucate - Especialista em Marketing Digital Estratégico'
-              width={600}
-              height={600}
-              className='[mask-image:linear-gradient(to_bottom,black_70%,transparent)]'
-              priority
-            />
+            </div>
           </ScrollAnimation>
 
+          <ScrollAnimation animation='fade-in-up' delay='delay-500'>
+            <p className='mt-10 pt-6 border-t border-cafe/15 text-cafe-muted leading-relaxed'>
+              Na <strong className='text-cafe'>ASM Marketing Digital</strong>,
+              criamos estratégias inteligentes, visuais impactantes e soluções
+              completas para impulsionar marcas no Instagram e em todo o
+              digital.
+            </p>
+          </ScrollAnimation>
+        </header>
 
+        <aside
+          className='w-full max-w-[520px] mx-auto md:mx-0 md:justify-self-end'
+          aria-label='Sobre Anelita Massucate'
+        >
+          <ScrollAnimation animation='fade-in' delay='delay-300'>
+            <div className='relative pt-10'>
+              <div
+                className='absolute inset-x-0 bottom-0 top-[22%] rounded-2xl bg-cafe overflow-hidden'
+                aria-hidden='true'
+              >
+                <div className="absolute inset-0 bg-[url('/brand/pattern-monograma.webp')] bg-cover bg-center opacity-45" />
+              </div>
+              <Image
+                src='/hero-person.webp'
+                alt='Anelita Massucate - Especialista em Marketing Digital Estratégico'
+                width={768}
+                height={1006}
+                sizes='(min-width: 768px) 520px, 90vw'
+                className='relative w-full h-auto rounded-b-2xl'
+                priority
+              />
+            </div>
+          </ScrollAnimation>
         </aside>
       </div>
     </section>

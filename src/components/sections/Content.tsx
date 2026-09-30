@@ -1,30 +1,25 @@
 import { CTAEbookButton } from "../CTAEbookButton";
 import { ScrollAnimation } from "../ScrollAnimation";
-import { FloatingAnimation } from "../FloatingAnimation";
 
 export function Content() {
   return (
     <section
       id='conteudos'
-      className='py-16 px-6 md:px-12 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100'
+      className='py-20 md:py-28 px-6 md:px-12 relative overflow-hidden bg-cafe text-white'
       aria-label='Conteúdos e recursos gratuitos'
     >
       <div
-        className="absolute -right-16 top-1/2 -translate-y-1/2 w-72 md:w-96 aspect-[554/662] bg-[url('/logo-asm-small.webp')] bg-contain bg-no-repeat opacity-10 pointer-events-none"
+        className="absolute -right-16 top-1/2 -translate-y-1/2 w-72 md:w-[26rem] aspect-[554/662] bg-dourado opacity-15 pointer-events-none [mask-image:url('/logo-asm-small.webp')] [mask-size:contain] [mask-repeat:no-repeat]"
         aria-hidden='true'
       />
 
-      <FloatingAnimation delay={0.5}>
-        <div className='absolute w-60 h-60 bg-[#C97B45] rounded-full blur-3xl opacity-50 -left-20 -top-10' />
-      </FloatingAnimation>
-
       <div className='max-w-6xl mx-auto relative'>
         <ScrollAnimation animation='fade-in-up' delay='delay-100'>
-          <div className='text-center mb-16'>
-            <h2 className='text-4xl md:text-5xl font-bold mb-4'>
-              Conteúdos <span className='text-gradient'>Gratuitos</span>
+          <div className='text-center mb-12'>
+            <h2 className='text-4xl md:text-5xl leading-[1.1]'>
+              Conteúdos <span className='text-dourado'>Gratuitos</span>
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+            <p className='mt-5 text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed'>
               Aprenda a criar conteúdo rápido, criativo e estratégico com nossos
               recursos gratuitos. Baixe o nosso e-book e descubra como podemos
               ajudá-lo a alcançar seus objetivos.
@@ -32,7 +27,7 @@ export function Content() {
           </div>
         </ScrollAnimation>
 
-        <ScrollAnimation animation='scale-in' delay='delay-200'>
+        <ScrollAnimation animation='fade-in-up' delay='delay-200'>
           <CTAEbookButton />
         </ScrollAnimation>
       </div>

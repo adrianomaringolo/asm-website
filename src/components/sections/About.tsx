@@ -1,82 +1,59 @@
 import { ScrollAnimation } from "../ScrollAnimation";
-import { FloatingAnimation } from "../FloatingAnimation";
 
 export const About = () => {
   return (
     <section
       id='sobre'
-      className='py-16 px-6 md:px-12 bg-[#2c2c2c] text-white relative overflow-hidden'
+      className='py-20 md:py-28 px-6 md:px-12 bg-cafe text-white'
       aria-label='Sobre a ASM Marketing Digital'
     >
-      <FloatingAnimation delay={0.5}>
-        <div
-          className='absolute w-60 h-60 bg-white rounded-full blur-3xl opacity-50 -right-50 -top-30'
-          aria-hidden='true'
-        />
-      </FloatingAnimation>
+      <div className='max-w-6xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16'>
+        <div className='md:col-span-5'>
+          <ScrollAnimation animation='fade-in-up' delay='delay-100'>
+            <h2 className='text-4xl md:text-5xl leading-[1.1]'>Somos a ASM</h2>
+          </ScrollAnimation>
 
-      <FloatingAnimation delay={1}>
-        <div
-          className='absolute w-60 h-60 bg-white rounded-full blur-3xl opacity-50 -left-50 -bottom-30'
-          aria-hidden='true'
-        />
-      </FloatingAnimation>
-
-      <div className='max-w-6xl mx-auto'>
-        <ScrollAnimation animation='fade-in-left' delay='delay-100'>
-          <h2 className='text-2xl font-bold mb-4'>Somos a ASM</h2>
-        </ScrollAnimation>
-
-        <ScrollAnimation animation='fade-in-up' delay='delay-200'>
-          <p className=' mb-4'>
-            Com mais de 7 anos de experiência no mercado, ajudamos empresas e
-            profissionais a construírem autoridade, gerarem engajamento e
-            converterem seguidores em clientes.
-          </p>
-        </ScrollAnimation>
-
-        <ScrollAnimation animation='fade-in-up' delay='delay-300'>
-          <p className=' mb-8'>
-            Contamos com uma equipe especializada em cada etapa do marketing
-            digital, com foco total em resultado e posicionamento.
-          </p>
-        </ScrollAnimation>
-
-        <ScrollAnimation animation='fade-in-up' delay='delay-400'>
-          <div className='relative'>
-            {/* Linha decorativa superior */}
-            <div className='w-20 h-1 bg-gradient-to-r from-[#C97B45] to-white mx-auto mb-6 rounded-full'></div>
-
-            {/* Frase destacada */}
-            <blockquote className='text-center relative'>
-              <div className='absolute -top-4 -left-4 text-6xl text-[#C97B45] opacity-30 font-serif'>
-                &quot;
-              </div>
-              <p className='text-lg md:text-xl font-medium leading-relaxed italic text-white/95 max-w-4xl mx-auto px-8'>
-                Acredito no poder do digital como ferramenta de transformação —
-                e trabalho todos os dias para que empresas e profissionais
-                autônomos se posicionem com clareza, autenticidade e resultados
-                consistentes.
+          <ScrollAnimation animation='fade-in-up' delay='delay-200'>
+            <div className='mt-6 space-y-4 text-lg leading-relaxed text-white/85'>
+              <p>
+                Com mais de 7 anos de experiência no mercado, ajudamos empresas
+                e profissionais a construírem autoridade, gerarem engajamento e
+                converterem seguidores em clientes.
               </p>
-              <div className='absolute -bottom-4 -right-4 text-6xl text-[#C97B45] opacity-30 font-serif rotate-180'>
-                &quot;
-              </div>
-            </blockquote>
-
-            {/* Assinatura */}
-            <div className='text-center mt-6'>
-              <div className='w-16 h-px bg-[#C97B45] mx-auto mb-3'></div>
-              <cite className='text-[#C97B45] font-semibold not-italic'>
-                Anelita Massucate
-              </cite>
-              <p className='text-white/70 text-sm mt-1'>
-                Fundadora da ASM Marketing Digital
+              <p>
+                Contamos com uma equipe especializada em cada etapa do marketing
+                digital, com foco total em resultado e posicionamento.
               </p>
             </div>
+          </ScrollAnimation>
+        </div>
 
-            {/* Linha decorativa inferior */}
-            <div className='w-20 h-1 bg-gradient-to-r from-white to-[#C97B45] mx-auto mt-6 rounded-full'></div>
-          </div>
+        <ScrollAnimation
+          animation='fade-in-up'
+          delay='delay-300'
+          className='md:col-span-7'
+        >
+          <figure className='md:pl-16 md:border-l border-dourado/30'>
+            <blockquote>
+              <p className='font-serif italic text-3xl md:text-4xl leading-[1.25] text-areia text-pretty'>
+                &ldquo;Acredito no poder do digital como ferramenta de
+                transformação — e trabalho todos os dias para que empresas e
+                profissionais autônomos se posicionem com clareza,
+                autenticidade e resultados consistentes.&rdquo;
+              </p>
+            </blockquote>
+            <figcaption className='mt-8 flex items-center gap-4'>
+              <span className='w-10 h-px bg-dourado' aria-hidden='true' />
+              <span>
+                <cite className='block not-italic font-semibold text-dourado'>
+                  Anelita Massucate
+                </cite>
+                <span className='block text-sm text-white/70'>
+                  Fundadora da ASM Marketing Digital
+                </span>
+              </span>
+            </figcaption>
+          </figure>
         </ScrollAnimation>
       </div>
     </section>

@@ -1,49 +1,85 @@
 @import "tailwindcss";
 
+/* Tokens da marca: DESIGN.md (o documento "DNA de marca" é a autoridade) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f4f2;
+  --foreground: #52382a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-terracota: #c47750;
+  --color-cafe: #52382a;
+  --color-cafe-deep: #3a2a21;
+  --color-cafe-muted: #6b574c;
+  --color-areia: #ebd4a3;
+  --color-off-white: #f4f4f2;
+  --color-dourado: #dca552;
+
   --font-sans: var(--font-manrope), sans-serif;
   --font-serif: var(--font-cormorant), serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-body {
-  font-family: var(--font-manrope), sans-serif;
-}
-
-/* Scroll suave */
 html {
   scroll-behavior: smooth;
 }
 
-/* Scrollbar personalizada */
+body {
+  font-family: var(--font-manrope), sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Marca: títulos em Cormorant Garamond; textos em Manrope até SemiBold (DESIGN.md) */
+h1,
+h2 {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 400;
+  font-variant-numeric: lining-nums;
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+::selection {
+  background: rgba(196, 119, 80, 0.25);
+  color: #3a2a21;
+}
+
+:focus-visible {
+  outline: 2px solid #c47750;
+  outline-offset: 3px;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f4f4f2;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #C97B45, #5D4032);
+  background: #52382a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #5D4032, #C97B45);
+  background: #3a2a21;
 }
 
-/* Animações de entrada otimizadas para SEO */
-@keyframes fadeInUp {
+/* Entrada ao rolar: uma só, discreta, para todas as variantes */
+@keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -51,328 +87,58 @@ html {
   }
 }
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Classes de animação */
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.animate-fade-in-left {
-  animation: fadeInLeft 0.8s ease-out forwards;
-}
-
-.animate-fade-in-right {
-  animation: fadeInRight 0.8s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.8s ease-out forwards;
-}
-
-.animate-slide-in-up {
-  animation: slideInUp 0.8s ease-out forwards;
-}
-
-.animate-bounce-in {
-  animation: bounceIn 0.8s ease-out forwards;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Estados iniciais - elementos ficam visíveis para SEO mas com opacity 0 */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(20px);
 }
 
-/* Quando a animação é ativada */
-.animate-on-scroll.animate-in {
-  opacity: 1;
-  transform: translateY(0);
+.animate-fade-in-up,
+.animate-fade-in-left,
+.animate-fade-in-right,
+.animate-fade-in,
+.animate-scale-in,
+.animate-slide-in-up {
+  animation: rise 0.9s var(--ease-out-expo) forwards;
 }
 
-/* Delays para animações em sequência */
 .delay-100 {
-  animation-delay: 0.1s;
+  animation-delay: 0.05s;
 }
 .delay-200 {
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
 }
 .delay-300 {
-  animation-delay: 0.3s;
+  animation-delay: 0.15s;
 }
 .delay-400 {
-  animation-delay: 0.4s;
+  animation-delay: 0.2s;
 }
 .delay-500 {
-  animation-delay: 0.5s;
+  animation-delay: 0.25s;
 }
 .delay-600 {
-  animation-delay: 0.6s;
+  animation-delay: 0.3s;
 }
 .delay-700 {
-  animation-delay: 0.7s;
+  animation-delay: 0.35s;
 }
 .delay-800 {
-  animation-delay: 0.8s;
+  animation-delay: 0.4s;
 }
 
-/* Efeitos de hover para botões */
-.hover-scale {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Animações específicas para cards */
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-
-.card-hover::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, #C97B45, transparent, #5D4032);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: xor;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(201, 123, 69, 0.3),
-    0 0 0 1px rgba(201, 123, 69, 0.1);
-}
-
-.card-hover:hover::before {
-  opacity: 1;
-}
-
-/* Efeitos de micro-interações */
-.micro-bounce {
-  transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.micro-bounce:hover {
-  transform: scale(1.05);
-}
-
-.micro-bounce:active {
-  transform: scale(0.95);
-}
-
-.pulse-on-hover {
-  transition: all 0.3s ease;
-}
-
-.pulse-on-hover:hover {
-  animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-/* Efeito parallax para background */
-.parallax-bg {
-  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-}
-
-/* Gradientes modernos e efeitos de luz */
-.gradient-mesh {
-  background: linear-gradient(
-    135deg,
-    #C97B45 0%,
-    #5D4032 25%,
-    #C97B45 50%,
-    #A06030 75%,
-    #5D4032 100%
-  );
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.glass-effect {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.neon-glow {
-  box-shadow: 0 0 20px rgba(201, 123, 69, 0.3),
-    0 0 40px rgba(201, 123, 69, 0.2), 0 0 60px rgba(201, 123, 69, 0.1);
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, #C97B45, #5D4032, #A06030);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-bg-container {
-  position: absolute;
-  top: -5%;
-  left: -5%;
-  width: 110%;
-  height: 110%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-
-/* Otimização para dispositivos móveis */
-@media (max-width: 768px) {
-  .parallax-bg {
-    transform: none !important;
-  }
-
-  .hero-bg-container {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-/* Prefers-reduced-motion para acessibilidade */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .animate-on-scroll,
   .animate-fade-in-up,
   .animate-fade-in-left,
   .animate-fade-in-right,
   .animate-fade-in,
   .animate-scale-in,
-  .animate-slide-in-up,
-  .animate-bounce-in,
-  .animate-float,
-  .parallax-bg {
+  .animate-slide-in-up {
     animation: none;
     opacity: 1;
-    transform: none !important;
+    transform: none;
   }
 }

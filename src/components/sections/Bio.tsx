@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Palette, Smartphone, Target, Zap, Lightbulb } from "lucide-react";
 import { ScrollAnimation } from "../ScrollAnimation";
-import { FloatingAnimation } from "../FloatingAnimation";
 
 export function Bio() {
   const highlights = [
@@ -41,170 +40,151 @@ export function Bio() {
   return (
     <section
       id='bio'
-      className='py-16 px-6 md:px-12 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden'
+      className='py-20 md:py-28 px-6 md:px-12 bg-off-white relative overflow-hidden'
       aria-label='Biografia de Anelita Massucate'
     >
-      {/* Elementos decorativos flutuantes */}
-      <FloatingAnimation delay={0.5}>
-        <div className='absolute w-40 h-40 bg-[#C97B45] rounded-full blur-3xl opacity-20 -left-10 top-20' />
-      </FloatingAnimation>
-      <FloatingAnimation delay={1}>
-        <div className='absolute w-32 h-32 bg-[#5D4032] rounded-full blur-2xl opacity-15 -right-10 bottom-20' />
-      </FloatingAnimation>
-
       <div className='max-w-6xl mx-auto'>
-        {/* Título principal com destaque */}
-        <ScrollAnimation animation='fade-in-up' delay='delay-100'>
-          <div className='text-center mb-12'>
-            <h2 className='text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#5D4032] to-[#C97B45] bg-clip-text text-transparent'>
-              Quem sou eu?
-            </h2>
-            <div className='w-20 h-1 bg-gradient-to-r from-[#C97B45] to-[#5D4032] mx-auto rounded-full'></div>
-          </div>
-        </ScrollAnimation>
-
-        <div className='grid md:grid-cols-2 items-start gap-12'>
-          {/* Coluna da imagem com elementos interativos */}
-          <ScrollAnimation animation='fade-in-left' delay='delay-200'>
-            <div className='relative'>
-              {/* Foto principal - reduzida */}
-              <div className='relative group mb-8 flex justify-center'>
-                <div className='relative'>
-                  <div className='absolute -inset-2 bg-gradient-to-r from-[#C97B45] to-[#5D4032] rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200'></div>
-                  <Image
-                    src='/photo-bio.webp'
-                    alt='Foto de rosto da Anelita'
-                    width={280}
-                    height={280}
-                    className='relative rounded-2xl bg-gray-200 hover:scale-105 transition-transform duration-500'
-                  />
-                </div>
-              </div>
-
-              {/* Cards de expertise com ícones e descrições */}
-              <div className='space-y-4'>
-                {expertise.map((skill, index) => (
-                  <ScrollAnimation
-                    key={skill.title}
-                    animation='fade-in-left'
-                    delay={`delay-${400 + index * 100}`}
-                  >
-                    <div className='bg-white rounded-xl p-4 shadow-md border border-gray-100 hover:shadow-lg hover:scale-105 transition-all duration-300 group'>
-                      <div className='flex items-start space-x-3'>
-                        <div className='text-[#C97B45] group-hover:scale-110 transition-transform duration-300'>
-                          <skill.icon size={26} aria-hidden='true' />
-                        </div>
-                        <div className='flex-1'>
-                          <h4 className='font-semibold text-gray-800 mb-1'>
-                            {skill.title}
-                          </h4>
-                          <p className='text-sm text-gray-600 leading-relaxed'>
-                            {skill.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </ScrollAnimation>
-                ))}
-              </div>
-            </div>
+        <div className='grid md:grid-cols-12 gap-12 md:gap-16 items-start'>
+          {/* Retrato */}
+          <ScrollAnimation
+            animation='fade-in-left'
+            delay='delay-200'
+            className='md:col-span-5 md:sticky md:top-24'
+          >
+            <figure className='relative max-w-[260px] sm:max-w-xs mx-auto md:max-w-none'>
+              <div
+                className='absolute -bottom-4 -right-4 w-full h-full rounded-2xl border border-terracota/40'
+                aria-hidden='true'
+              />
+              <Image
+                src='/photo-bio.webp'
+                alt='Anelita Scaliza Massucate, fundadora da ASM Marketing Digital'
+                width={500}
+                height={816}
+                sizes='(min-width: 768px) 40vw, 384px'
+                className='relative w-full h-auto rounded-2xl shadow-[0_20px_40px_-20px_rgba(82,56,42,0.45)]'
+              />
+            </figure>
           </ScrollAnimation>
 
-          {/* Coluna do conteúdo */}
-          <div className='space-y-6'>
-            {/* Introdução destacada */}
-            <ScrollAnimation animation='fade-in-right' delay='delay-200'>
-              <div className='bg-gradient-to-r from-[#C97B45]/10 to-[#5D4032]/10 rounded-xl p-6 border-l-4 border-[#C97B45]'>
-                <p className='text-lg font-medium text-gray-800 leading-relaxed'>
-                  Sou{" "}
-                  <span className='font-bold text-[#5D4032]'>
-                    Anelita Scaliza Massucate
-                  </span>
-                  , mãe e empreendedora apaixonada por transformar marcas e
-                  pessoas por meio do digital.
-                </p>
-              </div>
+          {/* História */}
+          <div className='md:col-span-7'>
+            <ScrollAnimation animation='fade-in-up' delay='delay-100'>
+              <h2 className='text-4xl md:text-5xl leading-[1.1] text-cafe-deep text-balance'>
+                Quem sou eu?
+              </h2>
+              <p className='mt-6 font-serif text-2xl md:text-3xl leading-snug text-cafe text-pretty'>
+                Sou{" "}
+                <span className='font-semibold text-cafe-deep'>
+                  Anelita Scaliza Massucate
+                </span>
+                , mãe e empreendedora apaixonada por transformar marcas e
+                pessoas por meio do digital.
+              </p>
             </ScrollAnimation>
 
-            {/* Números de destaque */}
-            <ScrollAnimation animation='fade-in-up' delay='delay-300'>
-              <div className='grid grid-cols-3 gap-4 my-8'>
-                {highlights.map((item, index) => (
-                  <div
-                    key={index}
-                    className='text-center p-4 bg-white rounded-lg shadow-sm border border-gray-100'
-                  >
-                    <div className='text-2xl font-bold text-[#5D4032] mb-1'>
+            <ScrollAnimation animation='fade-in-up' delay='delay-200'>
+              <dl className='mt-10 grid grid-cols-3 border-y border-cafe/15 divide-x divide-cafe/15'>
+                {highlights.map((item) => (
+                  <div key={item.label} className='flex flex-col py-5 px-3 first:pl-0 md:px-6'>
+                    <dt className='text-sm text-cafe-muted leading-snug order-2'>
+                      {item.label}
+                    </dt>
+                    <dd className='font-serif text-4xl md:text-5xl text-cafe lining-nums tabular-nums order-1 mb-1'>
                       {item.number}
-                    </div>
-                    <div className='text-sm text-gray-600'>{item.label}</div>
+                    </dd>
                   </div>
                 ))}
-              </div>
+              </dl>
             </ScrollAnimation>
 
-            {/* Formação acadêmica */}
-            <ScrollAnimation animation='fade-in-up' delay='delay-400'>
-              <div className='bg-white rounded-xl p-6 shadow-sm border border-gray-100'>
-                <h3 className='font-semibold text-[#5D4032] mb-3 flex items-center'>
-                  <span className='w-2 h-2 bg-[#C97B45] rounded-full mr-3'></span>
+            <div className='mt-12 space-y-10 max-w-[65ch]'>
+              <ScrollAnimation animation='fade-in-up' delay='delay-300'>
+                <h3 className='text-sm font-semibold uppercase tracking-[0.12em] text-cafe-muted'>
                   Formação Acadêmica
                 </h3>
-                <p className='text-gray-700 leading-relaxed'>
+                <p className='mt-3 text-lg text-cafe leading-relaxed'>
                   Graduada em{" "}
-                  <strong>
+                  <strong className='text-cafe-deep'>
                     Administração com Gestão em Sistemas de Informação
                   </strong>{" "}
-                  e pós-graduada em <strong>Gestão de Recursos Humanos</strong>,
-                  encontrei no design e no marketing digital o espaço ideal para
-                  unir minha bagagem estratégica com criatividade e propósito.
+                  e pós-graduada em{" "}
+                  <strong className='text-cafe-deep'>
+                    Gestão de Recursos Humanos
+                  </strong>
+                  , encontrei no design e no marketing digital o espaço ideal
+                  para unir minha bagagem estratégica com criatividade e
+                  propósito.
                 </p>
-              </div>
-            </ScrollAnimation>
+              </ScrollAnimation>
 
-            {/* Experiência profissional */}
-            <ScrollAnimation animation='fade-in-up' delay='delay-500'>
-              <div className='bg-white rounded-xl p-6 shadow-sm border border-gray-100'>
-                <h3 className='font-semibold text-[#5D4032] mb-3 flex items-center'>
-                  <span className='w-2 h-2 bg-[#C97B45] rounded-full mr-3'></span>
+              <ScrollAnimation animation='fade-in-up' delay='delay-300'>
+                <h3 className='text-sm font-semibold uppercase tracking-[0.12em] text-cafe-muted'>
                   Experiência Profissional
                 </h3>
-                <p className='text-gray-700 leading-relaxed mb-4'>
-                  Atuo como <strong>Designer Gráfica e Social Media</strong>,
-                  com foco em performance, posicionamento e identidade visual.
-                  Há mais de 5 anos, me dedico à gestão de mídias sociais,
-                  ajudando empresas e profissionais autônomos a se destacarem no
-                  mercado.
+                <p className='mt-3 text-lg text-cafe leading-relaxed'>
+                  Atuo como{" "}
+                  <strong className='text-cafe-deep'>
+                    Designer Gráfica e Social Media
+                  </strong>
+                  , com foco em performance, posicionamento e identidade
+                  visual. Há mais de 5 anos, me dedico à gestão de mídias
+                  sociais, ajudando empresas e profissionais autônomos a se
+                  destacarem no mercado.
                 </p>
-              </div>
-            </ScrollAnimation>
+              </ScrollAnimation>
 
-            {/* ASM Marketing Digital */}
-            <ScrollAnimation animation='fade-in-up' delay='delay-600'>
-              <div className='bg-gradient-to-r from-[#5D4032] to-[#C97B45] rounded-xl p-6 text-white'>
-                <h3 className='font-semibold mb-3 flex items-center'>
-                  <span className='w-2 h-2 bg-white rounded-full mr-3'></span>
+              <ScrollAnimation animation='fade-in-up' delay='delay-300'>
+                <h3 className='text-sm font-semibold uppercase tracking-[0.12em] text-cafe-muted'>
                   ASM Marketing Digital
                 </h3>
-                <p className='leading-relaxed opacity-95'>
+                <p className='mt-3 text-lg text-cafe leading-relaxed'>
                   Hoje, à frente da ASM Marketing Digital, lidero uma equipe
                   qualificada e ofereço soluções completas em conteúdo, tráfego
                   pago, automação, design, criação de sites e consultorias
                   personalizadas.
                 </p>
-              </div>
+              </ScrollAnimation>
+            </div>
+
+            {/* Especialidades */}
+            <ScrollAnimation animation='fade-in-up' delay='delay-300'>
+              <ul className='mt-12 grid sm:grid-cols-2 gap-x-8 border-t border-cafe/15'>
+                {expertise.map((skill) => (
+                  <li
+                    key={skill.title}
+                    className='flex items-start gap-4 py-5 border-b border-cafe/15'
+                  >
+                    <span className='shrink-0 grid place-items-center w-11 h-11 rounded-full bg-terracota/12 text-terracota'>
+                      <skill.icon size={20} strokeWidth={1.75} aria-hidden='true' />
+                    </span>
+                    <div>
+                      <p className='font-semibold text-cafe-deep'>
+                        {skill.title}
+                      </p>
+                      <p className='text-sm text-cafe-muted leading-relaxed'>
+                        {skill.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </ScrollAnimation>
           </div>
         </div>
+
         {/* Propósito */}
-        <ScrollAnimation animation='fade-in-up' delay='delay-700'>
-          <div className='text-center p-6 bg-gray-50 rounded-xl border-2 border-dashed border-[#C97B45] mt-10'>
-            <p className='text-gray-700 leading-relaxed italic'>
-              &quot;Meu propósito é impulsionar marcas e pessoas por meio da
+        <ScrollAnimation animation='fade-in-up' delay='delay-200'>
+          <blockquote className='mt-20 md:mt-28 max-w-4xl mx-auto text-center'>
+            <p className='font-serif italic text-3xl md:text-[2.75rem] leading-[1.2] text-cafe text-balance'>
+              &ldquo;Meu propósito é impulsionar marcas e pessoas por meio da
               comunicação estratégica, do design com identidade e do marketing
-              que gera valor real.&quot;
+              que gera valor real.&rdquo;
             </p>
-          </div>
+            <footer className='mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-cafe-muted'>
+              Anelita Massucate
+            </footer>
+          </blockquote>
         </ScrollAnimation>
       </div>
     </section>

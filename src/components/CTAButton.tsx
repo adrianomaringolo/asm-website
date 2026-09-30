@@ -4,29 +4,27 @@ import { ReactNode } from "react";
 
 export function CTAButton({
   text = <>Agende sua consultoria gratuita e ganhe o plano de ação</>,
+  tone = "dark",
 }: {
   text?: ReactNode;
+  tone?: "dark" | "light";
 }) {
   return (
     <a
       href='https://docs.google.com/forms/d/e/1FAIpQLSdKF-9LGmGABUpvRV8oT_DwGlO7A4ea4XKZ53Wr-rO-9KY9Ng/viewform?usp=sf_link'
       className={clsx(
-        "block gradient-mesh text-white font-medium px-6 py-5 rounded-xl cursor-pointer w-full max-w-[370px]",
-        "hover-scale focus:outline-none focus:ring-2 focus:ring-[#C97B45] focus:ring-offset-2",
-        "shadow-lg hover:shadow-xl transition-all duration-300",
-        "relative overflow-hidden group"
+        "flex items-center gap-3 w-full max-w-[370px] px-6 py-5 rounded-xl font-semibold",
+        "transition-colors duration-200 ease-out",
+        tone === "dark"
+          ? "bg-cafe text-white hover:bg-cafe-deep"
+          : "bg-areia text-cafe-deep hover:bg-white"
       )}
       target='_blank'
       rel='noopener noreferrer'
       aria-label='Agendar consultoria gratuita de marketing digital - Abre em nova aba'
     >
-      {/* Efeito de brilho no hover */}
-      <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'></div>
-
-      <span className='flex items-center gap-2 w-full relative z-10'>
-        <Calendar size={30} className='min-w-[30px]' aria-hidden='true' />
-        <span className='text-left leading-5 font-semibold'>{text}</span>
-      </span>
+      <Calendar size={26} strokeWidth={1.75} className='shrink-0' aria-hidden='true' />
+      <span className='text-left leading-5'>{text}</span>
     </a>
   );
 }
