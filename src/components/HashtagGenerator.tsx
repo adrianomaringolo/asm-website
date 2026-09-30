@@ -6,6 +6,7 @@ import {
   Shuffle,
   TrendingUp,
   ArrowRightCircle,
+  Lightbulb,
 } from "lucide-react";
 
 interface HashtagSet {
@@ -311,7 +312,8 @@ export function HashtagGenerator() {
 
             <div className='bg-blue-50 border border-blue-200 rounded-lg p-4'>
               <h5 className='font-semibold text-blue-800 mb-2'>
-                💡 Dicas de Uso:
+                <Lightbulb size={16} className='inline mr-1 -mt-0.5' aria-hidden='true' />
+                Dicas de Uso:
               </h5>
               <ul className='text-sm text-blue-700 space-y-1'>
                 <li className='flex gap-2 items-center'>

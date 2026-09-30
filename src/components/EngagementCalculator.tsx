@@ -9,6 +9,10 @@ import {
   BarChart3,
   ArrowDownFromLine,
   ArrowRightCircle,
+  Camera,
+  Briefcase,
+  Music,
+  Bookmark,
 } from "lucide-react";
 
 interface EngagementData {
@@ -121,10 +125,10 @@ export function EngagementCalculator() {
   };
 
   const platforms = [
-    { value: "instagram", label: "Instagram", icon: "📸" },
-    { value: "linkedin", label: "LinkedIn", icon: "💼" },
-    { value: "facebook", label: "Facebook", icon: "👥" },
-    { value: "tiktok", label: "TikTok", icon: "🎵" },
+    { value: "instagram", label: "Instagram", icon: Camera },
+    { value: "linkedin", label: "LinkedIn", icon: Briefcase },
+    { value: "facebook", label: "Facebook", icon: Users },
+    { value: "tiktok", label: "TikTok", icon: Music },
   ];
 
   return (
@@ -160,7 +164,7 @@ export function EngagementCalculator() {
                     : "border-gray-200 hover:border-gray-300"
                 }`}
               >
-                <div className='text-2xl mb-1'>{p.icon}</div>
+                <p.icon size={24} className='mx-auto mb-1' aria-hidden='true' />
                 <div className='text-sm font-medium'>{p.label}</div>
               </button>
             ))}
@@ -228,7 +232,8 @@ export function EngagementCalculator() {
           {platform === "instagram" && (
             <div className='md:col-span-2'>
               <label className='block text-sm font-medium text-gray-700 mb-2'>
-                📌 Salvamentos (média por post) - Opcional
+                <Bookmark size={14} className='inline mr-1 -mt-0.5' aria-hidden='true' />
+                Salvamentos (média por post) - Opcional
               </label>
               <input
                 type='number'
@@ -285,7 +290,8 @@ export function EngagementCalculator() {
 
             <div className='bg-blue-50 border border-blue-200 rounded-lg p-4'>
               <h5 className='font-semibold text-blue-800 mb-2'>
-                📊 Benchmarks de Mercado:
+                <BarChart3 size={16} className='inline mr-1 -mt-0.5' aria-hidden='true' />
+                Benchmarks de Mercado:
               </h5>
               <div className='text-sm text-blue-700 grid md:grid-cols-2 gap-2'>
                 <div>Instagram: 1-3% (bom), 6%+ (excelente)</div>

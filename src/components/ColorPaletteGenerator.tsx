@@ -7,6 +7,9 @@ import {
   Eye,
   Download,
   ArrowRightCircle,
+  Briefcase,
+  Rocket,
+  Lightbulb,
 } from "lucide-react";
 
 interface Color {
@@ -152,9 +155,9 @@ export function ColorPaletteGenerator() {
   };
 
   const moods = [
-    { value: "profissional", label: "Profissional", emoji: "💼" },
-    { value: "criativo", label: "Criativo", emoji: "🎨" },
-    { value: "moderno", label: "Moderno", emoji: "🚀" },
+    { value: "profissional", label: "Profissional", icon: Briefcase },
+    { value: "criativo", label: "Criativo", icon: Palette },
+    { value: "moderno", label: "Moderno", icon: Rocket },
   ];
 
   const industries = [
@@ -201,7 +204,7 @@ export function ColorPaletteGenerator() {
                     : "border-gray-200 hover:border-gray-300"
                 }`}
               >
-                <div className='text-2xl mb-2'>{mood.emoji}</div>
+                <mood.icon size={26} className='mx-auto mb-2' aria-hidden='true' />
                 <div className='text-sm font-medium'>{mood.label}</div>
               </button>
             ))}
@@ -315,7 +318,8 @@ export function ColorPaletteGenerator() {
             {/* Tips */}
             <div className='bg-blue-50 border border-blue-200 rounded-lg p-4'>
               <h5 className='font-semibold text-blue-800 mb-2'>
-                💡 Dicas de Aplicação:
+                <Lightbulb size={16} className='inline mr-1 -mt-0.5' aria-hidden='true' />
+                Dicas de Aplicação:
               </h5>
               <ul className='text-sm text-blue-700 space-y-1'>
                 <li className='flex gap-2 items-center'>

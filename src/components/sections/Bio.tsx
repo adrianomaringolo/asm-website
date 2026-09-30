@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Palette, Smartphone, Target, Zap, Lightbulb } from "lucide-react";
 import { ScrollAnimation } from "../ScrollAnimation";
 import { FloatingAnimation } from "../FloatingAnimation";
 
@@ -11,27 +12,27 @@ export function Bio() {
 
   const expertise = [
     {
-      icon: "🎨",
+      icon: Palette,
       title: "Design Gráfico",
       description: "Identidade visual e materiais criativos",
     },
     {
-      icon: "📱",
+      icon: Smartphone,
       title: "Social Media",
       description: "Gestão estratégica de redes sociais",
     },
     {
-      icon: "🎯",
+      icon: Target,
       title: "Gestão de Tráfego",
       description: "Campanhas pagas otimizadas",
     },
     {
-      icon: "⚡",
+      icon: Zap,
       title: "Automação",
       description: "Processos inteligentes e eficientes",
     },
     {
-      icon: "💡",
+      icon: Lightbulb,
       title: "Consultoria",
       description: "Estratégias personalizadas",
     },
@@ -90,8 +91,8 @@ export function Bio() {
                   >
                     <div className='bg-white rounded-xl p-4 shadow-md border border-gray-100 hover:shadow-lg hover:scale-105 transition-all duration-300 group'>
                       <div className='flex items-start space-x-3'>
-                        <div className='text-2xl group-hover:scale-110 transition-transform duration-300'>
-                          {skill.icon}
+                        <div className='text-[#C97B45] group-hover:scale-110 transition-transform duration-300'>
+                          <skill.icon size={26} aria-hidden='true' />
                         </div>
                         <div className='flex-1'>
                           <h4 className='font-semibold text-gray-800 mb-1'>

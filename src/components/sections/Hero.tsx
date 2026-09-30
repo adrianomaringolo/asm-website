@@ -7,7 +7,7 @@ import { FloatingAnimation } from "../FloatingAnimation";
 export function Hero() {
   return (
     <section
-      className='relative overflow-hidden min-h-screen bg-gradient-to-br '
+      className='relative overflow-hidden min-h-screen flex flex-col justify-center'
       aria-label='Seção principal - ASM Marketing Digital'
     >
       {/* Background estático */}
@@ -26,20 +26,21 @@ export function Hero() {
       </FloatingAnimation>
 
       <div className='mx-auto md:flex items-center gap-10 relative z-10'>
-        <header className='flex-1 flex justify-center md:justify-end bg-white md:bg-transparent md:bg-gradient-to-r from-85% from-white/80 to-white/0 '>
-          <div className='max-w-md space-y-4 px-5 md:px-12 py-16'>
+        <header className='flex-1 flex justify-center md:justify-end'>
+          <div className='max-w-xl space-y-4 px-5 md:px-12 py-16'>
             <ScrollAnimation animation='bounce-in' delay='delay-200'>
               <Image
                 src='/logo-asm.webp'
                 alt='Logo ASM Marketing Digital - Consultoria em Marketing Digital'
-                width={250}
-                height={200}
+                width={869}
+                height={176}
+                className='block w-full h-auto mb-8'
                 priority
               />
             </ScrollAnimation>
 
             <ScrollAnimation animation='fade-in-up' delay='delay-300'>
-              <h1 className='text-3xl md:text-4xl font-extrabold mb-4'>
+              <h1 className='text-4xl md:text-5xl leading-[1.1] font-extrabold mb-4'>
                 Você sente que sua{" "}
                 <span className='text-gradient'>presença no digital</span>{" "}
                 poderia estar gerando mais resultados?
@@ -93,6 +94,7 @@ export function Hero() {
               alt='Anelita Massucate - Especialista em Marketing Digital Estratégico'
               width={600}
               height={600}
+              className='[mask-image:linear-gradient(to_bottom,black_70%,transparent)]'
               priority
             />
           </ScrollAnimation>
