@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T00:00:00Z",
+  "title": "Design System: ASM Marketing Digital",
+  "extensions": {
+    "colorMeta": {
+      "terracota": {
+        "role": "primary",
+        "displayName": "Terracota",
+        "canonical": "#C47750",
+        "tonalRamp": [
+          "#3A1E11",
+          "#5A2F1B",
+          "#7C4328",
+          "#A05A38",
+          "#C47750",
+          "#D49574",
+          "#E4B89F",
+          "#F3DDD0"
+        ]
+      },
+      "cafe": {
+        "role": "secondary",
+        "displayName": "Café",
+        "canonical": "#52382A",
+        "tonalRamp": [
+          "#1F140E",
+          "#33231A",
+          "#52382A",
+          "#6E4D3B",
+          "#8C6752",
+          "#AE8E7B",
+          "#CFB8AA",
+          "#EDE2DB"
+        ]
+      },
+      "areia": {
+        "role": "tertiary",
+        "displayName": "Areia",
+        "canonical": "#EBD4A3",
+        "tonalRamp": [
+          "#4A3B19",
+          "#6E5A2B",
+          "#957C43",
+          "#BCA064",
+          "#D9BC83",
+          "#EBD4A3",
+          "#F4E6C8",
+          "#FBF5E8"
+        ]
+      },
+      "off-white": {
+        "role": "neutral",
+        "displayName": "Off-white",
+        "canonical": "#F4F4F2"
+      },
+      "dourado": {
+        "role": "tertiary",
+        "displayName": "Dourado",
+        "canonical": "#DCA552",
+        "tonalRamp": [
+          "#3F2C0C",
+          "#5E4316",
+          "#7F5C22",
+          "#A37830",
+          "#C39140",
+          "#DCA552",
+          "#EAC585",
+          "#F6E5C4"
+        ]
+      },
+      "cafe-deep": {
+        "role": "secondary",
+        "displayName": "Café Profundo",
+        "canonical": "#3A2A21"
+      },
+      "cafe-muted": {
+        "role": "neutral",
+        "displayName": "Café Suave",
+        "canonical": "#6B574C"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Título do hero, um por página (Cormorant 400)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de seção e números de destaque."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Frase de abertura em primeira pessoa."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "Citações e declarações de propósito."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido, até 65 caracteres por linha."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Rótulos de subseção em caixa-alta."
+      }
+    },
+    "shadows": [
+      {
+        "name": "portrait",
+        "value": "0 20px 40px -20px rgba(82, 56, 42, 0.45)",
+        "purpose": "Sombra quente sob fotografias de destaque."
+      },
+      {
+        "name": "floating",
+        "value": "0 10px 30px -10px rgba(82, 56, 42, 0.25)",
+        "purpose": "Menu fixo e elementos flutuantes."
+      }
+    ],
+    "motion": [
+      {
+        "name": "color-transition",
+        "value": "200ms ease-out",
+        "purpose": "Mudança de cor em hover de botões e links."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal em café chapado.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\"/><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/></svg><span>Faça o diagnóstico digital gratuito</span></a>",
+      "css": ".ds-btn-primary { display: flex; align-items: center; gap: 8px; max-width: 370px; padding: 20px 24px; border-radius: 12px; color: #fff; font-family: Manrope, sans-serif; font-weight: 600; text-decoration: none; background: #52382A; transition: background-color 200ms ease-out; } .ds-btn-primary:hover { background: #3A2A21; } .ds-btn-primary:focus-visible { outline: 2px solid #C47750; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Link",
+      "kind": "custom",
+      "refersTo": "link-secondary",
+      "description": "Ação alternativa ao botão principal.",
+      "html": "<a class=\"ds-link\" href=\"#\">Ou agende sua consultoria gratuita →</a>",
+      "css": ".ds-link { font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600; color: #52382A; text-decoration: underline; text-underline-offset: 4px; transition: color .2s; } .ds-link:hover { color: #3A2A21; } .ds-link:focus-visible { outline: 2px solid #C47750; outline-offset: 2px; }"
+    },
+    {
+      "name": "Stats Row",
+      "kind": "custom",
+      "refersTo": "stat",
+      "description": "Números de destaque entre linhas finas.",
+      "html": "<dl class=\"ds-stats\"><div><dd>7+</dd><dt>Anos de experiência</dt></div><div><dd>100+</dd><dt>Projetos realizados</dt></div><div><dd>30+</dd><dt>Clientes satisfeitos</dt></div></dl>",
+      "css": ".ds-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; border-top: 1px solid rgba(82,56,42,.15); border-bottom: 1px solid rgba(82,56,42,.15); } .ds-stats > div { display: flex; flex-direction: column; padding: 20px 24px; } .ds-stats > div + div { border-left: 1px solid rgba(82,56,42,.15); } .ds-stats dd { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 400; color: #52382A; font-variant-numeric: lining-nums; } .ds-stats dt { order: 2; font-family: Manrope, sans-serif; font-size: 14px; color: #6B574C; }"
+    },
+    {
+      "name": "Expertise Item",
+      "kind": "custom",
+      "description": "Item de lista com selo de ícone.",
+      "html": "<div class=\"ds-item\"><span class=\"ds-badge\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"6\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/></svg></span><div><p class=\"ds-item-title\">Gestão de Tráfego</p><p class=\"ds-item-desc\">Campanhas pagas otimizadas</p></div></div>",
+      "css": ".ds-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid rgba(82,56,42,.15); font-family: Manrope, sans-serif; } .ds-badge { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 9999px; background: rgba(196,119,80,.12); color: #C47750; } .ds-item-title { margin: 0; font-weight: 600; color: #52382A; } .ds-item-desc { margin: 0; font-size: 14px; color: #6B574C; }"
+    },
+    {
+      "name": "Pull Quote",
+      "kind": "custom",
+      "refersTo": "quote",
+      "description": "Declaração de propósito em Cormorant itálica.",
+      "html": "<blockquote class=\"ds-quote\"><p>“Meu propósito é impulsionar marcas e pessoas por meio da comunicação estratégica.”</p><footer>Anelita Massucate</footer></blockquote>",
+      "css": ".ds-quote { margin: 0; text-align: center; } .ds-quote p { margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 36px; line-height: 1.2; color: #52382A; } .ds-quote footer { margin-top: 20px; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #6B574C; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Ateliê Editorial",
+    "overview": "A ASM é **estratégica, clara, segura e elegante**, e existe para simplificar o marketing para empreendedores, transformando comunicação em percepção de valor. O site se comporta como uma revista de estilo feita à mão: luz natural quente, papel, café, tons de terra e muito respiro. A Cormorant Garamond dá a voz dos títulos com contraste fino e refinado; a Manrope sustenta a informação com clareza. Terracota e dourado pontuam, o café dá peso, a areia e o off-white acalmam.\n\nA densidade é baixa e editorial. O conteúdo se organiza em texto corrido, linhas finas e listas, não em pilhas de cartões. O monograma ASM é a rubrica da marca, e o logotipo com a tagline \"MARKETING DIGITAL\" é a assinatura por extenso. Os dois aparecem com parcimônia, como selo.",
+    "keyCharacteristics": [
+      "Cinco cores de marca: terracota, café, areia, off-white e dourado.",
+      "Cormorant Garamond nos títulos; Manrope Regular e SemiBold nos textos.",
+      "Todo texto é tingido de café; nenhum cinza frio.",
+      "Cores chapadas; nenhum degradê decorativo.",
+      "Estrutura por proximidade e traços finos, ecoando a construção do monograma.",
+      "Fotografia editorial com luz natural quente e objetos do cotidiano (café, papel, relógio, óculos)."
+    ],
+    "rules": [
+      {
+        "name": "The Five Colors Rule",
+        "body": "A marca tem cinco cores: terracota, café, areia, off-white e dourado. Tons derivados do café e transparências existem para legibilidade, não como novas cores. Nenhum outro matiz (azul, roxo, verde, cinza frio) entra na interface institucional.",
+        "section": "colors"
+      },
+      {
+        "name": "The Coffee Ink Rule",
+        "body": "Todo texto sobre fundo claro é café ou café suave. Cinzas neutros não fazem parte da marca.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Color Rule",
+        "body": "Cores são aplicadas chapadas. Nada de texto em degradê, botões em degradê ou manchas desfocadas coloridas como decoração.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold After Dark Rule",
+        "body": "O dourado só aparece sobre café ou sobre fotografia escura. Sobre fundo claro ele perde contraste (2:1) e vira amarelo.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Families Rule",
+        "body": "Só existem duas famílias: Cormorant Garamond e Manrope. Nenhuma outra fonte (monoespaçada, do sistema, Arial, Helvetica) entra no site, nos e-mails ou em páginas estáticas. Números tabulares usam `tabular-nums` da Manrope; números em Cormorant usam algarismos alinhados (`lining-nums`).",
+        "section": "typography"
+      },
+      {
+        "name": "The Serif Titles Rule",
+        "body": "Títulos são Cormorant. A Manrope existe só em Regular (400) e SemiBold (600).",
+        "section": "typography"
+      },
+      {
+        "name": "The Serif Never Operates Rule",
+        "body": "A Cormorant não é usada em botões, rótulos, navegação ou formulários. Controles falam em Manrope.",
+        "section": "typography"
+      },
+      {
+        "name": "The Earned Shadow Rule",
+        "body": "Sombra só em fotografia e em elementos flutuantes. Botões, listas, números e blocos de texto ficam planos.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do tratar o documento \"DNA de marca\" como autoridade: ele prevalece sobre qualquer valor existente no código.",
+      "Do usar apenas Cormorant Garamond (títulos) e Manrope Regular/SemiBold (textos), inclusive em e-mails e páginas estáticas.",
+      "Do limitar a paleta a terracota, café, areia, off-white e dourado, com os tons derivados do café para texto.",
+      "Do aplicar cores chapadas.",
+      "Do usar o dourado só sobre café ou fotografia escura.",
+      "Do manter o texto corrido em até 65 caracteres por linha.",
+      "Do usar fotografia com luz natural quente e tons terrosos."
+    ],
+    "donts": [
+      "Don't usar degradês: nem em texto, nem em botões, nem como manchas desfocadas de fundo.",
+      "Don't usar cinzas frios, azul, roxo ou verde na interface institucional.",
+      "Don't usar texto branco pequeno sobre terracota nem texto terracota abaixo de 24px sobre fundo claro.",
+      "Don't usar Manrope em pesos diferentes de 400 e 600, nem em títulos de seção.",
+      "Don't empilhar cartões com ícone, título e texto como estrutura de seção.",
+      "Don't usar emojis como ícones.",
+      "Don't usar borda lateral colorida grossa em blocos de texto ou citações."
+    ]
+  }
+}
