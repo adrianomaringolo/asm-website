@@ -1,13 +1,6 @@
-import { readFileSync } from "fs";
-import { join } from "path";
 import { NextResponse } from "next/server";
 
-export function GET() {
-  const html = readFileSync(
-    join(process.cwd(), "public", "diagnostico-asm.html"),
-    "utf-8"
-  );
-  return new NextResponse(html, {
-    headers: { "Content-Type": "text/html; charset=utf-8" },
-  });
+// URL antiga: redireciona permanentemente para a página canônica do diagnóstico
+export function GET(request: Request) {
+  return NextResponse.redirect(new URL("/diagnostico-gratuito", request.url), 308);
 }

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 
@@ -16,31 +16,36 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const siteUrl = "https://asmmktdigital.com.br";
+const title = "ASM Marketing Digital | Consultoria e Gestão de Redes Sociais";
+const description =
+  "Consultoria de marketing digital com Anelita Massucate: gestão de Instagram, identidade visual, tráfego pago e sites para empresas e profissionais autônomos.";
+
 export const metadata: Metadata = {
-  title:
-    "ASM Marketing Digital - Anelita Massucate | Consultoria e Gestão de Redes Sociais",
-  description:
-    "Transforme sua presença digital com estratégias personalizadas de marketing. Gestão de Instagram, tráfego pago, automação e criação de sites profissionais. +7 anos de experiência, +30 clientes atendidos.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: title,
+    template: "%s | ASM Marketing Digital",
+  },
+  description,
+  applicationName: "ASM Marketing Digital",
   keywords: [
     "marketing digital",
+    "consultoria de marketing digital",
     "gestão de redes sociais",
-    "Instagram para negócios",
-    "tráfego pago",
-    "automação WhatsApp",
-    "criação de sites",
-    "consultoria digital",
-    "Anelita Massucate",
-    "ASM Marketing",
     "social media",
-    "design gráfico",
+    "gestão de Instagram",
+    "tráfego pago",
     "identidade visual",
-    "estratégias digitais",
-    "pequenos negócios",
-    "profissionais autônomos",
+    "criação de sites",
+    "mentoria de marketing",
+    "Anelita Massucate",
+    "ASM Marketing Digital",
   ],
-  authors: [{ name: "Anelita Massucate" }],
+  authors: [{ name: "Anelita Massucate", url: siteUrl }],
   creator: "Anelita Massucate",
   publisher: "ASM Marketing Digital",
+  category: "marketing",
   robots: {
     index: true,
     follow: true,
@@ -55,34 +60,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    title:
-      "ASM Marketing Digital - Anelita Massucate | Consultoria e Gestão de Redes Sociais",
-    description:
-      "Transforme sua presença digital com estratégias personalizadas. Gestão de Instagram, tráfego pago, automação e criação de sites. +7 anos de experiência.",
-    url: "https://asmmktdigital.com.br",
+    url: siteUrl,
     siteName: "ASM Marketing Digital",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "ASM Marketing Digital - Anelita Massucate",
-      },
-    ],
+    title,
+    description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "ASM Marketing Digital - Anelita Massucate",
-    description:
-      "Transforme sua presença digital com estratégias personalizadas de marketing digital.",
-    images: ["/og-image.png"],
+    title,
+    description,
   },
   alternates: {
-    canonical: "https://asmmktdigital.com.br",
+    canonical: "/",
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#52382A",
 };
 
 export default function RootLayout({

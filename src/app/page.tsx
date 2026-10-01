@@ -5,16 +5,15 @@ import { Footer } from "@/components/Footer";
 import { About } from "@/components/sections/About";
 import { Content } from "@/components/sections/Content";
 import { StructuredData } from "@/components/StructuredData";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InstagramFeed } from "@/components/InstagramFeed";
 import { Diagnostico } from "@/components/sections/Diagnostico";
+import { Faq } from "@/components/sections/Faq";
 
 export default function Home() {
   return (
     <>
       {/* <LoadingSkeleton /> */}
       <StructuredData />
-      <Breadcrumbs />
       <main className='text-cafe'>
         <Hero />
         <About />
@@ -28,6 +27,7 @@ export default function Home() {
         </section>
 
         <Bio />
+        <Faq />
         <Content />
       </main>
       {/* <IntelligentChatbot /> */}

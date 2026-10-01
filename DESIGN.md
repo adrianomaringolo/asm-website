@@ -174,7 +174,7 @@ Paleta terrosa e acolhedora: dois tons fortes (terracota e café), dois tons de 
 
 *Decisão do site; o documento de marca não define layout.*
 
-Container central de 1152px com margens laterais de 24px no celular e 48px a partir de 768px. As seções editoriais respiram com 80px de padding vertical no celular e 112px no desktop. As seções alternam fundos da marca para marcar as passagens sem bordas, nesta ordem: hero em off-white, Somos a ASM em café, Serviços em café profundo, Diagnóstico em areia, Instagram em branco, Quem sou eu em off-white, Conteúdos em café e rodapé em café profundo.
+Container central de 1152px com margens laterais de 24px no celular e 48px a partir de 768px. As seções editoriais respiram com 80px de padding vertical no celular e 112px no desktop. As seções alternam fundos da marca para marcar as passagens sem bordas, nesta ordem: hero em off-white, Somos a ASM em café, Serviços em café profundo, Diagnóstico em areia, Instagram em branco, Quem sou eu em off-white, Perguntas frequentes em branco, Conteúdos em café e rodapé em café profundo.
 
 O ritmo alterna espaços apertados dentro de um grupo (12px entre rótulo e parágrafo) com espaços generosos entre grupos (40–48px). Seções biográficas usam uma grade de 12 colunas: retrato em 5 colunas, fixo na tela durante a rolagem, e narrativa em 7. No celular tudo empilha na ordem de leitura, com o retrato limitado a cerca de 260px de largura.
 
@@ -215,6 +215,9 @@ Cantos suavemente arredondados, ecoando a moldura do monograma: 12px em botões,
 
 ### Services
 - **Style:** sobre café profundo, lista editorial de duas colunas separada por traços finos dourados a 25%. Cada serviço tem ícone lucide dourado (traço 1.25), título em Cormorant branco e descrição em branco a 75%. Os números de destaque ficam em Cormorant dourado, entre divisórias finas, e a chamada final vive num quadro de traço fino dourado com o botão claro.
+
+### FAQ
+- **Style:** título da seção em Cormorant à esquerda (4 colunas) e lista à direita (8 colunas), com traços finos em café a 15% entre as perguntas. Cada pergunta é um `details`/`summary` nativo: pergunta em Manrope SemiBold café profundo e um "+" terracota que gira 45° ao abrir; resposta em café, até 65 caracteres por linha. O conteúdo vem de `src/content/faq.ts`, a mesma fonte do JSON-LD `FAQPage`.
 
 ### Buttons on dark
 - **Style:** sobre café, o botão de ação inverte: fundo areia, texto café profundo; no hover, fundo branco.

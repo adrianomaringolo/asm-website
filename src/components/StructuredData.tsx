@@ -1,192 +1,163 @@
-export function StructuredData() {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "ASM Marketing Digital",
-    alternateName: "ASM",
-    url: "https://asmmktdigital.com.br",
-    logo: "https://asmmktdigital.com.br/logo-asm.webp",
+import { faq } from "@/content/faq";
+
+const siteUrl = "https://asmmktdigital.com.br";
+const orgId = `${siteUrl}/#organizacao`;
+const personId = `${siteUrl}/#anelita`;
+const websiteId = `${siteUrl}/#website`;
+const pageId = `${siteUrl}/#pagina`;
+
+// Os serviços espelham a seção "Como posso te ajudar?" da página
+const services = [
+  {
+    name: "Social Media Estratégico",
     description:
-      "Consultoria e serviços de marketing digital para pequenos negócios e profissionais autônomos",
-    founder: {
-      "@type": "Person",
-      name: "Anelita Scaliza Massucate",
-      jobTitle: "Marketing Digital Estratégico",
+      "Gestão completa do Instagram com planejamento de conteúdo, design, legendas profissionais e análise de desempenho.",
+  },
+  {
+    name: "Identidade Visual e Design Profissional",
+    description:
+      "Criação de uma presença visual única e coerente com os valores e objetivos do negócio.",
+  },
+  {
+    name: "Tráfego Pago com Foco em Conversão",
+    description:
+      "Campanhas no Instagram, Facebook e Google para atrair o público certo e aumentar as vendas.",
+  },
+  {
+    name: "Ensaio Imagem e Essência",
+    description:
+      "Fotos realistas criadas por Inteligência Artificial, inspiradas na autenticidade de cada pessoa.",
+  },
+  {
+    name: "Mentorias e Consultorias",
+    description:
+      "Clareza e direcionamento estratégico para crescer com consistência e segurança.",
+  },
+  {
+    name: "Criação de Sites Profissionais",
+    description:
+      "Sites modernos, responsivos e otimizados para o Google, com estrutura personalizada para o negócio.",
+  },
+];
+
+const graph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": orgId,
+      name: "ASM Marketing Digital",
+      alternateName: "ASM",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/logo-asm.webp`,
+        width: 869,
+        height: 176,
+      },
+      image: `${siteUrl}/opengraph-image.png`,
       description:
-        "Designer Gráfica e Social Media com mais de 7 anos de experiência",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer service",
-      availableLanguage: "Portuguese",
-    },
-    sameAs: ["https://www.instagram.com/anelitasmassucate/"],
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "BR",
-      addressLocality: "Brasil",
-    },
-    areaServed: "BR",
-    serviceType: [
-      "Marketing Digital",
-      "Gestão de Redes Sociais",
-      "Tráfego Pago",
-      "Automação",
-      "Criação de Sites",
-      "Consultoria Digital",
-    ],
-  };
-
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Anelita Scaliza Massucate",
-    alternateName: "Anelita Massucate",
-    jobTitle: "Marketing Digital Estratégico",
-    description:
-      "Designer Gráfica e Social Media com foco em performance, posicionamento e identidade visual. Mais de 7 anos de experiência em gestão de mídias sociais.",
-    image: "https://asmmktdigital.com.br/photo-bio.webp",
-    url: "https://asmmktdigital.com.br",
-    sameAs: ["https://www.instagram.com/anelitasmassucate/"],
-    worksFor: {
-      "@type": "Organization",
-      name: "ASM Marketing Digital",
-    },
-    knowsAbout: [
-      "Marketing Digital",
-      "Social Media",
-      "Design Gráfico",
-      "Tráfego Pago",
-      "Instagram Marketing",
-      "Automação",
-      "WhatsApp Business",
-    ],
-    alumniOf: [
-      {
-        "@type": "EducationalOrganization",
-        name: "Administração com Gestão em Sistemas de Informação",
+        "Marca estratégica especializada em posicionamento, comunicação e presença digital para empresas e profissionais autônomos que desejam fortalecer sua imagem e atrair os clientes certos. Atendimento 100% online para todo o Brasil.",
+      slogan: "Transformando comunicação em percepção de valor",
+      founder: { "@id": personId },
+      areaServed: { "@type": "Country", name: "Brasil" },
+      availableLanguage: "pt-BR",
+      sameAs: ["https://www.instagram.com/anelitasmassucate/"],
+      knowsAbout: [
+        "Marketing digital",
+        "Gestão de redes sociais",
+        "Instagram para negócios",
+        "Tráfego pago",
+        "Identidade visual",
+        "Design gráfico",
+        "Criação de sites",
+        "Posicionamento de marca",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Serviços de Marketing Digital",
+        itemListElement: services.map((s) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: s.name,
+            description: s.description,
+            provider: { "@id": orgId },
+            areaServed: { "@type": "Country", name: "Brasil" },
+          },
+        })),
       },
-      {
-        "@type": "EducationalOrganization",
-        name: "Pós-graduação em Gestão de Recursos Humanos",
-      },
-    ],
-  };
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Consultoria em Marketing Digital",
-    description:
-      "Serviços completos de marketing digital incluindo gestão de redes sociais, tráfego pago, automação e criação de sites",
-    provider: {
-      "@type": "Organization",
-      name: "ASM Marketing Digital",
     },
-    areaServed: "BR",
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Serviços de Marketing Digital",
-      itemListElement: [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: "Anelita Scaliza Massucate",
+      alternateName: "Anelita Massucate",
+      jobTitle: "Designer Gráfica e Social Media, fundadora da ASM Marketing Digital",
+      description:
+        "Designer Gráfica e Social Media com foco em performance, posicionamento e identidade visual. Graduada em Administração com Gestão em Sistemas de Informação e pós-graduada em Gestão de Recursos Humanos.",
+      image: `${siteUrl}/photo-bio.webp`,
+      url: `${siteUrl}/#bio`,
+      worksFor: { "@id": orgId },
+      sameAs: ["https://www.instagram.com/anelitasmassucate/"],
+      knowsAbout: [
+        "Design gráfico",
+        "Social media",
+        "Gestão de tráfego",
+        "Automação",
+        "Consultoria de marketing digital",
+      ],
+      hasCredential: [
         {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Social Media Estratégico",
-            description:
-              "Gestão completa do Instagram com planejamento de conteúdo, design, legendas profissionais e análise de desempenho",
-          },
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "degree",
+          name: "Graduação em Administração com Gestão em Sistemas de Informação",
         },
         {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Identidade Visual e Design Profissional",
-            description:
-              "Criação de presença visual única e coerente com os valores e objetivos do negócio",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Tráfego Pago com Foco em Conversão",
-            description:
-              "Campanhas no Instagram, Facebook e Google para atrair o público certo e aumentar vendas",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Automação e WhatsApp Business",
-            description:
-              "Fluxos de atendimento automatizados que otimizam tempo e melhoram experiência do cliente",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Mentorias e Consultorias",
-            description:
-              "Direcionamento estratégico para crescer com consistência e segurança",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Criação de Sites Profissionais",
-            description: "Sites modernos, responsivos e otimizados para Google",
-          },
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "postgraduate",
+          name: "Pós-graduação em Gestão de Recursos Humanos",
         },
       ],
     },
-  };
-
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "ASM Marketing Digital",
-    alternateName: "ASM",
-    url: "https://asmmktdigital.com.br",
-    description:
-      "Consultoria e serviços de marketing digital para transformar sua presença online",
-    inLanguage: "pt-BR",
-    isAccessibleForFree: true,
-    publisher: {
-      "@type": "Organization",
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: siteUrl,
       name: "ASM Marketing Digital",
+      inLanguage: "pt-BR",
+      publisher: { "@id": orgId },
     },
-  };
+    {
+      "@type": "WebPage",
+      "@id": pageId,
+      url: siteUrl,
+      name: "ASM Marketing Digital | Consultoria e Gestão de Redes Sociais",
+      isPartOf: { "@id": websiteId },
+      about: { "@id": orgId },
+      mainEntity: { "@id": orgId },
+      primaryImageOfPage: `${siteUrl}/opengraph-image.png`,
+      inLanguage: "pt-BR",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteUrl}/#perguntas-frequentes`,
+      isPartOf: { "@id": pageId },
+      inLanguage: "pt-BR",
+      mainEntity: faq.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+    },
+  ],
+};
 
+export function StructuredData() {
   return (
-    <>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationSchema),
-        }}
-      />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(personSchema),
-        }}
-      />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(websiteSchema),
-        }}
-      />
-    </>
+    <script
+      type='application/ld+json'
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+    />
   );
 }
