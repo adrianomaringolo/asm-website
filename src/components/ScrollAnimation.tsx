@@ -12,6 +12,8 @@ interface ScrollAnimationProps {
     | "slide-in-up";
   delay?: string;
   className?: string;
+  /** Anima já no carregamento, só com CSS (sem esperar a hidratação). Use acima da dobra. */
+  immediate?: boolean;
 }
 
 export function ScrollAnimation({
@@ -19,12 +21,13 @@ export function ScrollAnimation({
   animation = "fade-in-up",
   delay = "",
   className = "",
+  immediate = false,
 }: ScrollAnimationProps) {
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = elementRef.current;
-    if (!element) return;
+    if (!element || immediate) return;
 
     const applyAnimation = () => {
       element.classList.add(`animate-${animation}`);
@@ -58,10 +61,15 @@ export function ScrollAnimation({
     return () => {
       observer.unobserve(element);
     };
-  }, [animation, delay]);
+  }, [animation, delay, immediate]);
+
+  const initialClasses = immediate ? `animate-${animation} ${delay}` : "";
 
   return (
-    <div ref={elementRef} className={`animate-on-scroll ${className}`}>
+    <div
+      ref={elementRef}
+      className={`animate-on-scroll ${initialClasses} ${className}`}
+    >
       {children}
     </div>
   );

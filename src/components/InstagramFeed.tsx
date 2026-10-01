@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Loader2 } from "lucide-react";
 import { InstagramIcon } from "./InstagramIcon";
 
@@ -7,7 +7,12 @@ export function InstagramFeed() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
     // Verificar se o script já foi carregado
     if (
       document.querySelector(
@@ -19,23 +24,39 @@ export function InstagramFeed() {
     }
 
     // Criar e carregar o script do Elfsight
-    const script = document.createElement("script");
-    script.src = "https://elfsightcdn.com/platform.js";
-    script.async = true;
+    const loadScript = () => {
+      const script = document.createElement("script");
+      script.src = "https://elfsightcdn.com/platform.js";
+      script.async = true;
 
-    script.onload = () => {
-      setIsLoaded(true);
+      script.onload = () => {
+        setIsLoaded(true);
+      };
+
+      script.onerror = () => {
+        setHasError(true);
+        console.error("Erro ao carregar o widget do Instagram");
+      };
+
+      document.head.appendChild(script);
     };
 
-    script.onerror = () => {
-      setHasError(true);
-      console.error("Erro ao carregar o widget do Instagram");
-    };
+    // O widget pesa ~500 KB de terceiros: só carrega quando a seção se aproxima da tela
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          loadScript();
+        }
+      },
+      { rootMargin: "600px 0px" }
+    );
 
-    document.head.appendChild(script);
+    observer.observe(container);
 
     // Cleanup
     return () => {
+      observer.disconnect();
       const existingScript = document.querySelector(
         'script[src="https://elfsightcdn.com/platform.js"]'
       );
@@ -59,7 +80,7 @@ export function InstagramFeed() {
   );
 
   return (
-    <div>
+    <div ref={containerRef}>
       <div className='flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-cafe/15'>
         <div className='flex items-center gap-4'>
           <span className='grid place-items-center w-12 h-12 rounded-full bg-terracota/12 text-terracota shrink-0'>

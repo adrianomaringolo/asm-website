@@ -10,26 +10,26 @@ export function Hero() {
     >
       <div className='w-full max-w-6xl mx-auto px-6 md:px-12 py-16 grid md:grid-cols-2 items-center gap-12 md:gap-16'>
         <header className='max-w-xl'>
-          <ScrollAnimation animation='fade-in' delay='delay-100'>
+          <ScrollAnimation immediate animation='fade-in' delay='delay-100'>
             <Image
               src='/logo-asm.webp'
               alt='Logo ASM Marketing Digital - Consultoria em Marketing Digital'
               width={869}
               height={176}
+              sizes='(min-width: 468px) 420px, calc(100vw - 48px)'
               className='block w-full max-w-[420px] h-auto mb-12'
               priority
             />
           </ScrollAnimation>
 
-          <ScrollAnimation animation='fade-in-up' delay='delay-200'>
-            <h1 className='text-[2.5rem] md:text-[3.5rem] leading-[1.05] text-cafe-deep text-balance'>
-              Você sente que sua{" "}
-              <span className='text-terracota'>presença no digital</span>{" "}
-              poderia estar gerando mais resultados?
-            </h1>
-          </ScrollAnimation>
+          {/* Título e retrato são os candidatos a LCP: aparecem sem animação de opacidade */}
+          <h1 className='text-[2.5rem] md:text-[3.5rem] leading-[1.05] text-cafe-deep text-balance'>
+            Você sente que sua{" "}
+            <span className='text-terracota'>presença no digital</span>{" "}
+            poderia estar gerando mais resultados?
+          </h1>
 
-          <ScrollAnimation animation='fade-in-up' delay='delay-300'>
+          <ScrollAnimation immediate animation='fade-in-up' delay='delay-300'>
             <p className='mt-6 text-lg leading-relaxed text-cafe'>
               Se você é uma <strong>empresa</strong> ou{" "}
               <strong>profissional autônomo</strong>, chegou a hora de
@@ -38,7 +38,7 @@ export function Hero() {
             </p>
           </ScrollAnimation>
 
-          <ScrollAnimation animation='fade-in-up' delay='delay-400'>
+          <ScrollAnimation immediate animation='fade-in-up' delay='delay-400'>
             <div className='mt-8 flex flex-col items-start gap-4'>
               <a
                 href='/diagnostico-gratuito'
@@ -61,7 +61,7 @@ export function Hero() {
             </div>
           </ScrollAnimation>
 
-          <ScrollAnimation animation='fade-in-up' delay='delay-500'>
+          <ScrollAnimation immediate animation='fade-in-up' delay='delay-500'>
             <p className='mt-10 pt-6 border-t border-cafe/15 text-cafe-muted leading-relaxed'>
               Na <strong className='text-cafe'>ASM Marketing Digital</strong>,
               criamos estratégias inteligentes, visuais impactantes e soluções
@@ -75,25 +75,23 @@ export function Hero() {
           className='w-full max-w-[520px] mx-auto md:mx-0 md:justify-self-end'
           aria-label='Sobre Anelita Massucate'
         >
-          <ScrollAnimation animation='fade-in' delay='delay-300'>
-            <div className='relative pt-10'>
-              <div
-                className='absolute inset-x-0 bottom-0 top-[22%] rounded-2xl bg-cafe overflow-hidden'
-                aria-hidden='true'
-              >
-                <div className="absolute inset-0 bg-[url('/brand/pattern-monograma.webp')] bg-cover bg-center opacity-45" />
-              </div>
-              <Image
-                src='/hero-person.webp'
-                alt='Anelita Massucate - Especialista em Marketing Digital Estratégico'
-                width={768}
-                height={1006}
-                sizes='(min-width: 768px) 520px, 90vw'
-                className='relative w-full h-auto rounded-b-2xl'
-                priority
-              />
+          <div className='relative pt-10'>
+            <div
+              className='absolute inset-x-0 bottom-0 top-[22%] rounded-2xl bg-cafe overflow-hidden'
+              aria-hidden='true'
+            >
+              <div className="absolute inset-0 bg-[url('/brand/pattern-monograma.webp')] bg-cover bg-center opacity-45" />
             </div>
-          </ScrollAnimation>
+            <Image
+              src='/hero-person.webp'
+              alt='Anelita Massucate - Especialista em Marketing Digital Estratégico'
+              width={768}
+              height={1006}
+              sizes='(min-width: 768px) 520px, 90vw'
+              className='relative w-full h-auto rounded-b-2xl'
+              priority
+            />
+          </div>
         </aside>
       </div>
     </section>

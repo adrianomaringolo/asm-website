@@ -5,9 +5,18 @@ import "./globals.css";
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
+});
+
+// Itálico só aparece abaixo da dobra: instância separada, sem preload
+const cormorantItalic = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: "italic",
+  variable: "--font-cormorant-italic",
+  display: "swap",
+  preload: false,
 });
 
 const manrope = Manrope({
@@ -85,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='pt-BR' className={`${cormorant.variable} ${manrope.variable}`}>
+    <html lang='pt-BR' className={`${cormorant.variable} ${cormorantItalic.variable} ${manrope.variable}`}>
       <body className='font-sans'>{children}</body>
     </html>
   );
