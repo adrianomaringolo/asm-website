@@ -13,7 +13,7 @@ export function Content() {
         aria-hidden='true'
       />
 
-      <div className='max-w-6xl mx-auto relative'>
+      <div className='max-w-7xl mx-auto relative'>
         <ScrollAnimation animation='fade-in-up' delay='delay-100'>
           <div className='text-center mb-12'>
             <h2 className='text-4xl md:text-5xl leading-[1.1]'>

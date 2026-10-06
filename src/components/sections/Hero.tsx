@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { ArrowRight, ClipboardList } from "lucide-react";
+import { ClipboardList } from "lucide-react";
 import { ScrollAnimation } from "../ScrollAnimation";
 
 export function Hero() {
   return (
     <section
-      className='relative overflow-hidden min-h-screen flex flex-col justify-center bg-off-white'
+      className='relative overflow-hidden min-h-screen flex flex-col justify-center px-6 md:px-12 bg-off-white'
       aria-label='Seção principal - ASM Marketing Digital'
     >
-      <div className='w-full max-w-6xl mx-auto px-6 md:px-12 py-16 grid md:grid-cols-2 items-center gap-12 md:gap-16'>
+      <div className='w-full max-w-7xl mx-auto py-16 grid md:grid-cols-[5fr_6fr] items-center gap-12 md:gap-16'>
         <header className='max-w-xl'>
           <ScrollAnimation immediate animation='fade-in' delay='delay-100'>
             <Image
@@ -49,20 +49,11 @@ export function Hero() {
                   Faça o diagnóstico digital gratuito
                 </span>
               </a>
-              <a
-                href='https://docs.google.com/forms/d/e/1FAIpQLSdKF-9LGmGABUpvRV8oT_DwGlO7A4ea4XKZ53Wr-rO-9KY9Ng/viewform?usp=sf_link'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='inline-flex items-center gap-1.5 text-sm font-semibold text-cafe underline underline-offset-4 decoration-terracota/60 hover:text-cafe-deep hover:decoration-terracota transition-colors duration-200'
-              >
-                Ou agende sua consultoria gratuita{" "}
-                <ArrowRight size={14} aria-hidden='true' />
-              </a>
             </div>
           </ScrollAnimation>
 
           <ScrollAnimation immediate animation='fade-in-up' delay='delay-500'>
-            <p className='mt-10 pt-6 border-t border-cafe/15 text-cafe-muted leading-relaxed'>
+            <p className='mt-10 pt-6 text-cafe-muted leading-relaxed'>
               Na <strong className='text-cafe'>ASM Marketing Digital</strong>,
               criamos estratégias inteligentes, visuais impactantes e soluções
               completas para impulsionar marcas no Instagram e em todo o
@@ -72,7 +63,7 @@ export function Hero() {
         </header>
 
         <aside
-          className='w-full max-w-[520px] mx-auto md:mx-0 md:justify-self-end'
+          className='w-full max-w-[600px] mx-auto md:mx-0 md:justify-self-end'
           aria-label='Sobre Anelita Massucate'
         >
           <div className='relative pt-10'>
@@ -87,7 +78,7 @@ export function Hero() {
               alt='Anelita Massucate - Especialista em Marketing Digital Estratégico'
               width={768}
               height={1006}
-              sizes='(min-width: 768px) 520px, 90vw'
+              sizes='(min-width: 768px) 600px, 90vw'
               className='relative w-full h-auto rounded-b-2xl'
               priority
             />

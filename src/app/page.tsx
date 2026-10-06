@@ -21,7 +21,7 @@ export default function Home() {
         <Diagnostico />
         {/* Seção Instagram */}
         <section id='insta' className='py-20 md:py-28 px-6 md:px-12 bg-white'>
-          <div className='max-w-6xl mx-auto'>
+          <div className='max-w-7xl mx-auto'>
             <InstagramFeed />
           </div>
         </section>

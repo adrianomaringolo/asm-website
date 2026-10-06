@@ -1,3 +1,5 @@
+import { yearsOfExperience } from "./experience";
+
 // Perguntas frequentes: usadas na seção visível e no JSON-LD FAQPage.
 // As respostas só repetem informações já publicadas no site.
 export const faq = [
@@ -34,6 +36,6 @@ export const faq = [
   {
     question: "Quem é Anelita Massucate?",
     answer:
-      "Anelita Scaliza Massucate é a fundadora da ASM Marketing Digital. Designer Gráfica e Social Media, atua com foco em performance, posicionamento e identidade visual e se dedica há mais de 5 anos à gestão de mídias sociais. É graduada em Administração com Gestão em Sistemas de Informação e pós-graduada em Gestão de Recursos Humanos.",
+      `Anelita Scaliza Massucate é a fundadora da ASM Marketing Digital. Designer Gráfica e Social Media, atua com foco em performance, posicionamento e identidade visual e se dedica há mais de ${yearsOfExperience()} anos à gestão de mídias sociais. É graduada em Administração com Gestão em Sistemas de Informação e pós-graduada em Gestão de Recursos Humanos.`,
   },
 ];

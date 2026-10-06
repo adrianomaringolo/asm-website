@@ -62,7 +62,7 @@ export function Services() {
       className='bg-cafe-deep text-white py-20 md:py-28 px-6 md:px-12'
       aria-label='Nossos serviços de marketing digital'
     >
-      <div className='max-w-6xl mx-auto'>
+      <div className='max-w-7xl mx-auto'>
         <div className='flex flex-col md:flex-row md:items-end justify-between gap-6'>
           <ScrollAnimation animation='fade-in-up' delay='delay-100'>
             <h2 className='text-4xl md:text-5xl leading-[1.1]'>

@@ -9,7 +9,7 @@ export function Faq() {
       className='py-20 md:py-28 px-6 md:px-12 bg-white'
       aria-labelledby='faq-titulo'
     >
-      <div className='max-w-6xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16'>
+      <div className='max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16'>
         <ScrollAnimation animation='fade-in-up' delay='delay-100' className='md:col-span-4'>
           <h2 id='faq-titulo' className='text-4xl md:text-5xl leading-[1.1] text-cafe-deep'>
             Perguntas frequentes

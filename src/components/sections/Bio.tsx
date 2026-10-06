@@ -1,10 +1,15 @@
 import Image from "next/image";
 import { Palette, Smartphone, Target, Zap, Lightbulb } from "lucide-react";
 import { ScrollAnimation } from "../ScrollAnimation";
+import { FOUNDING_YEAR, yearsOfExperience } from "@/content/experience";
 
 export function Bio() {
-  const highlights = [
-    { number: "7+", label: "Anos de experiência" },
+  const highlights: { number: string; label: string; note?: string }[] = [
+    {
+      number: `${yearsOfExperience()}+`,
+      label: "Anos de experiência",
+      note: `desde ${FOUNDING_YEAR}`,
+    },
     { number: "100+", label: "Projetos realizados" },
     { number: "30+", label: "Clientes satisfeitos" },
   ];
@@ -43,7 +48,7 @@ export function Bio() {
       className='py-20 md:py-28 px-6 md:px-12 bg-off-white relative overflow-hidden'
       aria-label='Biografia de Anelita Massucate'
     >
-      <div className='max-w-6xl mx-auto'>
+      <div className='max-w-7xl mx-auto'>
         <div className='grid md:grid-cols-12 gap-12 md:gap-16 items-start'>
           {/* Retrato */}
           <ScrollAnimation
@@ -89,6 +94,11 @@ export function Bio() {
                   <div key={item.label} className='flex flex-col py-5 px-3 first:pl-0 md:px-6'>
                     <dt className='text-sm text-cafe-muted leading-snug order-2'>
                       {item.label}
+                      {item.note && (
+                        <span className='block text-xs text-cafe-muted/80 mt-0.5'>
+                          {item.note}
+                        </span>
+                      )}
                     </dt>
                     <dd className='font-serif text-4xl md:text-5xl text-cafe lining-nums tabular-nums order-1 mb-1'>
                       {item.number}
@@ -128,7 +138,7 @@ export function Bio() {
                     Designer Gráfica e Social Media
                   </strong>
                   , com foco em performance, posicionamento e identidade
-                  visual. Há mais de 5 anos, me dedico à gestão de mídias
+                  visual. Há mais de {yearsOfExperience()} anos, me dedico à gestão de mídias
                   sociais, ajudando empresas e profissionais autônomos a se
                   destacarem no mercado.
                 </p>

@@ -7,7 +7,7 @@ export function Footer() {
         className="h-16 md:h-20 bg-[url('/brand/pattern-logotipo.webp')] bg-[length:540px] bg-repeat-x bg-center"
         aria-hidden='true'
       />
-      <div className='max-w-6xl mx-auto px-6 md:px-12 py-14 flex flex-col items-center gap-6 text-center'>
+      <div className='max-w-7xl mx-auto px-6 md:px-12 py-14 flex flex-col items-center gap-6 text-center'>
         <Image
           src='/brand/logo-asm-dourado.webp'
           alt='ASM Marketing Digital'

@@ -174,7 +174,7 @@ Paleta terrosa e acolhedora: dois tons fortes (terracota e café), dois tons de 
 
 *Decisão do site; o documento de marca não define layout.*
 
-Container central de 1152px com margens laterais de 24px no celular e 48px a partir de 768px. As seções editoriais respiram com 80px de padding vertical no celular e 112px no desktop. As seções alternam fundos da marca para marcar as passagens sem bordas, nesta ordem: hero em off-white, Somos a ASM em café, Serviços em café profundo, Diagnóstico em areia, Instagram em branco, Quem sou eu em off-white, Perguntas frequentes em branco, Conteúdos em café e rodapé em café profundo.
+Container central de 1280px com margens laterais de 24px no celular e 48px a partir de 768px. As seções editoriais respiram com 80px de padding vertical no celular e 112px no desktop. As seções alternam fundos da marca para marcar as passagens sem bordas, nesta ordem: hero em off-white, Somos a ASM em café, Serviços em café profundo, Diagnóstico em areia, Instagram em branco, Quem sou eu em off-white, Perguntas frequentes em branco, Conteúdos em café e rodapé em café profundo.
 
 O ritmo alterna espaços apertados dentro de um grupo (12px entre rótulo e parágrafo) com espaços generosos entre grupos (40–48px). Seções biográficas usam uma grade de 12 colunas: retrato em 5 colunas, fixo na tela durante a rolagem, e narrativa em 7. No celular tudo empilha na ordem de leitura, com o retrato limitado a cerca de 260px de largura.
 

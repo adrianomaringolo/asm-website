@@ -1,4 +1,5 @@
 import { ScrollAnimation } from "../ScrollAnimation";
+import { yearsOfExperience } from "@/content/experience";
 
 export const About = () => {
   return (
@@ -7,7 +8,7 @@ export const About = () => {
       className='py-20 md:py-28 px-6 md:px-12 bg-cafe text-white'
       aria-label='Sobre a ASM Marketing Digital'
     >
-      <div className='max-w-6xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16'>
+      <div className='max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16'>
         <div className='md:col-span-5'>
           <ScrollAnimation animation='fade-in-up' delay='delay-100'>
             <h2 className='text-4xl md:text-5xl leading-[1.1]'>Somos a ASM</h2>
@@ -16,7 +17,7 @@ export const About = () => {
           <ScrollAnimation animation='fade-in-up' delay='delay-200'>
             <div className='mt-6 space-y-4 text-lg leading-relaxed text-white/85'>
               <p>
-                Com mais de 7 anos de experiência no mercado, ajudamos empresas
+                Com mais de {yearsOfExperience()} anos de experiência no mercado, ajudamos empresas
                 e profissionais a construírem autoridade, gerarem engajamento e
                 converterem seguidores em clientes.
               </p>

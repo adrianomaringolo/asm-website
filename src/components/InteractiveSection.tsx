@@ -100,7 +100,7 @@ export function InteractiveSection() {
       id='ferramentas'
       className='py-20 px-6 md:px-12 bg-gradient-to-br from-gray-50 to-gray-100'
     >
-      <div className='max-w-6xl mx-auto'>
+      <div className='max-w-7xl mx-auto'>
         <ScrollAnimation animation='fade-in-up' delay='delay-100'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-bold mb-4'>
